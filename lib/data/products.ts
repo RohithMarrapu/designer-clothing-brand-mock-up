@@ -166,9 +166,11 @@ export const getNewArrivals = () => {
   return products.filter(product => product.new)
 }
 
-export const getPriceRange = () => {
-  const prices = products.map(product => product.price)
-  return [Math.min(...prices), Math.max(...prices)]
+export function getPriceRange(): [number, number] {
+  const prices = products.map(product => product.price);
+  const min = Math.min(...prices);
+  const max = Math.max(...prices);
+  return [min, max]; // ✅ Tuple type
 }
 
 export const getCategories = () => {

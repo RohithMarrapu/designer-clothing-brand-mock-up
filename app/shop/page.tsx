@@ -1,14 +1,14 @@
 "use client"
 
-import { useState, useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
-import ProductGrid from '@/components/shop/ProductGrid'
 import Filters from '@/components/shop/Filters'
-import { products, getPriceRange, getCategories, getGenders } from '@/lib/data/products'
-import { Product, FilterOptions, Category, Gender } from '@/lib/types'
-import { Filter, ArrowDownUp } from 'lucide-react'
+import ProductGrid from '@/components/shop/ProductGrid'
 import { Button } from '@/components/ui/button'
+import { getCategories, getGenders, getPriceRange, products } from '@/lib/data/products'
+import { Category, FilterOptions, Gender, Product } from '@/lib/types'
 import { cn } from '@/lib/utils'
+import { ArrowDownUp, Filter } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 export default function Shop() {
   const searchParams = useSearchParams()
@@ -16,7 +16,7 @@ export default function Shop() {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products)
   const [filters, setFilters] = useState<FilterOptions>({
     categories: [],
-    priceRange: getPriceRange(),
+    priceRange: getPriceRange(), // ✅ Fixed to match [number, number]
     genders: [],
   })
 

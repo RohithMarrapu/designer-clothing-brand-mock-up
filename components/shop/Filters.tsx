@@ -1,11 +1,11 @@
-"use client"
+"use client" 
 
-import { Dispatch, SetStateAction } from 'react'
-import { FilterOptions, Category, Gender } from '@/lib/types'
-import { Slider } from '@/components/ui/slider'
+import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
-import { Button } from '@/components/ui/button'
+import { Slider } from '@/components/ui/slider'
+import { Category, FilterOptions, Gender } from '@/lib/types'
+import { Dispatch, SetStateAction } from 'react'
 
 interface FiltersProps {
   filters: FilterOptions
