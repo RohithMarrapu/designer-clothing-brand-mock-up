@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${playfair.variable} ${inter.variable} font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <WishlistProvider>
             <div className="flex min-h-screen flex-col">
               <Header />
