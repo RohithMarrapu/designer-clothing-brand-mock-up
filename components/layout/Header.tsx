@@ -45,25 +45,8 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
-          <Link 
-            href="/" 
-            className="flex items-center gap-2"
-          >
-            <Image 
-              src="/icon.svg" 
-              alt="ATELIER Logo" 
-              width={32} 
-              height={32} 
-              className="w-6 h-6 sm:w-8 sm:h-8"
-            />
-            <span className="text-xl sm:text-2xl font-semibold tracking-tight font-playfair text-black hover:text-[#4a4a4a] transition-colors">
-              AYSEGUL IKNA
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Left Navigation - Desktop */}
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -80,8 +63,37 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Icons */}
-          <div className="flex items-center">
+          {/* Mobile Left Side: Mobile Menu Button */}
+          <div className="lg:hidden flex items-center">
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-black hover:text-[#4a4a4a] transition-colors"
+            >
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+
+          {/* Centered Logo */}
+          <div className="absolute left-1/2 transform -translate-x-1/2">
+            <Link 
+              href="/" 
+              className="flex items-center gap-2"
+            >
+              <Image 
+                src="/icon.svg" 
+                alt="ATELIER Logo" 
+                width={32} 
+                height={32} 
+                className="w-6 h-6 sm:w-8 sm:h-8"
+              />
+              <span className="text-xl sm:text-2xl font-semibold tracking-tight font-playfair text-black hover:text-[#4a4a4a] transition-colors">
+                AYSEGUL IKNA
+              </span>
+            </Link>
+          </div>
+
+          {/* Right Icons */}
+          <div className="flex items-center ml-auto">
             <Link 
               href="/wishlist" 
               className="relative p-2 text-black/80 hover:text-[#4a4a4a] transition-colors"
@@ -93,21 +105,13 @@ const Header = () => {
                 </span>
               )}
             </Link>
-            
-            {/* Mobile menu button */}
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="ml-4 p-2 md:hidden text-black hover:text-[#4a4a4a] transition-colors"
-            >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <nav className="md:hidden bg-[#A6A6A6] shadow-lg p-4">
+        <nav className="lg:hidden bg-[#A6A6A6] shadow-lg p-4">
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link

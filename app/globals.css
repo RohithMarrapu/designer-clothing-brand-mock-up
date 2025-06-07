@@ -8,6 +8,7 @@
   --background-end-rgb: 255, 255, 255;
   --font-playfair: 'Playfair Display', serif;
   --font-inter: 'Inter', sans-serif;
+  --font-nanum: 'NanumGothicCoding', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -146,4 +147,16 @@
   font-size: 0.8em;
   vertical-align: top;
   margin-right: 1px;
+}
+
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  will-change: transform;
 }

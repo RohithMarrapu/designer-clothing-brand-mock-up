@@ -56,7 +56,7 @@ const FeaturedCollection = () => {
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-contain group-hover:scale-105 transition-transform duration-500"
-                  style={{ backgroundColor: '#f5f5f5' }} // Optional: adds light background
+                  // Removed explicit background color to inherit from parent
                 />
               </div>
               <div className="mt-4 text-center">
