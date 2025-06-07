@@ -1,16 +1,16 @@
-"use client" 
+"use client"
 
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { Slider } from '@/components/ui/slider'
-import { Category, FilterOptions, Gender } from '@/lib/types'
+import { FilterOptions, Gender } from '@/lib/types'
 import { Dispatch, SetStateAction } from 'react'
 
 interface FiltersProps {
   filters: FilterOptions
   setFilters: Dispatch<SetStateAction<FilterOptions>>
-  availableCategories: Category[]
+  availableCategories: string[]  // Changed from Category[] to string[]
   availableGenders: Gender[]
   priceRange: [number, number]
 }
@@ -30,7 +30,7 @@ const Filters = ({
   availableGenders,
   priceRange: [minPrice, maxPrice]
 }: FiltersProps) => {
-  const toggleCategory = (category: Category) => {
+  const toggleCategory = (category: string) => {  // Changed from Category to string
     setFilters(prev => {
       if (prev.categories.includes(category)) {
         return {
