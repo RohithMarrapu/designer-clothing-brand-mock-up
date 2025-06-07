@@ -12,7 +12,7 @@ import './globals.css';
 const nanumGothicCoding = localFont({
   src: [
     {
-      path: '../public/fonts/NanumGothicCoding-Regular.ttf',
+      path: '../public/fonts/NanumGothicCoding.ttf',
       weight: '400',
       style: 'normal',
     },

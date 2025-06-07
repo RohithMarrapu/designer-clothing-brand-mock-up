@@ -3,18 +3,21 @@ import Link from 'next/link'
 const categories = [
   {
     name: 'Dresses',
-    image: 'https://images.pexels.com/photos/4630781/pexels-photo-4630781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '/shop?category=dresses'
+    image: 'https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/shop?category=dresses',
+    description: 'Elegant designs for every occasion'
   },
   {
     name: 'Outerwear',
-    image: 'https://images.pexels.com/photos/5693889/pexels-photo-5693889.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '/shop?category=outerwear'
+    image: 'https://images.pexels.com/photos/45982/pexels-photo-45982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/shop?category=outerwear',
+    description: 'Stylish layers for all seasons'
   },
   {
     name: 'Accessories',
-    image: 'https://images.pexels.com/photos/6624862/pexels-photo-6624862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '/shop?category=accessories'
+    image: 'https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    link: '/shop?category=accessories',
+    description: 'Finishing touches for your look'
   }
 ]
 
@@ -38,11 +41,12 @@ const Categories = () => {
                   style={{ backgroundImage: `url(${category.image})` }}
                 >
                 </div>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/20 group-hover:from-black/60 group-hover:to-black/30 transition-colors duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                    <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">{category.name}</h3>
-                    <span className="inline-block text-white/80 text-sm group-hover:translate-x-2 transition-transform duration-300">
-                      Discover More
+                    <h3 className="text-xl sm:text-2xl font-medium text-white mb-1">{category.name}</h3>
+                    <p className="text-white/80 text-sm mb-2">{category.description}</p>
+                    <span className="inline-block text-white text-sm font-medium group-hover:translate-x-2 transition-transform duration-300">
+                      Discover More →
                     </span>
                   </div>
                 </div>

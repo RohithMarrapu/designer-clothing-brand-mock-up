@@ -1,10 +1,10 @@
 "use client"
 
+import { Button } from '@/components/ui/button'
 import { useWishlist } from '@/lib/context/WishlistContext'
+import { Heart, Minus, Plus } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Heart, Plus, Minus } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
 
 export default function Wishlist() {
@@ -22,7 +22,7 @@ export default function Wishlist() {
 
   return (
     <div className="pt-24 pb-16">
-      <div className="bg-neutral-100 dark:bg-neutral-900 py-8 mb-8">
+      <div className="py-8 mb-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl md:text-4xl font-playfair text-center">Wishlist</h1>
         </div>

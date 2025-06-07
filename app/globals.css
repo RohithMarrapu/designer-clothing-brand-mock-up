@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* FONT IMPORT */
+@font-face {
+  font-family: 'NanumGothicCoding';
+  src: url('/fonts/NanumGothicCoding.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -47,6 +55,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -79,14 +88,18 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-nanum);
   }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-playfair);
+    font-family: var(--font-nanum);
   }
-  body, p, a, span, div, button {
-    font-family: var(--font-inter);
+
+  p, a, span, div, button {
+    font-family: var(--font-nanum);
   }
 }
 
@@ -95,46 +108,46 @@
   .transition-transform-opacity {
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
-  
+
   .hover-lift {
     transition: transform 0.3s ease;
   }
-  
+
   .hover-lift:hover {
     transform: translateY(-8px);
   }
-  
+
   .image-zoom-container {
     overflow: hidden;
   }
-  
+
   .image-zoom {
     transition: transform 0.7s ease;
   }
-  
+
   .image-zoom:hover {
     transform: scale(1.05);
   }
-  
+
   .fade-in {
     animation: fadeIn 0.5s ease-in forwards;
   }
-  
+
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
   }
-  
+
   .slide-up {
     animation: slideUp 0.5s ease-out forwards;
   }
-  
+
   @keyframes slideUp {
-    from { 
+    from {
       opacity: 0;
       transform: translateY(20px);
     }
-    to { 
+    to {
       opacity: 1;
       transform: translateY(0);
     }
@@ -149,7 +162,6 @@
   margin-right: 1px;
 }
 
-
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -157,6 +169,6 @@
 
 .animate-marquee {
   display: inline-block;
-  animation: marquee 20s linear infinite;
+  animation: marquee 30s linear infinite;
   will-change: transform;
 }

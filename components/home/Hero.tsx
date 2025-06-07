@@ -2,11 +2,11 @@
 
 import { Button } from '@/components/ui/button'
 import { Marquee } from '@/components/ui/marquee'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Hero = () => {
-  const marqueeText = "PREMIUM QUALITY • SUSTAINABLE FABRICS • ETHICAL PRODUCTION • LUXURY DESIGN • WORLDWIDE SHIPPING •"
+  const marqueeText = "PREMIUM QUALITY • SUSTAINABLE FABRICS • ETHICAL PRODUCTION • LUXURY DESIGN • WORLDWIDE SHIPPING • PREMIUM QUALITY • SUSTAINABLE FABRICS • ETHICAL PRODUCTION • LUXURY DESIGN • WORLDWIDE SHIPPING •"
 
   return (
     <div className="relative w-full overflow-hidden">
@@ -28,13 +28,9 @@ const Hero = () => {
         {/* Content */}
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
           <div className="slide-up">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-light text-white mb-6 leading-tight">
-              The Summer <span className="font-medium">Collection</span>
+            <h1 className="text-4xl md:text-5xl lg:text-5xl font-light text-white mb-6 leading-tight">
+              Sustainable Fashion <span className="font-medium">Redefined</span>
             </h1>
-            <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-              Embrace the warmth with our curated selection of lightweight fabrics and 
-              elegant silhouettes designed for the season.
-            </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 min-w-[160px]">
                 <Link href="/shop">
