@@ -36,16 +36,25 @@ export default function Shop() {
 
     const newFilters = { ...filters }
 
-    if (categoryParam) {
+    if (categoryParam && isCategory(categoryParam)) {
       newFilters.categories = [categoryParam as Category]
     }
 
-    if (genderParam) {
+    if (genderParam && isGender(genderParam)) {
       newFilters.genders = [genderParam as Gender]
     }
 
     setFilters(newFilters)
   }, [searchParams])
+
+  // Helper type guards
+  function isCategory(category: string): category is Category {
+    return ['dresses', 'outerwear', 'tops', 'bottoms', 'accessories'].includes(category)
+  }
+
+  function isGender(gender: string): gender is Gender {
+    return ['men', 'women', 'unisex'].includes(gender)
+  }
 
   useEffect(() => {
     let filtered = [...products]
@@ -155,8 +164,8 @@ export default function Shop() {
             <Filters
               filters={filters}
               setFilters={setFilters}
-              availableCategories={getCategories()} // Removed the .map() to objects
-              availableGenders={getGenders()}
+              availableCategories={getCategories() as Category[]}
+              availableGenders={getGenders() as Gender[]}
               priceRange={getPriceRange()}
             />
           </div>
