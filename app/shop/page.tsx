@@ -155,7 +155,7 @@ export default function Shop() {
             <Filters
               filters={filters}
               setFilters={setFilters}
-              availableCategories={getCategories().map((c) => ({ id: c, name: c }))}
+              availableCategories={getCategories().map(c => ({ id: c, name: c }))}
               availableGenders={getGenders()}
               priceRange={getPriceRange()}
             />
