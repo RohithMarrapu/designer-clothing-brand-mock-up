@@ -39,8 +39,8 @@ const Header = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled 
-          ? 'bg-[#A6A6A6]/90 backdrop-blur-sm shadow-sm' 
-          : 'bg-[#A6A6A6]'
+          ? 'bg-[#FAF0DF]/90 backdrop-blur-sm shadow-sm' 
+          : 'bg-[#FAF0DF]'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,11 +52,12 @@ const Header = () => {
                 key={link.path}
                 href={link.path}
                 className={cn(
-                  'text-sm tracking-wide hover:text-[#4a4a4a] transition-colors',
+                  'text-base font-bold tracking-wide hover:text-[#4a4a4a] transition-colors',
                   pathname === link.path 
-                    ? 'text-black font-medium' 
+                    ? 'text-black' 
                     : 'text-black/80'
                 )}
+                style={{ fontFamily: 'NATS, sans-serif' }}
               >
                 {link.name}
               </Link>
@@ -69,7 +70,7 @@ const Header = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-black hover:text-[#4a4a4a] transition-colors"
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
 
@@ -86,7 +87,10 @@ const Header = () => {
                 height={32} 
                 className="w-6 h-6 sm:w-8 sm:h-8"
               />
-              <span className="text-xl sm:text-2xl font-semibold tracking-tight font-playfair text-black hover:text-[#4a4a4a] transition-colors">
+              <span 
+                className="text-2xl sm:text-3xl font-bold tracking-tight hover:text-[#4a4a4a] transition-colors"
+                style={{ fontFamily: 'NATS, sans-serif' }}
+              >
                 AYSEGUL IKNA
               </span>
             </Link>
@@ -98,9 +102,12 @@ const Header = () => {
               href="/wishlist" 
               className="relative p-2 text-black/80 hover:text-[#4a4a4a] transition-colors"
             >
-              <Heart size={20} />
+              <Heart size={24} />
               {wishlistItems.length > 0 && (
-                <span className="absolute top-0 right-0 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-[#4a4a4a] rounded-full">
+                <span 
+                  className="absolute top-0 right-0 inline-flex items-center justify-center w-5 h-5 text-sm font-bold text-white bg-[#4a4a4a] rounded-full"
+                  style={{ fontFamily: 'NATS, sans-serif' }}
+                >
                   {wishlistItems.length}
                 </span>
               )}
@@ -111,7 +118,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <nav className="lg:hidden bg-[#A6A6A6] shadow-lg p-4">
+        <nav className="lg:hidden bg-[#FAF0DF] shadow-lg p-4">
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link
@@ -119,11 +126,12 @@ const Header = () => {
                 href={link.path}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
-                  'px-4 py-2 text-sm tracking-wide hover:text-[#4a4a4a] transition-colors',
+                  'px-4 py-3 text-lg font-bold tracking-wide hover:text-[#4a4a4a] transition-colors',
                   pathname === link.path 
-                    ? 'text-black font-medium' 
+                    ? 'text-black' 
                     : 'text-black/80'
                 )}
+                style={{ fontFamily: 'NATS, sans-serif' }}
               >
                 {link.name}
               </Link>

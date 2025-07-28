@@ -2,12 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* FONT IMPORT */
+/* FONT IMPORTS */
+@font-face {
+  font-family: 'Afacad';
+  src: url('/fonts/Afacad-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Afacad';
+  src: url('/fonts/Afacad-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anton';
+  src: url('/fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LostInSouth';
+  src: url('/fonts/LostInSouth-4BM29.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: 'NanumGothicCoding';
   src: url('/fonts/NanumGothicCoding.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NanumGothicCoding';
+  src: url('/fonts/NanumGothicCoding-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NATS';
+  src: url('/fonts/NATS-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -17,6 +66,10 @@
   --font-playfair: 'Playfair Display', serif;
   --font-inter: 'Inter', sans-serif;
   --font-nanum: 'NanumGothicCoding', monospace;
+  --font-afacad: 'Afacad', sans-serif;
+  --font-anton: 'Anton', sans-serif;
+  --font-lostinsouth: 'LostInSouth', sans-serif;
+  --font-nats: 'NATS', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

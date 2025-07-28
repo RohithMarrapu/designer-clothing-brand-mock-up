@@ -6,92 +6,103 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const Hero = () => {
-  const marqueeText = "PREMIUM QUALITY • SUSTAINABLE FABRICS • ETHICAL PRODUCTION • LUXURY DESIGN • WORLDWIDE SHIPPING • PREMIUM QUALITY • SUSTAINABLE FABRICS • ETHICAL PRODUCTION • LUXURY DESIGN • WORLDWIDE SHIPPING •"
+  const marqueeText = "REPRESENTS ALL THINGS ECO, ETHICAL & GREEN IN ONE UNIFIED MOVEMENT • REPRESENTS ALL THINGS ECO, ETHICAL & GREEN IN ONE UNIFIED MOVEMENT • REPRESENTS ALL THINGS ECO, ETHICAL & GREEN IN ONE UNIFIED MOVEMENT •"
 
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* Hero Section */}
-      <div className="relative w-full h-screen flex items-center justify-center mt-16">
-        {/* Background Image - Using Next.js Image component */}
-        <div className="absolute inset-0 z-0">
+    <div className="relative w-full overflow-hidden bg-[#FFFBF4]">
+      {/* Hero Section - Stack on mobile */}
+      <div className="relative w-full h-auto md:h-screen flex flex-col md:flex-row mt-16 bg-[#FFFBF4]">
+        {/* Left Image with Button - Full width on mobile */}
+        <div className="w-full md:w-1/2 h-[70vh] md:h-full relative">
           <Image
-            src="/hero.png" // Your image in public folder
-            alt="AYSEGUL IKNA Collection"
+            src="/hero_left.jpg"
+            alt="AYSEGUL IKNA Collection Left"
             fill
-            className="object-contain object-center" // Maintains aspect ratio without cropping
+            className="object-cover object-center"
             quality={100}
             priority
           />
           <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute top-1/3 left-1/4 transform -translate-x-1/4 -translate-y-1/3 z-10">
+            <Button asChild className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[200px] rounded-none py-6 px-8">
+              <Link href="/shop" className="text-lg font-medium">
+                Shop New In
+              </Link>
+            </Button>
+          </div>
         </div>
-
-        {/* Content */}
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
-          <div className="slide-up">
-            <h1 className="text-4xl md:text-5xl lg:text-5xl font-light text-white mb-6 leading-tight">
-              Sustainable Fashion <span className="font-medium">Redefined</span>
-            </h1>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 min-w-[160px]">
-                <Link href="/shop">
-                  Shop Women
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10 min-w-[160px]">
-                <Link href="/shop">
-                  Shop Men
-                </Link>
-              </Button>
-            </div>
+        
+        {/* Right Image with Button - Full width on mobile */}
+        <div className="w-full md:w-1/2 h-[70vh] md:h-full relative">
+          <Image
+            src="/hero_right.jpg"
+            alt="AYSEGUL IKNA Collection Right"
+            fill
+            className="object-cover object-center"
+            quality={100}
+            priority
+          />
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute bottom-1/3 right-1/4 transform translate-x-1/4 translate-y-1/3 z-10">
+            <Button asChild className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[200px] rounded-none py-6 px-8">
+              <Link href="/shop" className="text-lg font-medium">
+                Shop New In
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
 
       {/* Full-width Text Banner with Carousel Effect */}
-      <div className="w-full bg-black py-4 overflow-hidden">
+      <div className="w-full bg-[#E5DAC8] py-4 overflow-hidden">
         <Marquee>
-          <span className="text-white text-xl md:text-2xl font-medium tracking-wider uppercase mx-4">
+          <span className="text-black text-xl md:text-2xl font-medium tracking-wider uppercase mx-4">
             {marqueeText}
           </span>
         </Marquee>
       </div>
 
-      {/* Three Long Images - Showing full width without cropping */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <div className="relative h-[500px] overflow-hidden rounded-lg">
-            <img
-              src="/b_and_w_1.png"
-              alt="New Arrivals"
-              className="w-full h-full object-contain hover:scale-105 transition-transform duration-500 bg-black"
-              style={{ objectPosition: 'center' }}
-            />
-          </div>
-          
-          <div className="relative h-[500px] overflow-hidden rounded-lg">
-            <img
-              src="/b_and_w_2.png"
-              alt="Summer Essentials"
-              className="w-full h-full object-contain hover:scale-105 transition-transform duration-500 bg-black"
-              style={{ objectPosition: 'center' }}
-            />
-          </div>
-          
-          <div className="relative h-[500px] overflow-hidden rounded-lg">
-            <img
-              src="/b_and_w_3.png"
-              alt="Limited Edition"
-              className="w-full h-full object-contain hover:scale-105 transition-transform duration-500 bg-black"
-              style={{ objectPosition: 'center' }}
-            />
-          </div>
-        </div>
-
-        {/* Text Section Below Images */}
-        <div className="mt-16 text-center max-w-4xl mx-auto">
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8">
+      {/* Text Section Above Images */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6 bg-[#FFFBF4]">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 mb-8 text-left leading-relaxed">
             WE CREATE HIGH-QUALITY GARMENTS USING UPCYCLED MATERIALS AND EXPERT CONSTRUCTION. FASHION CAN BE BOTH LUXURIOUS AND SUSTAINABLE — AND WE'RE HERE TO PROVE IT.
           </p>
+        </div>
+      </div>
+
+      {/* Three Long Images - Stack on mobile */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 bg-[#FFFBF4]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+            <Image
+              src="/break_left.jpg"
+              alt="New Arrivals"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-500"
+              style={{ objectPosition: 'center' }}
+            />
+          </div>
+          
+          <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+            <Image
+              src="/break_middle.jpg"
+              alt="Summer Essentials"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-500"
+              style={{ objectPosition: 'center' }}
+            />
+          </div>
+          
+          <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+            <Image
+              src="/break_right.jpg"
+              alt="Limited Edition"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-500"
+              style={{ objectPosition: 'center' }}
+            />
+          </div>
         </div>
       </div>
     </div>

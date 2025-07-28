@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className="bg-[#A6A6A6] pt-16 pb-8">
+    <footer className="bg-[#FAF0DF] pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* About */}
@@ -111,11 +111,15 @@ const Footer = () => {
             <p className="text-xs text-black/80 mb-4 md:mb-0">
               &copy; {new Date().getFullYear()} AYSEGUL IKNA. All rights reserved.
             </p>
-            <div className="flex space-x-4 text-xs text-black/80">
-              <Link href="#" className="hover:text-[#4a4a4a] transition-colors">Privacy Policy</Link>
-              <Link href="#" className="hover:text-[#4a4a4a] transition-colors">Terms of Service</Link>
-              <Link href="#" className="hover:text-[#4a4a4a] transition-colors">Shipping Policy</Link>
-              <Link href="#" className="hover:text-[#4a4a4a] transition-colors">Returns</Link>
+            <div className="flex items-center space-x-2">
+              <span className="text-xs text-black/80">Curated with intention by</span>
+              <Image 
+                src="/rov_black.png" 
+                alt="ROV Logo"
+                width={80}
+                height={28}
+                className="h-5 w-auto"
+              />
             </div>
           </div>
         </div>
