@@ -28,9 +28,17 @@ const OurFavourites = () => {
   return (
     <section className="py-16 md:py-24 bg-[#FFFBF4]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-playfair mb-4 text-[#2E2B26]">Our Favourites</h2>
-          <p className="text-[#2E2B26] max-w-2xl mx-auto font-medium">
+        <div className="mb-12">
+          <h2 
+            className="text-3xl md:text-8xl mb-4 text-[#2E2B26]"
+            style={{ fontFamily: 'Hornset, sans-serif' }}
+          >
+            IKNA'S FAVOURITES
+          </h2>
+          <p 
+            className="text-xl md:text-2xl text-[#2E2B26] max-w-3xl"
+            style={{ fontFamily: 'Hornset, sans-serif' }}
+          >
             Timeless pieces we adore, season after season
           </p>
         </div>
@@ -50,8 +58,18 @@ const OurFavourites = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-[#2E2B26]">{item.name}</h3>
-                <p className="text-[#2E2B26] mt-1 font-semibold">${item.price.toFixed(2)}</p>
+                <h3 
+                  className="text-xl text-[#2E2B26]"
+                  style={{ fontFamily: 'Hornset, sans-serif' }}
+                >
+                  {item.name}
+                </h3>
+                <p 
+                  className="text-[#2E2B26] mt-1"
+                  style={{ fontFamily: 'Hornset, sans-serif' }}
+                >
+                  ${item.price.toFixed(2)}
+                </p>
               </div>
             </div>
           ))}
@@ -60,7 +78,8 @@ const OurFavourites = () => {
         <div className="flex justify-center mt-12">
           <Link 
             href="/shop" 
-            className="inline-flex items-center text-sm font-semibold hover:underline text-[#2E2B26]"
+            className="inline-flex items-center hover:underline text-[#2E2B26]"
+            style={{ fontFamily: 'Hornset, sans-serif' }}
           >
             Discover More Favourites
             <ArrowRight size={16} className="ml-2" />

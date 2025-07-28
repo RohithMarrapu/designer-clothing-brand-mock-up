@@ -59,6 +59,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Hornset';
+  src: url('/fonts/hornset.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

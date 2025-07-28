@@ -26,24 +26,32 @@ const FeaturedCollection = () => {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-[#FFFBF4]">
+    <section className="py-20 md:py-32 bg-[#FFFBF4]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-playfair mb-4 text-[#2E2B26]">Featured Collection</h2>
-          <p className="text-[#2E2B26] max-w-2xl mx-auto font-medium">
+        <div className="mb-16">
+          <h2 
+            className="text-4xl md:text-8xl mb-6 text-[#2E2B26]"
+            style={{ fontFamily: 'Hornset, sans-serif' }}
+          >
+            FEATURED COLLECTION
+          </h2>
+          <p 
+            className="text-xl md:text-2xl text-[#2E2B26] max-w-3xl"
+            style={{ fontFamily: 'Hornset, sans-serif' }}
+          >
             Discover our most coveted pieces, meticulously crafted with premium materials
             and impeccable attention to detail.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {featuredProducts.map((product) => (
             <Link 
               href={`/shop/${product.id}`} 
               key={product.id}
               className="group flex flex-col"
             >
-              <div className="relative h-[500px] w-full overflow-hidden">
+              <div className="relative h-[550px] w-full overflow-hidden">
                 <Image
                   src={product.images[0]}
                   alt={product.name}
@@ -54,21 +62,32 @@ const FeaturedCollection = () => {
                   priority
                 />
               </div>
-              <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-[#2E2B26]">{product.name}</h3>
-                <p className="text-[#2E2B26] mt-1 font-semibold">${product.price.toFixed(2)}</p>
+              <div className="mt-6 text-center">
+                <h3 
+                  className="text-xl md:text-2xl text-[#2E2B26]"
+                  style={{ fontFamily: 'Hornset, sans-serif' }}
+                >
+                  {product.name}
+                </h3>
+                <p 
+                  className="text-xl text-[#2E2B26] mt-2"
+                  style={{ fontFamily: 'Hornset, sans-serif' }}
+                >
+                  ${product.price.toFixed(2)}
+                </p>
               </div>
             </Link>
           ))}
         </div>
         
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-16">
           <Link 
             href="/shop" 
-            className="inline-flex items-center text-sm font-semibold hover:underline text-[#2E2B26]"
+            className="inline-flex items-center hover:underline text-[#2E2B26] text-lg md:text-xl"
+            style={{ fontFamily: 'Hornset, sans-serif' }}
           >
-            View All Collection
-            <ArrowRight size={16} className="ml-2" />
+            VIEW ALL COLLECTION
+            <ArrowRight size={20} className="ml-3" />
           </Link>
         </div>
       </div>

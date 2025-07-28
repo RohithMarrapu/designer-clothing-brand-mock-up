@@ -24,9 +24,9 @@ const Hero = () => {
           />
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="absolute top-1/3 left-1/4 transform -translate-x-1/4 -translate-y-1/3 z-10">
-            <Button asChild className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[200px] rounded-none py-6 px-8">
-              <Link href="/shop" className="text-lg font-medium">
-                Shop New In
+            <Button asChild className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[280px] rounded-none py-8 px-10">
+              <Link href="/shop" className="text-2xl md:text-3xl font-bold" style={{ fontFamily: 'LostInSouth, sans-serif' }}>
+                SHOP NEW IN
               </Link>
             </Button>
           </div>
@@ -44,9 +44,9 @@ const Hero = () => {
           />
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="absolute bottom-1/3 right-1/4 transform translate-x-1/4 translate-y-1/3 z-10">
-            <Button asChild className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[200px] rounded-none py-6 px-8">
-              <Link href="/shop" className="text-lg font-medium">
-                Shop New In
+            <Button asChild className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[280px] rounded-none py-8 px-10">
+              <Link href="/shop" className="text-2xl md:text-3xl font-bold" style={{ fontFamily: 'LostInSouth, sans-serif' }}>
+                SHOP NEW IN
               </Link>
             </Button>
           </div>
@@ -62,10 +62,18 @@ const Hero = () => {
         </Marquee>
       </div>
 
-      {/* Text Section Above Images */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6 bg-[#FFFBF4]">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 mb-8 text-left leading-relaxed">
+      {/* Text Section - Proper line wrapping */}
+      <div className="w-full bg-[#FFFBF4] pt-12 pb-6">
+        <div className="px-4 sm:px-6 lg:px-8">
+          <p 
+            className="text-2xl md:text-3xl text-neutral-600 dark:text-neutral-400 mb-8"
+            style={{ 
+              fontFamily: 'Anton, sans-serif', 
+              letterSpacing: '0.5px',
+              wordBreak: 'break-word',
+              overflowWrap: 'break-word'
+            }}
+          >
             WE CREATE HIGH-QUALITY GARMENTS USING UPCYCLED MATERIALS AND EXPERT CONSTRUCTION. FASHION CAN BE BOTH LUXURIOUS AND SUSTAINABLE — AND WE'RE HERE TO PROVE IT.
           </p>
         </div>
