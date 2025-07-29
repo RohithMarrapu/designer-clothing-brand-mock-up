@@ -27,15 +27,11 @@ const Editorial = () => {
           
           {/* Content */}
           <div className="order-1 lg:order-2 space-y-6 max-w-xl mx-auto lg:mx-0">
-            <h2 className="text-3xl md:text-4xl font-playfair mb-4 text-[#2E2B26]">The Art of Craftsmanship</h2>
-            <p className="text-lg text-[#2E2B26] leading-relaxed">
-              Each garment represents our commitment to exceptional quality and traditional techniques.
-              From selecting the finest materials to the final stitch, our meticulous approach ensures
-              pieces of enduring beauty.
-            </p>
-            <p className="text-[#2E2B26] leading-relaxed">
-              Our artisans bring decades of experience and passion to every piece, preserving time-honored
-              techniques while embracing contemporary innovation.
+            <h2 className="text-3xl md:text-8xl mb-4 text-[#5C574F]" style={{ fontFamily: 'Hornset, sans-serif' }}>THE ART OF <span className="text-[#302E2B]" style={{ fontFamily: 'Hornset, sans-serif' }}>CRAFTSMANSHIP</span></h2>
+            <p className="text-lg text-[#2E2B26] md:text-2xl leading-relaxed" style={{fontFamily: 'HellasFun, sans-serif'}}>
+              Crafted with Meaning, Rooted in Story From Turkish traditions to modern hands, every
+              piece Aysegul creates & carries a story of culture, care, and craft.
+              Discover the heart behind the work.
             </p>
             <div className="pt-4">
               <Button 
@@ -45,7 +41,7 @@ const Editorial = () => {
                 className="border-[#2E2B26] hover:bg-[#2E2B26] hover:text-[#FFFBF4] transition-colors"
               >
                 <Link href="/about">
-                  Discover Our Story
+                  Read the full story
                 </Link>
               </Button>
             </div>

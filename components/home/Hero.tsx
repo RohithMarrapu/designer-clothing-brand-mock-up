@@ -74,7 +74,7 @@ const Hero = () => {
               overflowWrap: 'break-word'
             }}
           >
-            WE CREATE HIGH-QUALITY GARMENTS USING UPCYCLED MATERIALS AND EXPERT CONSTRUCTION. FASHION CAN BE BOTH LUXURIOUS AND SUSTAINABLE — AND WE'RE HERE TO PROVE IT.
+            WE CREATE <span className="text-[#3F433E]" style={{ fontFamily: 'Anton, sans-serif' }}>HIGH-QUALITY</span> GARMENTS USING <span className="text-[#3F433E]" style={{ fontFamily: 'Anton, sans-serif' }}>UPCYCLED MATERIALS</span> AND EXPERT CONSTRUCTION. FASHION CAN BE BOTH LUXURIOUS AND SUSTAINABLE — AND WE'RE HERE TO PROVE IT.
           </p>
         </div>
       </div>

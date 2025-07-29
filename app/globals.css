@@ -67,6 +67,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'HellasFun';
+  src: url('/fonts/HellasFun Plain.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

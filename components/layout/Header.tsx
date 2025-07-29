@@ -44,7 +44,7 @@ const Header = () => {
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center justify-between h-20 sm:h-24">
           {/* Left Navigation - Desktop */}
           <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navLinks.map((link) => (
@@ -74,25 +74,17 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Centered Logo */}
+          {/* Centered Logo Image - Larger Size */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
-            <Link 
-              href="/" 
-              className="flex items-center gap-2"
-            >
+            <Link href="/">
               <Image 
-                src="/icon.svg" 
-                alt="ATELIER Logo" 
-                width={32} 
-                height={32} 
-                className="w-6 h-6 sm:w-8 sm:h-8"
+                src="/logo.png" // Update this path to your actual image file
+                alt="AYSEGUL IKNA Logo"
+                width={220} // Increased width
+                height={80} // Increased height
+                className="h-12 w-auto sm:h-16" // Larger responsive sizes
+                priority // Ensures priority loading for the logo
               />
-              <span 
-                className="text-2xl sm:text-3xl font-bold tracking-tight hover:text-[#4a4a4a] transition-colors"
-                style={{ fontFamily: 'NATS, sans-serif' }}
-              >
-                AYSEGUL IKNA
-              </span>
             </Link>
           </div>
 

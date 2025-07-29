@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 
 const OurFavourites = () => {
-  // Hardcoded favourite items data
   const favourites = [
     {
       id: 'favourite-1',
@@ -36,7 +35,7 @@ const OurFavourites = () => {
             IKNA'S FAVOURITES
           </h2>
           <p 
-            className="text-xl md:text-2xl text-[#2E2B26] max-w-3xl"
+            className="text-xl md:text-3xl text-[#2E2B26] max-w-3xl"
             style={{ fontFamily: 'Hornset, sans-serif' }}
           >
             Timeless pieces we adore, season after season

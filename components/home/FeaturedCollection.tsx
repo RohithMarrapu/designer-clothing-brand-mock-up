@@ -36,7 +36,7 @@ const FeaturedCollection = () => {
             FEATURED COLLECTION
           </h2>
           <p 
-            className="text-xl md:text-2xl text-[#2E2B26] max-w-3xl"
+            className="text-xl md:text-3xl text-[#2E2B26] max-w-3xl"
             style={{ fontFamily: 'Hornset, sans-serif' }}
           >
             Discover our most coveted pieces, meticulously crafted with premium materials
