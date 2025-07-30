@@ -21,69 +21,92 @@ const ProductGrid = ({ products }: ProductGridProps) => {
     
     if (isInWishlist(product.id)) {
       removeFromWishlist(product.id)
-      toast('Removed from wishlist')
+      toast('Removed from wishlist', {
+        style: {
+          background: '#EEDEC5',
+          color: '#000',
+          border: '1px solid #EEDEC5'
+        }
+      })
     } else {
       addToWishlist(product)
-      toast('Added to wishlist')
+      toast('Added to wishlist', {
+        style: {
+          background: '#EEDEC5',
+          color: '#000',
+          border: '1px solid #EEDEC5'
+        }
+      })
     }
   }
 
   if (products.length === 0) {
     return (
-      <div className="text-center py-16">
-        <p className="text-neutral-600 dark:text-neutral-400">
-          No products found matching the selected filters.
+      <div className="text-center py-20">
+        <p className="text-black text-lg font-medium mb-2">
+          No products match your selection
+        </p>
+        <p className="text-neutral-600">
+          Try adjusting your filters or browse our collection
         </p>
       </div>
     )
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
       {products.map((product) => (
-        <Link key={product.id} href={`/shop/${product.id}`} className="group relative">
-          {/* Wishlist button */}
-          <button 
-            onClick={(e) => handleWishlistToggle(e, product)}
-            className="absolute top-4 right-4 z-10 p-2 bg-white/80 dark:bg-black/80 rounded-full shadow-sm transition-all hover:scale-110"
-          >
-            <Heart 
-              size={18} 
-              className={cn(
-                "transition-colors",
-                isInWishlist(product.id) 
-                  ? "fill-black stroke-black dark:fill-white dark:stroke-white" 
-                  : "stroke-neutral-600 dark:stroke-neutral-400"
-              )} 
-            />
-          </button>
+        <div key={product.id} className="group relative">
+          <Link href={`/shop/${product.id}`} className="block">
+            {/* Product image */}
+            <div className="relative overflow-hidden mb-4">
+              <div className="aspect-[3/4] bg-[#FFFBF4]">
+                <Image
+                  src={product.images[0]}
+                  alt={product.name}
+                  fill
+                  className="object-cover transition-opacity duration-300 group-hover:opacity-90"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+              
+              {/* Wishlist button */}
+              <button 
+                onClick={(e) => handleWishlistToggle(e, product)}
+                className="absolute top-3 right-3 z-10 p-2 rounded-full transition-all
+                  bg-white/90 backdrop-blur-sm hover:bg-[#EEDEC5] shadow-sm"
+                aria-label={isInWishlist(product.id) ? "Remove from wishlist" : "Add to wishlist"}
+              >
+                <Heart 
+                  size={18} 
+                  className={cn(
+                    "transition-colors",
+                    isInWishlist(product.id) 
+                      ? "fill-black stroke-black" 
+                      : "stroke-black hover:stroke-[#EEDEC5]"
+                  )} 
+                />
+              </button>
 
-          {/* Product image */}
-          <div className="image-zoom-container aspect-[3/4] overflow-hidden bg-neutral-100 dark:bg-neutral-900">
-            <Image
-              src={product.images[0]}
-              alt={product.name}
-              width={600}
-              height={800}
-              className="image-zoom w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Product details */}
-          <div className="mt-4 space-y-1">
-            <div className="flex justify-between items-start">
-              <h3 className="text-base font-medium transition-all group-hover:underline">
-                {product.name}
-              </h3>
+              {/* New badge */}
               {product.new && (
-                <span className="text-xs bg-black text-white dark:bg-white dark:text-black px-2 py-1">
+                <div className="absolute bottom-3 left-3 bg-black text-white text-xs px-2 py-1">
                   New
-                </span>
+                </div>
               )}
             </div>
-            <p className="price text-sm font-medium">{product.price.toFixed(2)}</p>
-          </div>
-        </Link>
+
+            {/* Product details */}
+            <div className="text-center">
+              <h3 className="text-black font-medium mb-1 group-hover:underline">
+                {product.name}
+              </h3>
+              <p className="text-black">
+                ${product.price.toFixed(2)}
+              </p>
+            </div>
+          </Link>
+        </div>
       ))}
     </div>
   )

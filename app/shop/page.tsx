@@ -94,23 +94,28 @@ export default function Shop() {
   }, [filters, sortType])
 
   return (
-    <div className="pt-24 pb-16 relative z-10">
+    <div className="pt-24 pb-16 relative z-10 bg-[#FFFBF4] min-h-screen">
       {/* Header */}
-      <div className="py-8 mb-8">
+      <div className="py-12 mb-4 border-b border-[#EEDEC5]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-4xl font-playfair text-center">Collection</h1>
+          <h1 className="text-4xl md:text-5xl font-medium text-center text-black">
+            Our Collection
+          </h1>
+          <p className="text-center text-neutral-600 mt-4 max-w-2xl mx-auto">
+            Discover timeless pieces crafted with care
+          </p>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Mobile Filter & Sort Toggle */}
-          <div className="md:hidden flex justify-between items-center mb-4 gap-4">
+          <div className="md:hidden flex justify-between items-center mb-6 gap-4">
             <Button
               variant="outline"
               size="sm"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5] hover:bg-[#EEDEC5]/80 hover:border-[#EEDEC5]/80"
             >
               <Filter size={16} />
               Filters
@@ -121,15 +126,15 @@ export default function Shop() {
                 variant="outline"
                 size="sm"
                 onClick={() => setShowSortMenu(!showSortMenu)}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5] hover:bg-[#EEDEC5]/80 hover:border-[#EEDEC5]/80"
               >
                 <ArrowDownUp size={16} />
                 Sort
-                <ChevronDown size={14} />
+                <ChevronDown size={14} className={cn("transition-transform", showSortMenu ? "rotate-180" : "")} />
               </Button>
 
               {showSortMenu && (
-                <div className="absolute right-0 mt-2 w-52 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded shadow z-50">
+                <div className="absolute right-0 mt-2 w-52 bg-white border border-[#EEDEC5] rounded-lg shadow-lg z-50">
                   {sortOptions.map(option => (
                     <button
                       key={option.value}
@@ -138,8 +143,8 @@ export default function Shop() {
                         setShowSortMenu(false)
                       }}
                       className={cn(
-                        'w-full text-left px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-700',
-                        sortType === option.value && 'font-medium text-primary'
+                        'w-full text-left px-4 py-2 text-sm hover:bg-[#EEDEC5]/30 text-black transition-colors',
+                        sortType === option.value && 'font-medium bg-[#EEDEC5]/50'
                       )}
                     >
                       {option.label}
@@ -149,49 +154,51 @@ export default function Shop() {
               )}
             </div>
 
-            <div className="text-sm text-neutral-500 dark:text-neutral-400">
-              {filteredProducts.length} Products
+            <div className="text-sm text-black">
+              {filteredProducts.length} {filteredProducts.length === 1 ? 'Item' : 'Items'}
             </div>
           </div>
 
           {/* Filters Sidebar */}
           <div
             className={cn(
-              "md:w-64 lg:w-80 shrink-0",
+              "md:w-64 lg:w-72 shrink-0 transition-all",
               isFilterOpen ? "block" : "hidden md:block"
             )}
           >
-            <Filters
-              filters={filters}
-              setFilters={setFilters}
-              availableCategories={getCategories() as Category[]}
-              availableGenders={getGenders() as Gender[]}
-              priceRange={getPriceRange()}
-            />
+            <div className="sticky top-32">
+              <Filters
+                filters={filters}
+                setFilters={setFilters}
+                availableCategories={getCategories() as Category[]}
+                availableGenders={getGenders() as Gender[]}
+                priceRange={getPriceRange()}
+              />
+            </div>
           </div>
 
           {/* Product Grid */}
           <div className="flex-1">
             {/* Desktop Sort */}
-            <div className="hidden md:flex justify-between items-center mb-6 relative z-30">
-              <div className="text-sm text-neutral-500 dark:text-neutral-400">
-                {filteredProducts.length} Products
+            <div className="hidden md:flex justify-between items-center mb-8">
+              <div className="text-sm text-black">
+                Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'Item' : 'Items'}
               </div>
 
               <div className="relative z-30">
                 <Button
-                  variant="ghost"
+                  variant="outline"
                   size="sm"
                   onClick={() => setShowSortMenu(!showSortMenu)}
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5] hover:bg-[#EEDEC5]/80 hover:border-[#EEDEC5]/80"
                 >
                   <ArrowDownUp size={16} />
                   Sort
-                  <ChevronDown size={14} />
+                  <ChevronDown size={14} className={cn("transition-transform", showSortMenu ? "rotate-180" : "")} />
                 </Button>
 
                 {showSortMenu && (
-                  <div className="absolute right-0 mt-2 w-52 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded shadow z-50">
+                  <div className="absolute right-0 mt-2 w-52 bg-white border border-[#EEDEC5] rounded-lg shadow-lg z-50">
                     {sortOptions.map(option => (
                       <button
                         key={option.value}
@@ -200,8 +207,8 @@ export default function Shop() {
                           setShowSortMenu(false)
                         }}
                         className={cn(
-                          'w-full text-left px-4 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-700',
-                          sortType === option.value && 'font-medium text-primary'
+                          'w-full text-left px-4 py-2 text-sm hover:bg-[#EEDEC5]/30 text-black transition-colors',
+                          sortType === option.value && 'font-medium bg-[#EEDEC5]/50'
                         )}
                       >
                         {option.label}
