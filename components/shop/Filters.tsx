@@ -140,10 +140,7 @@ const Filters = ({
             step={50}
             value={[filters.priceRange[0], filters.priceRange[1]]}
             onValueChange={handlePriceChange}
-            className="mb-6"
-            thumbClassName="bg-[#D4C4A8] border-black focus-visible:ring-[#D4C4A8] h-4 w-4 shadow-md"
-            trackClassName="bg-[#6B5B4D] h-2"
-            rangeClassName="bg-[#D4C4A8] h-2"
+            className="mb-6 [&_.slider-thumb]:bg-[#D4C4A8] [&_.slider-thumb]:border-black [&_.slider-thumb]:h-4 [&_.slider-thumb]:w-4 [&_.slider-thumb]:shadow-md"
           />
           <div className="flex justify-between text-sm font-medium text-black">
             <span className="bg-[#EEDEC5] px-3 py-1 rounded-full">{formatPrice(filters.priceRange[0])}</span>
