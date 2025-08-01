@@ -46,18 +46,20 @@ export default function Contact() {
   }
 
   return (
-    <div className="pt-24 pb-16 bg-black text-white">
+    <div className="pt-24 pb-16 bg-[#FFFBF4] text-black">
       {/* Header */}
       <div className="py-8 mb-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-4xl font-playfair text-center">Contact Us</h1>
+          <h1 className="text-3xl md:text-4xl text-center" style={{ fontFamily: 'Hornset, sans-serif' }}>
+            Contact Us
+          </h1>
         </div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-lg text-neutral-400">
+            <p className="text-lg text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
               We'd love to hear from you. Please feel free to reach out with any questions about our products or services.
             </p>
           </div>
@@ -66,11 +68,11 @@ export default function Contact() {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h3 className="font-medium mb-4 flex items-center">
+                <h3 className="font-medium mb-4 flex items-center" style={{ fontFamily: 'Anton, sans-serif' }}>
                   <MapPin size={18} className="mr-2" />
                   Address
                 </h3>
-                <p className="text-neutral-400">
+                <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                   Apple Park Way<br />
                   Cupertino, CA 95014<br />
                   United States
@@ -78,28 +80,28 @@ export default function Contact() {
               </div>
 
               <div>
-                <h3 className="font-medium mb-2 flex items-center">
+                <h3 className="font-medium mb-2 flex items-center" style={{ fontFamily: 'Anton, sans-serif' }}>
                   <Phone size={18} className="mr-2" />
                   Phone
                 </h3>
-                <p className="text-neutral-400">
+                <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                   +1 (408) 996–1010
                 </p>
               </div>
 
               <div>
-                <h3 className="font-medium mb-2 flex items-center">
+                <h3 className="font-medium mb-2 flex items-center" style={{ fontFamily: 'Anton, sans-serif' }}>
                   <Mail size={18} className="mr-2" />
                   Email
                 </h3>
-                <p className="text-neutral-400">
+                <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                   contact@aysegulikna.com
                 </p>
               </div>
 
               <div>
-                <h3 className="font-medium mb-2">Opening Hours</h3>
-                <p className="text-neutral-400">
+                <h3 className="font-medium mb-2" style={{ fontFamily: 'Anton, sans-serif' }}>Opening Hours</h3>
+                <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                   Monday - Friday: 10am - 7pm<br />
                   Saturday: 11am - 6pm<br />
                   Sunday: Closed
@@ -111,22 +113,23 @@ export default function Contact() {
             <div className="md:col-span-2">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ fontFamily: 'Anton, sans-serif' }}>
                     Name
                   </label>
                   <Input
                     id="name"
                     placeholder="Your name"
                     {...register('name')}
-                    className={`bg-neutral-800 text-white ${errors.name ? 'border-red-500' : ''}`}
+                    className={`bg-white border border-[#EEDEC5] text-black placeholder:font-hellasfun ${errors.name ? 'border-red-500' : ''}`}
+                    style={{ fontFamily: 'HellasFun, sans-serif' }}
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
+                    <p className="mt-1 text-sm text-red-500" style={{ fontFamily: 'HellasFun, sans-serif' }}>{errors.name.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ fontFamily: 'Anton, sans-serif' }}>
                     Email
                   </label>
                   <Input
@@ -134,15 +137,16 @@ export default function Contact() {
                     type="email"
                     placeholder="Your email"
                     {...register('email')}
-                    className={`bg-neutral-800 text-white ${errors.email ? 'border-red-500' : ''}`}
+                    className={`bg-white border border-[#EEDEC5] text-black placeholder:font-hellasfun ${errors.email ? 'border-red-500' : ''}`}
+                    style={{ fontFamily: 'HellasFun, sans-serif' }}
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+                    <p className="mt-1 text-sm text-red-500" style={{ fontFamily: 'HellasFun, sans-serif' }}>{errors.email.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2" style={{ fontFamily: 'Anton, sans-serif' }}>
                     Message
                   </label>
                   <Textarea
@@ -150,21 +154,23 @@ export default function Contact() {
                     placeholder="Your message"
                     rows={6}
                     {...register('message')}
-                    className={`bg-neutral-800 text-white ${errors.message ? 'border-red-500' : ''}`}
+                    className={`bg-white border border-[#EEDEC5] text-black placeholder:font-hellasfun ${errors.message ? 'border-red-500' : ''}`}
+                    style={{ fontFamily: 'HellasFun, sans-serif' }}
                   />
                   {errors.message && (
-                    <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
+                    <p className="mt-1 text-sm text-red-500" style={{ fontFamily: 'HellasFun, sans-serif' }}>{errors.message.message}</p>
                   )}
                 </div>
 
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto min-w-[160px]"
+                  className="w-full sm:w-auto min-w-[160px] bg-[#EEDEC5] hover:bg-[#EEDEC5]/90 text-black"
+                  style={{ fontFamily: 'Anton, sans-serif' }}
                 >
                   {isSubmitting ? (
                     <span className="flex items-center">
-                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
