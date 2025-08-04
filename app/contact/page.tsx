@@ -73,8 +73,8 @@ export default function Contact() {
                   Address
                 </h3>
                 <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
-                  Apple Park Way<br />
-                  Cupertino, CA 95014<br />
+                  Ponce City Market<br />
+                  Atlanta, GA 30308<br />
                   United States
                 </p>
               </div>
@@ -177,7 +177,7 @@ export default function Contact() {
                       Sending...
                     </span>
                   ) : (
-                    <span className="flex items-center">
+                    <span className="flex items-center" style={{ fontFamily: 'LostInSouth, sans-serif' }}>
                       <Send size={16} className="mr-2" />
                       Send Message
                     </span>
@@ -191,7 +191,7 @@ export default function Contact() {
           <div className="mt-16 rounded-md overflow-hidden">
             <iframe
               title="Apple HQ"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.368355746453!2d-122.01123422427786!3d37.33478973821909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5a6f29a395b%3A0x4966b2f4a34d7ae4!2sApple%20Park!5e0!3m2!1sen!2sus!4v1681723361666!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.5314123329463!2d-84.36817162502955!3d33.77277273243664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f50410a2fd3b4d%3A0xc8ae6bab6d9b1581!2sPonce%20City%20Market!5e0!3m2!1sen!2sin!4v1754163209930!5m2!1sen!2sin"
               width="100%"
               height="400"
               style={{ border: 0 }}
@@ -206,3 +206,4 @@ export default function Contact() {
     </div>
   )
 }
+

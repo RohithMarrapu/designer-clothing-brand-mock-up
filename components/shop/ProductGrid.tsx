@@ -43,10 +43,10 @@ const ProductGrid = ({ products }: ProductGridProps) => {
   if (products.length === 0) {
     return (
       <div className="text-center py-20">
-        <p className="text-black text-lg font-medium mb-2">
+        <p className="text-black text-lg font-medium mb-2" style={{ fontFamily: 'Anton, sans-serif' }}>
           No products match your selection
         </p>
-        <p className="text-neutral-600">
+        <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
           Try adjusting your filters or browse our collection
         </p>
       </div>
@@ -98,10 +98,10 @@ const ProductGrid = ({ products }: ProductGridProps) => {
 
             {/* Product details */}
             <div className="text-center">
-              <h3 className="text-black font-medium mb-1 group-hover:underline">
+              <h3 className="text-black font-medium mb-1 group-hover:underline" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                 {product.name}
               </h3>
-              <p className="text-black">
+              <p className="text-black" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                 ${product.price.toFixed(2)}
               </p>
             </div>

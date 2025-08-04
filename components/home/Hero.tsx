@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <div className="relative w-full overflow-hidden bg-[#FFFBF4]">
       {/* Hero Section - Stack on mobile */}
-      <div className="relative w-full h-auto md:h-screen flex flex-col md:flex-row mt-16 bg-[#FFFBF4]">
+      <div className="relative w-full h-auto md:h-[calc(100vh-4rem)] flex flex-col md:flex-row bg-[#FFFBF4] mt-16">
         {/* Left Image with Button - Full width on mobile */}
         <div className="w-full md:w-1/2 h-[70vh] md:h-full relative">
           <Image
@@ -21,6 +21,7 @@ const Hero = () => {
             className="object-cover object-center"
             quality={100}
             priority
+            style={{ objectPosition: 'center top' }}
           />
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="absolute top-1/3 left-1/4 transform -translate-x-1/4 -translate-y-1/3 z-10">
@@ -41,6 +42,7 @@ const Hero = () => {
             className="object-cover object-center"
             quality={100}
             priority
+            style={{ objectPosition: 'center top' }}
           />
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="absolute bottom-1/3 right-1/4 transform translate-x-1/4 translate-y-1/3 z-10">

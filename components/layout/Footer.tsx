@@ -49,11 +49,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/shop?gender=men" className="text-black/80 hover:text-[#4a4a4a] transition-colors text-sm">
-                  Men
-                </Link>
-              </li>
-              <li>
                 <Link href="/shop?category=accessories" className="text-black/80 hover:text-[#4a4a4a] transition-colors text-sm">
                   Accessories
                 </Link>
@@ -81,28 +76,6 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="text-base font-medium mb-6 text-black">Newsletter</h3>
-            <p className="text-black/80 text-sm mb-4">
-              Subscribe to receive updates on new collections and exclusive events.
-            </p>
-            <div className="flex items-center">
-              <Input 
-                type="email" 
-                placeholder="Your email" 
-                className="bg-white border-[#4a4a4a] rounded-l-md rounded-r-none text-black h-10"
-              />
-              <Button 
-                variant="default" 
-                size="sm" 
-                className="rounded-l-none bg-[#4a4a4a] hover:bg-[#3a3a3a] h-10 px-3"
-              >
-                <Send size={16} className="text-white" />
-              </Button>
-            </div>
           </div>
         </div>
 

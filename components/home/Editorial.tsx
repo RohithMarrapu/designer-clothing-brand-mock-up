@@ -36,12 +36,10 @@ const Editorial = () => {
             <div className="pt-4">
               <Button 
                 asChild 
-                variant="outline" 
-                size="lg" 
-                className="border-[#2E2B26] hover:bg-[#2E2B26] hover:text-[#FFFBF4] transition-colors"
+                className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[280px] rounded-none py-8 px-10"
               >
-                <Link href="/about">
-                  Read the full story
+                <Link href="/about" className="text-2xl md:text-3xl font-bold" style={{ fontFamily: 'LostInSouth, sans-serif' }}>
+                  READ THE FULL STORY
                 </Link>
               </Button>
             </div>

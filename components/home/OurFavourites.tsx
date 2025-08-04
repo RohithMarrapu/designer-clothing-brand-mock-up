@@ -29,7 +29,7 @@ const OurFavourites = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading with mix-blend-difference effect */}
         <h2 
-          className="text-8xl md:text-9xl text-[#ffffff] relative z-10 mb-[-1.5rem] md:mb-[-3.5rem] 
+          className="text-6xl md:text-9xl text-[#ffffff] relative z-10 mb-[-1.5rem] md:mb-[-3.5rem] 
                     mix-blend-difference"
           style={{ 
             fontFamily: 'Hornset, sans-serif',

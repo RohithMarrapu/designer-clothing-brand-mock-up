@@ -39,8 +39,8 @@ const Header = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled 
-          ? 'bg-[#FAF0DF]/90 backdrop-blur-sm shadow-sm' 
-          : 'bg-[#FAF0DF]'
+          ? 'bg-white/0 backdrop-blur-sm shadow-sm' 
+          : 'bg-white'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -110,7 +110,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <nav className="lg:hidden bg-[#FAF0DF] shadow-lg p-4">
+        <nav className="lg:hidden bg-white shadow-lg p-4">
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link
