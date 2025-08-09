@@ -30,6 +30,7 @@ const Header = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Shop', path: '/shop' },
+    { name: 'Collections', path: '/collections' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ]
@@ -78,12 +79,12 @@ const Header = () => {
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <Link href="/">
               <Image 
-                src="/logo.png" // Update this path to your actual image file
+                src="/logo.png"
                 alt="AYSEGUL IKNA Logo"
-                width={220} // Increased width
-                height={80} // Increased height
-                className="h-12 w-auto sm:h-16" // Larger responsive sizes
-                priority // Ensures priority loading for the logo
+                width={220}
+                height={80}
+                className="h-12 w-auto sm:h-16"
+                priority
               />
             </Link>
           </div>
