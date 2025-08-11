@@ -12,62 +12,62 @@ const CollectionsPage = () => {
       collections: [
         {
           title: 'Look 2',
-          image: '/2023 Fall/ATLSFW 22 Look 2.jpg',
+          image: '/2023 Fall/ATLSFW 22 Look 2.webp',
           description: 'Floral inspirations and light fabrics'
         },
         {
           title: 'Look 3',
-          image: '/2023 Fall/ATLSFW 22 Look 3.jpg',
+          image: '/2023 Fall/ATLSFW 22 Look 3.webp',
           description: 'Elegant daytime wear'
         },
         {
           title: 'Look 4',
-          image: '/2023 Fall/ATLSFW 22 Look 4.jpg',
+          image: '/2023 Fall/ATLSFW 22 Look 4.webp',
           description: 'Modern sophistication'
         },
         {
           title: 'Look 5',
-          image: '/2023 Fall/ATLSFW 22 Look 5.jpg',
+          image: '/2023 Fall/ATLSFW 22 Look 5.webp',
           description: 'Structured tailoring'
         },
         {
           title: 'Look 1',
-          image: '/2023 Fall/ATLSFW 22 Look1.jpg',
+          image: '/2023 Fall/ATLSFW 22 Look1.webp',
           description: 'Bold statement pieces'
         },
         {
           title: 'DSC06997',
-          image: '/2023 Fall/DSC06997.jpg',
+          image: '/2023 Fall/DSC06997.webp',
           description: 'Urban elegance'
         },
         {
           title: 'DSC07170',
-          image: '/2023 Fall/DSC07170.jpg',
+          image: '/2023 Fall/DSC07170.webp',
           description: 'Romantic aesthetics'
         },
         {
           title: 'DSC07230',
-          image: '/2023 Fall/DSC07230.jpg',
+          image: '/2023 Fall/DSC07230.webp',
           description: 'Minimalist luxury'
         },
         {
           title: 'DSC07287',
-          image: '/2023 Fall/DSC07287.jpg',
+          image: '/2023 Fall/DSC07287.webp',
           description: 'Sustainable fashion'
         },
         {
           title: 'DSC07318',
-          image: '/2023 Fall/DSC07318.jpg',
+          image: '/2023 Fall/DSC07318.webp',
           description: 'Avant-garde creations'
         },
         {
           title: 'DSC07349',
-          image: '/2023 Fall/DSC07349.jpg',
+          image: '/2023 Fall/DSC07349.webp',
           description: 'Timeless silhouettes'
         },
         {
           title: 'DSC07363',
-          image: '/2023 Fall/DSC07363.jpg',
+          image: '/2023 Fall/DSC07363.webp',
           description: 'Haute couture inspiration'
         },
       ]
@@ -77,42 +77,42 @@ const CollectionsPage = () => {
       collections: [
         {
           title: 'Spring/Summer 2022',
-          image: '/2023 Summer/IMG_9312.JPG',
+          image: '/2023 Summer/IMG_9312.webp',
           description: 'Minimalist elegance'
         },
         {
           title: 'Spring/Summer 2022',
-          image: '/2023 Summer/IMG_9321.JPG',
+          image: '/2023 Summer/IMG_9321.webp',
           description: 'Minimalist elegance'
         },
         {
           title: 'Spring/Summer 2022',
-          image: '/2023 Summer/IMG_9339.JPG',
+          image: '/2023 Summer/IMG_9339.webp',
           description: 'Minimalist elegance'
         },
         {
           title: 'Spring/Summer 2022',
-          image: '/2023 Summer/IMG_9350.JPG',
+          image: '/2023 Summer/IMG_9350.webp',
           description: 'Minimalist elegance'
         },
         {
           title: 'Spring/Summer 2022',
-          image: '/2023 Summer/IMG_9376.JPG',
+          image: '/2023 Summer/IMG_9376.webp',
           description: 'Minimalist elegance'
         },
         {
           title: 'Spring/Summer 2022',
-          image: '/2023 Summer/IMG_9383.JPG',
+          image: '/2023 Summer/IMG_9383.webp',
           description: 'Minimalist elegance'
         },
         {
           title: 'Spring/Summer 2022',
-          image: '/2023 Summer/IMG_9391.JPG',
+          image: '/2023 Summer/IMG_9391.webp',
           description: 'Minimalist elegance'
         },
         {
           title: 'Spring/Summer 2022',
-          image: '/2023 Summer/IMG_9224.JPG',
+          image: '/2023 Summer/IMG_9224.webp',
           description: 'Minimalist elegance'
         },
       ]
@@ -122,112 +122,112 @@ const CollectionsPage = () => {
       collections: [
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Aria Blouse and Skirt.jpg',
+          image: '/2021 Fall/Aria Blouse and Skirt.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Aria Blouse.jpg',
+          image: '/2021 Fall/Aria Blouse.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Aria Skirt.jpg',
+          image: '/2021 Fall/Aria Skirt.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Black Lace Dress Back.jpg',
+          image: '/2021 Fall/Black Lace Dress Back.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Black Lace Dress.jpg',
+          image: '/2021 Fall/Black Lace Dress.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Blk Dress Back.jpg',
+          image: '/2021 Fall/Blk Dress Back.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Blk Dress with Long Sleeves.jpg',
+          image: '/2021 Fall/Blk Dress with Long Sleeves.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Blk Dress.jpg',
+          image: '/2021 Fall/Blk Dress.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Fiyona Dress Back.jpg',
+          image: '/2021 Fall/Fiyona Dress Back.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Fiyona Dress.jpg',
+          image: '/2021 Fall/Fiyona Dress.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Fiyona Top with Plead Circle Dress.jpg',
+          image: '/2021 Fall/Fiyona Top with Plead Circle Dress.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Fiyona.jpg',
+          image: '/2021 Fall/Fiyona.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Laticia Dress Back.jpg',
+          image: '/2021 Fall/Laticia Dress Back.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Laticia Dress.jpg',
+          image: '/2021 Fall/Laticia Dress.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Long Silk Dress back.jpg',
+          image: '/2021 Fall/Long Silk Dress back.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Long Silk Dress.jpg',
+          image: '/2021 Fall/Long Silk Dress.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/pink top.jpg',
+          image: '/2021 Fall/pink top.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Puff Sleeve Top Back.jpg',
+          image: '/2021 Fall/Puff Sleeve Top Back.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Puff Sleeve Top with Circle Skirt.jpg',
+          image: '/2021 Fall/Puff Sleeve Top with Circle Skirt.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Toz Pembe Skirt and Top Back v1.jpg',
+          image: '/2021 Fall/Toz Pembe Skirt and Top Back v1.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/Toz Pembe Skirt and Top.jpg',
+          image: '/2021 Fall/Toz Pembe Skirt and Top.webp',
           description: 'Classic with a contemporary twist'
         },
         {
           title: 'Debut Collection',
-          image: '/2021 Fall/White Top.jpg',
+          image: '/2021 Fall/White Top.webp',
           description: 'Classic with a contemporary twist'
         },
       ]
