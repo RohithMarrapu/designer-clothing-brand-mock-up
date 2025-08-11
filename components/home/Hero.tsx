@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import dynamic from 'next/dynamic'
 import { Button } from '@/components/ui/button'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 // Marquee is client-only to avoid hydration text mismatches
 const Marquee = dynamic(
