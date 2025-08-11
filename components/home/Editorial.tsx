@@ -11,7 +11,7 @@ const Editorial = () => {
           <div className="order-2 lg:order-1">
             <div className="aspect-[4/5] relative overflow-hidden">
               <Image
-                src="/craftsmanship.png" // Update this path to your new image in public folder
+                src="/craftsmanship.webp" // Update this path to your new image in public folder
                 alt="Craftsmanship in progress"
                 fill
                 className="object-contain" // Changed from object-cover to object-contain

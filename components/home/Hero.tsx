@@ -1,53 +1,82 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 import { Button } from '@/components/ui/button'
-import { Marquee } from '@/components/ui/marquee'
 import Image from 'next/image'
 import Link from 'next/link'
 
+// Marquee is client-only to avoid hydration text mismatches
+const Marquee = dynamic(
+  () => import('@/components/ui/marquee').then(m => m.Marquee),
+  { ssr: false }
+)
+
 const Hero = () => {
-  const marqueeText = "REPRESENTS ALL THINGS ECO, ETHICAL & GREEN IN ONE UNIFIED MOVEMENT • REPRESENTS ALL THINGS ECO, ETHICAL & GREEN IN ONE UNIFIED MOVEMENT • REPRESENTS ALL THINGS ECO, ETHICAL & GREEN IN ONE UNIFIED MOVEMENT •"
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
+  const marqueeText =
+    'REPRESENTS ALL THINGS ECO, ETHICAL & GREEN IN ONE UNIFIED MOVEMENT • ' +
+    'REPRESENTS ALL THINGS ECO, ETHICAL & GREEN IN ONE UNIFIED MOVEMENT • ' +
+    'REPRESENTS ALL THINGS ECO, ETHICAL & GREEN IN ONE UNIFIED MOVEMENT •'
 
   return (
     <div className="relative w-full overflow-hidden bg-[#FFFBF4]">
-      {/* Hero Section - Stack on mobile */}
+      {/* Two-panel hero */}
       <div className="relative w-full h-auto md:h-[calc(100vh-4rem)] flex flex-col md:flex-row bg-[#FFFBF4] mt-16">
-        {/* Left Image with Button - Full width on mobile */}
+        {/* Left (LCP) */}
         <div className="w-full md:w-1/2 h-[70vh] md:h-full relative">
           <Image
             src="/hero_left.webp"
-            alt="AYSEGUL IKNA Collection Left"
+            alt="AYSEGUL IKNA — statement tailoring in upcycled textiles"
             fill
             className="object-cover object-center"
-            quality={100}
             priority
+            fetchPriority="high"
+            sizes="(max-width: 768px) 100vw, 50vw"
             style={{ objectPosition: 'center top' }}
           />
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="absolute top-1/3 left-1/4 transform -translate-x-1/4 -translate-y-1/3 z-10">
-            <Button asChild className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[280px] rounded-none py-8 px-10">
-              <Link href="/shop" className="text-2xl md:text-3xl font-bold" style={{ fontFamily: 'LostInSouth, sans-serif' }}>
+          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute top-1/3 left-1/4 -translate-x-1/4 -translate-y-1/3 z-10">
+            <Button
+              asChild
+              className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[280px] rounded-none py-8 px-10"
+            >
+              <Link
+                href="/shop"
+                className="text-2xl md:text-3xl font-bold"
+                style={{ fontFamily: 'LostInSouth, sans-serif' }}
+              >
                 SHOP NEW IN
               </Link>
             </Button>
           </div>
         </div>
-        
-        {/* Right Image with Button - Full width on mobile */}
+
+        {/* Right (lazy) */}
         <div className="w-full md:w-1/2 h-[70vh] md:h-full relative">
           <Image
             src="/hero_right.webp"
-            alt="AYSEGUL IKNA Collection Right"
+            alt="AYSEGUL IKNA — elevated essentials"
             fill
             className="object-cover object-center"
-            quality={100}
-            priority
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 768px) 100vw, 50vw"
             style={{ objectPosition: 'center top' }}
           />
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="absolute bottom-1/3 right-1/4 transform translate-x-1/4 translate-y-1/3 z-10">
-            <Button asChild className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[280px] rounded-none py-8 px-10">
-              <Link href="/shop" className="text-2xl md:text-3xl font-bold" style={{ fontFamily: 'LostInSouth, sans-serif' }}>
+          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute bottom-1/3 right-1/4 translate-x-1/4 translate-y-1/3 z-10">
+            <Button
+              asChild
+              className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[280px] rounded-none py-8 px-10"
+            >
+              <Link
+                href="/shop"
+                className="text-2xl md:text-3xl font-bold"
+                style={{ fontFamily: 'LostInSouth, sans-serif' }}
+              >
                 SHOP NEW IN
               </Link>
             </Button>
@@ -55,63 +84,66 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Full-width Text Banner with Carousel Effect */}
+      {/* Text banner — client-only marquee to prevent hydration error */}
       <div className="w-full bg-[#E5DAC8] py-4 overflow-hidden">
-        <Marquee>
-          <span className="text-black text-xl md:text-2xl font-medium tracking-wider uppercase mx-4">
-            {marqueeText}
-          </span>
-        </Marquee>
+        {mounted ? (
+          <Marquee>
+            <span
+              className="text-black text-xl md:text-2xl font-medium tracking-wider uppercase mx-4"
+              suppressHydrationWarning
+            >
+              {marqueeText}
+            </span>
+          </Marquee>
+        ) : (
+          <div className="px-4">
+            <span
+              className="block text-black text-xl md:text-2xl font-medium tracking-wider uppercase"
+              suppressHydrationWarning
+            >
+              {marqueeText}
+            </span>
+          </div>
+        )}
       </div>
 
-      {/* Text Section - Proper line wrapping */}
+      {/* Three long images */}
       <div className="w-full bg-[#FFFBF4] pt-12 pb-6">
-        <div className="px-4 sm:px-6 lg:px-8">
-          <p 
-            className="text-2xl md:text-3xl text-neutral-600 dark:text-neutral-400 mb-8"
-            style={{ 
-              fontFamily: 'Anton, sans-serif', 
-              letterSpacing: '0.5px',
-              wordBreak: 'break-word',
-              overflowWrap: 'break-word'
-            }}
-          >
-            WE CREATE <span className="text-[#3F433E]" style={{ fontFamily: 'Anton, sans-serif' }}>HIGH-QUALITY</span> GARMENTS USING <span className="text-[#3F433E]" style={{ fontFamily: 'Anton, sans-serif' }}>UPCYCLED MATERIALS</span> AND EXPERT CONSTRUCTION. FASHION CAN BE BOTH LUXURIOUS AND SUSTAINABLE — AND WE'RE HERE TO PROVE IT.
-          </p>
-        </div>
-      </div>
-
-      {/* Three Long Images - Stack on mobile */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 bg-[#FFFBF4]">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <div className="relative h-[400px] md:h-[500px] overflow-hidden">
-            <Image
-              src="/break_left.webp"
-              alt="New Arrivals"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-500"
-              style={{ objectPosition: 'center' }}
-            />
-          </div>
-          
-          <div className="relative h-[400px] md:h-[500px] overflow-hidden">
-            <Image
-              src="/break_middle.webp"
-              alt="Summer Essentials"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-500"
-              style={{ objectPosition: 'center' }}
-            />
-          </div>
-          
-          <div className="relative h-[400px] md:h-[500px] overflow-hidden">
-            <Image
-              src="/break_right.webp"
-              alt="Limited Edition"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-500"
-              style={{ objectPosition: 'center' }}
-            />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+              <Image
+                src="/break_left.webp"
+                alt="New Arrivals"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+              <Image
+                src="/break_middle.webp"
+                alt="Summer Essentials"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+              <Image
+                src="/break_right.webp"
+                alt="Limited Edition"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
           </div>
         </div>
       </div>
