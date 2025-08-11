@@ -37,7 +37,7 @@ const OurFavourites = () => {
             textShadow: '2px 2px 4px rgba(0,0,0,0.1)'
           }}
         >
-          IKNA'S FAVOURITES
+          IKNA&apos;S FAVOURITES
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative">
