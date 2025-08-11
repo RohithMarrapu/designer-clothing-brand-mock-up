@@ -60,8 +60,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-lg text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
-              We'd love to hear from you. Please feel free to reach out with any questions about our products or services.
-            </p>
+              We&rsquo;ll reply within 24 hours. Don&rsquo;t forget to include your order ID.
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
