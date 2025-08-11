@@ -8,19 +8,19 @@ const FeaturedCollection = () => {
       id: 'dress-1',
       name: 'Elegant Evening Dress',
       price: 249.99,
-      images: ['/feature_left.jpg']
+      images: ['/feature_left.webp']
     },
     {
       id: 'dress-2',
       name: 'Summer Floral Dress',
       price: 189.99,
-      images: ['/feature_middle.jpg']
+      images: ['/feature_middle.webp']
     },
     {
       id: 'dress-3',
       name: 'Classic Black Gown',
       price: 279.99,
-      images: ['/feature_right.jpg']
+      images: ['/feature_right.webp']
     }
   ]
 

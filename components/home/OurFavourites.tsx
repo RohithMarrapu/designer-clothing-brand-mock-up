@@ -8,19 +8,19 @@ const OurFavourites = () => {
       id: 'favourite-1',
       name: 'Signature Silk Dress',
       price: 289.99,
-      image: '/fav_left.jpg'
+      image: '/fav_left.webp'
     },
     {
       id: 'favourite-2',
       name: 'Linen Tailored Blazer',
       price: 249.99,
-      image: '/fav_middle.jpg'
+      image: '/fav_middle.webp'
     },
     {
       id: 'favourite-3',
       name: 'Cashmere Evening Wrap',
       price: 199.99,
-      image: '/fav_right.jpg'
+      image: '/fav_right.webp'
     }
   ]
 

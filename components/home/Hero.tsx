@@ -15,7 +15,7 @@ const Hero = () => {
         {/* Left Image with Button - Full width on mobile */}
         <div className="w-full md:w-1/2 h-[70vh] md:h-full relative">
           <Image
-            src="/hero_left.jpg"
+            src="/hero_left.webp"
             alt="AYSEGUL IKNA Collection Left"
             fill
             className="object-cover object-center"
@@ -36,7 +36,7 @@ const Hero = () => {
         {/* Right Image with Button - Full width on mobile */}
         <div className="w-full md:w-1/2 h-[70vh] md:h-full relative">
           <Image
-            src="/hero_right.jpg"
+            src="/hero_right.webp"
             alt="AYSEGUL IKNA Collection Right"
             fill
             className="object-cover object-center"
@@ -86,7 +86,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <div className="relative h-[400px] md:h-[500px] overflow-hidden">
             <Image
-              src="/break_left.jpg"
+              src="/break_left.webp"
               alt="New Arrivals"
               fill
               className="object-cover hover:scale-105 transition-transform duration-500"
@@ -96,7 +96,7 @@ const Hero = () => {
           
           <div className="relative h-[400px] md:h-[500px] overflow-hidden">
             <Image
-              src="/break_middle.jpg"
+              src="/break_middle.webp"
               alt="Summer Essentials"
               fill
               className="object-cover hover:scale-105 transition-transform duration-500"
@@ -106,7 +106,7 @@ const Hero = () => {
           
           <div className="relative h-[400px] md:h-[500px] overflow-hidden">
             <Image
-              src="/break_right.jpg"
+              src="/break_right.webp"
               alt="Limited Edition"
               fill
               className="object-cover hover:scale-105 transition-transform duration-500"
