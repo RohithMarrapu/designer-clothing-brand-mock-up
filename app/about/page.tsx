@@ -4,133 +4,119 @@ import Link from 'next/link'
 
 export default function About() {
   return (
-    <div className="pt-24 pb-16 bg-black text-white">
-      {/* Header */}
-      <div className="bg-black py-8 mb-8">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-4xl font-playfair text-center">Our Story</h1>
-        </div>
-      </div>
-
-      {/* Brand Philosophy - Updated Section */}
-      <section className="py-12 md:py-16 bg-black">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Philosophy Heading - Centered */}
-          <h2 className="text-2xl md:text-3xl font-playfair mb-12 text-center">
-            The AYSEGUL IKNA Philosophy
-          </h2>
-
-          {/* Centering and Max-Width Wrapper */}
-          <div className="max-w-5xl mx-auto">
-            {/* Main Grid for Asymmetrical Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16">
-              {/* Left Column */}
-              <div className="relative hidden lg:block">
-                <Image
-                  src="/story_2.png" // Local image from public folder
-                  alt="A key visual representing the brand philosophy"
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-
-              {/* Right Column */}
-              <div className="flex flex-col">
-                <div className="aspect-[4/3] relative w-full">
-                  <Image
-                    src="/story_1.png" // Local image from public folder
-                    alt="A second key visual representing the brand philosophy"
-                    fill
-                    className="object-cover rounded-md"
-                  />
-                </div>
-                <div className="mt-8">
-                  <p className="text-lg mb-6 leading-relaxed text-white">
-                    OUR MISSION GOES BEYOND CLOTHING; WE TEACH FUTURE DESIGNERS HOW TO BUILD SUSTAINABLE FASHION LINES. TRUE CHANGE IN THE INDUSTRY STARTS WITH EDUCATION AND INTENTION.
-                  </p>
-                </div>
+    <div className="bg-white text-gray-900">
+      {/* Hero Section - Stacked on mobile, split on desktop */}
+      <section className="relative md:h-screen h-[120vh] flex flex-col md:flex-row mt-20">
+        {/* Left Image - Full width on mobile, 66% on desktop */}
+        <div className="relative w-full md:w-2/3 h-1/2 md:h-full">
+          <Image
+            src="/about_left.webp"
+            alt="AYSEGUL IKNA Designs Left"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+          <div className="absolute inset-0 flex items-center justify-start z-10 p-6 md:pl-12 lg:pl-24">
+            <div className="text-left space-y-4 md:space-y-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-widest text-white">
+                AYSEGUL IKNA DESIGNS
+              </h1>
+              <div className="space-y-3 md:space-y-4">
+                <p className="text-white max-w-md text-sm sm:text-base leading-relaxed">
+                  Aysegul, a graduate of Atlanta's Savannah College of Art and Design, is a designer and advocate for slow fashion. 
+                  Her label, Aysegul Ikna Designs, offers modern, carefully crafted pieces for women that combine style with purpose.
+                </p>
+                <p className="text-white max-w-md text-sm sm:text-base leading-relaxed">
+                  Using recycled and locally sourced fabrics from scraps and surplus clothing, she works with local traders to ensure 
+                  materials are sustainable and community focused.
+                </p>
+                <p className="text-white max-w-md text-sm sm:text-base leading-relaxed">
+                  The brand embraces eco friendly, ethical, and green values, creating garments that look and feel exceptional while 
+                  reducing environmental impact. With sustainability at its heart, it strives to shape a more responsible fashion industry.
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Craftsmanship */}
-      <section className="py-12 md:py-16 bg-black">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-playfair mb-6">Exceptional Craftsmanship</h2>
-              <p className="mb-4 leading-relaxed text-white">
-                Our designs come to life in small, specialized ateliers across Europe, where skilled artisans apply techniques passed down through generations.
-              </p>
-              <p className="mb-4 leading-relaxed text-white">
-                We work with family-owned workshops in Italy, France, and Portugal, many of which have been perfecting their craft for over a century. This connection to traditional methods and human expertise is at the heart of our approach.
-              </p>
-              <p className="text-gray-400 leading-relaxed">
-                Every detail matters—from hand-finished seams to carefully selected buttons. This meticulous attention extends to every stage of creation.
-              </p>
-            </div>
-            <div className="order-first lg:order-last">
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src="https://images.pexels.com/photos/6102081/pexels-photo-6102081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                  alt="Artisan working on garment"
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-            </div>
-          </div>
+        
+        {/* Right Image - Full width on mobile, 34% on desktop */}
+        <div className="relative w-full md:w-1/3 h-1/2 md:h-full">
+          <Image
+            src="/myPassportSizePhoto.jpg"
+            alt="AYSEGUL IKNA Portrait"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         </div>
       </section>
 
-      {/* Materials */}
-      <section className="py-12 md:py-16 bg-black">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="order-first">
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src="https://images.pexels.com/photos/6102009/pexels-photo-6102009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                  alt="Premium fabric materials"
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-            </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl font-playfair mb-6">The Finest Materials</h2>
-              <p className="mb-4 leading-relaxed text-white">
-                We source only the highest quality natural materials from ethical suppliers with transparent practices. From Italian cashmere to Japanese denim, every fabric is selected for its exceptional quality and longevity.
-              </p>
-              <p className="mb-4 leading-relaxed text-white">
-                Our long-standing relationships with mills and suppliers allow us to access unique, limited-production materials that give our pieces their distinctive character.
-              </p>
-              <p className="text-gray-400 leading-relaxed">
-                Each season, we continue to explore innovative fabrics that meet our standards for quality, sustainability, and beauty.
-              </p>
-            </div>
-          </div>
+      {/* Full-width Image Section - Reduced height on mobile */}
+      <section className="relative h-[60vh] md:h-screen w-full">
+        <div className="relative w-full h-full">
+          <Image
+            src="/about_collage.webp"
+            alt="AYSEGUL IKNA Design Collection"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         </div>
       </section>
 
-      {/* Design Philosophy */}
-      <section className="py-12 md:py-16 bg-black">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-playfair mb-6">Design Philosophy</h2>
-            <p className="text-lg mb-6 leading-relaxed text-white">
-              Our design approach centers on creating pieces with timeless elegance, subtle innovation, and impeccable fit. We believe in design that serves a purpose, with every element carefully considered.
-            </p>
-            <p className="text-gray-400 leading-relaxed mb-8">
-              Rather than following trends, we focus on creating garments that resonate with their wearer for years to come, building a lasting wardrobe of exceptional pieces.
-            </p>
-            <Button asChild size="lg">
-              <Link href="/shop">
-                Explore Collection
-              </Link>
-            </Button>
+      {/* Text Content Section */}
+      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
+        <div className="text-base md:text-lg leading-relaxed space-y-4">
+          <p>
+            Each garment represents our commitment to exceptional quality and traditional techniques. From selecting the finest materials to the final stitch, our meticulous approach ensures pieces of enduring beauty.
+          </p>
+          <p>
+            Our artisans bring decades of experience and passion to every piece, preserving time-honored techniques while embracing contemporary innovation.
+          </p>
+        </div>
+      </section>
+
+      {/* Split Image Section - Stacked on mobile */}
+      <section className="relative flex flex-col md:flex-row h-auto md:h-screen">
+        {/* Left Image - Full width on mobile, 60% on desktop */}
+        <div className="relative w-full md:w-3/5 h-[50vh] md:h-full">
+          <Image
+            src="/about_left_2.webp"
+            alt="AYSEGUL IKNA Studio"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        </div>
+        
+        {/* Right Image - Full width on mobile, 40% on desktop */}
+        <div className="relative w-full md:w-2/5 h-[50vh] md:h-full">
+          <Image
+            src="/about_right_2.webp"
+            alt="AYSEGUL IKNA Craftsmanship"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        </div>
+      </section>
+
+      {/* Full-width Image with Text - Reduced height on mobile */}
+      <section className="relative h-[60vh] md:h-screen w-full">
+        <div className="relative w-full h-full">
+          <Image
+            src="/about_left.webp"
+            alt="AYSEGUL IKNA Showcase"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-white bg-opacity-30"></div>
+          <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider text-gray-900 text-center">
+              ECO. ETHICAL. GREEN. ALWAYS.
+            </h2>
           </div>
         </div>
       </section>
