@@ -24,7 +24,7 @@ export default function About() {
               </h1>
               <div className="space-y-3 md:space-y-4">
                 <p className="text-white max-w-md text-sm sm:text-base leading-relaxed">
-                  Aysegul, a graduate of Atlanta's Savannah College of Art and Design, is a designer and advocate for slow fashion. 
+                  Aysegul, a graduate of Atlanta&apos;s Savannah College of Art and Design, is a designer and advocate for slow fashion. 
                   Her label, Aysegul Ikna Designs, offers modern, carefully crafted pieces for women that combine style with purpose.
                 </p>
                 <p className="text-white max-w-md text-sm sm:text-base leading-relaxed">
@@ -112,7 +112,7 @@ export default function About() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-white bg-opacity-30"></div>
+          <div className="absolute inset-0 bg-white bg-opacity-60"></div>
           <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider text-gray-900 text-center">
               ECO. ETHICAL. GREEN. ALWAYS.
