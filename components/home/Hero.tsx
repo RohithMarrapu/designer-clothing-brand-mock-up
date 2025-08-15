@@ -22,7 +22,7 @@ const Hero = () => {
     'REPRESENTS ALL THINGS ECO, ETHICAL & GREEN IN ONE UNIFIED MOVEMENT •'
 
   return (
-    <div className="relative w-full overflow-hidden bg-[#FFFBF4]">
+    <div className="relative w-full overflow-hidden bg-[#FFFFFF]">
       {/* Two-panel hero */}
       <div className="relative w-full h-auto md:h-[calc(100vh-4rem)] flex flex-col md:flex-row bg-[#FFFBF4] mt-16">
         {/* Left (LCP) */}
@@ -41,7 +41,7 @@ const Hero = () => {
           <div className="absolute top-1/3 left-1/4 -translate-x-1/4 -translate-y-1/3 z-10">
             <Button
               asChild
-              className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[280px] rounded-none py-8 px-10"
+              className="bg-[#FFFBF4] text-[#252525] hover:bg-[#252525] hover:text-[#FFFBF4]/90 min-w-[280px] rounded-none py-8 px-10"
             >
               <Link
                 href="/shop"
@@ -70,7 +70,7 @@ const Hero = () => {
           <div className="absolute bottom-1/3 right-1/4 translate-x-1/4 translate-y-1/3 z-10">
             <Button
               asChild
-              className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[280px] rounded-none py-8 px-10"
+              className="bg-[#252525] text-[#FFFBF4] hover:bg-[#FFFBF4] hover:text-[#252525]/90 min-w-[280px] rounded-none py-8 px-10"
             >
               <Link
                 href="/shop"
@@ -108,7 +108,7 @@ const Hero = () => {
       </div>
 
       {/* Three long images */}
-      <div className="w-full bg-[#FFFBF4] pt-12 pb-6">
+      <div className="w-full bg-[#FFFFFF] pt-12 pb-6">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <div className="relative h-[400px] md:h-[500px] overflow-hidden">

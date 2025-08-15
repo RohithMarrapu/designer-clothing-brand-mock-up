@@ -46,7 +46,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="pt-24 pb-16 bg-[#FFFBF4] text-black">
+    <div className="pt-24 pb-16 bg-[#FFFFFF] text-black">
       {/* Header */}
       <div className="py-8 mb-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,19 +58,14 @@ export default function Contact() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-lg text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
-              We&rsquo;ll reply within 24 hours. Don&rsquo;t forget to include your order ID.
-            </p>
-          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-10">
               <div>
-                <h3 className="font-medium mb-4 flex items-center" style={{ fontFamily: 'Anton, sans-serif' }}>
-                  <MapPin size={18} className="mr-2" />
-                  Address
+                <h3 className="text-2xl mb-4 flex items-center" style={{ fontFamily: 'Hornset, sans-serif' }}>
+                  <MapPin size={24} className="mr-3" />
+                  ADDRESS
                 </h3>
                 <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                   Ponce City Market<br />
@@ -80,9 +75,9 @@ export default function Contact() {
               </div>
 
               <div>
-                <h3 className="font-medium mb-2 flex items-center" style={{ fontFamily: 'Anton, sans-serif' }}>
-                  <Phone size={18} className="mr-2" />
-                  Phone
+                <h3 className="text-2xl mb-4 flex items-center" style={{ fontFamily: 'Hornset, sans-serif' }}>
+                  <Phone size={24} className="mr-3" />
+                  PHONE
                 </h3>
                 <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                   +1 (408) 996–1010
@@ -90,9 +85,9 @@ export default function Contact() {
               </div>
 
               <div>
-                <h3 className="font-medium mb-2 flex items-center" style={{ fontFamily: 'Anton, sans-serif' }}>
-                  <Mail size={18} className="mr-2" />
-                  Email
+                <h3 className="text-2xl mb-4 flex items-center" style={{ fontFamily: 'Hornset, sans-serif' }}>
+                  <Mail size={24} className="mr-3" />
+                  EMAIL
                 </h3>
                 <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                   contact@aysegulikna.com
@@ -100,7 +95,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <h3 className="font-medium mb-2" style={{ fontFamily: 'Anton, sans-serif' }}>Opening Hours</h3>
+                <h3 className="text-2xl mb-4" style={{ fontFamily: 'Hornset, sans-serif' }}>OPEN HOURS</h3>
                 <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                   Monday - Friday: 10am - 7pm<br />
                   Saturday: 11am - 6pm<br />
@@ -177,7 +172,7 @@ export default function Contact() {
                       Sending...
                     </span>
                   ) : (
-                    <span className="flex items-center" style={{ fontFamily: 'LostInSouth, sans-serif' }}>
+                    <span className="flex items-center" style={{ fontFamily: 'Anton, sans-serif' }}>
                       <Send size={16} className="mr-2" />
                       Send Message
                     </span>
@@ -190,7 +185,7 @@ export default function Contact() {
           {/* Map */}
           <div className="mt-16 rounded-md overflow-hidden">
             <iframe
-              title="Apple HQ"
+              title="Ponce City Market"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.5314123329463!2d-84.36817162502955!3d33.77277273243664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f50410a2fd3b4d%3A0xc8ae6bab6d9b1581!2sPonce%20City%20Market!5e0!3m2!1sen!2sin!4v1754163209930!5m2!1sen!2sin"
               width="100%"
               height="400"
@@ -206,4 +201,3 @@ export default function Contact() {
     </div>
   )
 }
-

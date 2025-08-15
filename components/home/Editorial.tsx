@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const Editorial = () => {
   return (
-    <section className="py-16 md:py-24 bg-[#FFFBF4]">
+    <section className="py-16 md:py-24 bg-[#FFFFFF]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Image */}
@@ -36,7 +36,7 @@ const Editorial = () => {
             <div className="pt-4">
               <Button 
                 asChild 
-                className="bg-[#EEDEC5] text-[#4E4A45] hover:bg-[#EEDEC5]/90 min-w-[280px] rounded-none py-8 px-10"
+                className="bg-[#252525] text-[#FFFBF4] hover:bg-[#5C574F]/90 min-w-[280px] rounded-none py-8 px-10"
               >
                 <Link href="/about" className="text-2xl md:text-3xl font-bold" style={{ fontFamily: 'LostInSouth, sans-serif' }}>
                   READ THE FULL STORY

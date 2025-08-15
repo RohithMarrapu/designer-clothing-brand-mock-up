@@ -94,18 +94,7 @@ export default function Shop() {
   }, [filters, sortType])
 
   return (
-    <div className="pt-24 pb-16 relative z-10 bg-[#FFFBF4] min-h-screen">
-      {/* Header */}
-      <div className="py-12 mb-4 border-b border-[#EEDEC5]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-medium text-center text-black" style={{ fontFamily: 'Hornset, sans-serif' }}>
-            Our Collection
-          </h1>
-          <p className="text-center text-neutral-600 mt-4 max-w-2xl mx-auto" style={{ fontFamily: 'HellasFun, sans-serif' }}>
-            Discover timeless pieces crafted with care
-          </p>
-        </div>
-      </div>
+    <div className="pt-24 pb-16 relative z-10 bg-[#FFFFFF] min-h-screen">
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
         <div className="flex flex-col md:flex-row gap-8">
@@ -115,7 +104,7 @@ export default function Shop() {
               variant="outline"
               size="sm"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5] hover:bg-[#EEDEC5]/80 hover:border-[#EEDEC5]/80"
+              className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5]"
               style={{ fontFamily: 'Hornset, sans-serif' }}
             >
               <Filter size={16} />
@@ -127,7 +116,7 @@ export default function Shop() {
                 variant="outline"
                 size="sm"
                 onClick={() => setShowSortMenu(!showSortMenu)}
-                className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5] hover:bg-[#EEDEC5]/80 hover:border-[#EEDEC5]/80"
+                className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5]"
                 style={{ fontFamily: 'Hornset, sans-serif' }}
               >
                 <ArrowDownUp size={16} />
@@ -192,7 +181,7 @@ export default function Shop() {
                   variant="outline"
                   size="sm"
                   onClick={() => setShowSortMenu(!showSortMenu)}
-                  className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5] hover:bg-[#EEDEC5]/80 hover:border-[#EEDEC5]/80"
+                  className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5]"
                   style={{ fontFamily: 'Hornset, sans-serif' }}
                 >
                   <ArrowDownUp size={16} />

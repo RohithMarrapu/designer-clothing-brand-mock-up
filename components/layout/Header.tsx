@@ -3,7 +3,6 @@
 import { useWishlist } from '@/lib/context/WishlistContext'
 import { cn } from '@/lib/utils'
 import { Heart, Menu, X } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -45,27 +44,9 @@ const Header = () => {
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 sm:h-24">
-          {/* Left Navigation - Desktop */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                href={link.path}
-                className={cn(
-                  'text-base font-bold tracking-wide hover:text-[#4a4a4a] transition-colors',
-                  pathname === link.path 
-                    ? 'text-black' 
-                    : 'text-black/80'
-                )}
-                style={{ fontFamily: 'NATS, sans-serif' }}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Mobile Left Side: Mobile Menu Button */}
+        {/* Top Row with Logo and Icons */}
+        <div className="flex items-center justify-between h-20 sm:h-18">
+          {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -75,17 +56,15 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Centered Logo Image - Larger Size */}
+          {/* Centered Logo Text - Larger, Black with Letter Spacing */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <Link href="/">
-              <Image 
-                src="/logo.png"
-                alt="AYSEGUL IKNA Logo"
-                width={220}
-                height={80}
-                className="h-12 w-auto sm:h-16"
-                priority
-              />
+              <h1 
+                className="text-4xl sm:text-5xl text-black tracking-[0.2em]"
+                style={{ fontFamily: 'Hornset, sans-serif' }}
+              >
+                AYSEGUL IKNA
+              </h1>
             </Link>
           </div>
 
@@ -107,6 +86,25 @@ const Header = () => {
             </Link>
           </div>
         </div>
+
+        {/* Desktop Navigation - Below Logo with Reduced Gap */}
+        <nav className="hidden lg:flex items-center justify-center space-x-6 xl:space-x-8 py-1">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              className={cn(
+                'text-base font-bold tracking-wide hover:text-[#4a4a4a] transition-colors',
+                pathname === link.path 
+                  ? 'text-black' 
+                  : 'text-black/80'
+              )}
+              style={{ fontFamily: 'NATS, sans-serif' }}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
       </div>
 
       {/* Mobile Navigation */}

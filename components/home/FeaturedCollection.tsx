@@ -25,7 +25,7 @@ const FeaturedCollection = () => {
   ]
 
   return (
-    <section className="py-12 bg-[#FFFBF4] relative">
+    <section className="py-12 bg-[#FFFFFF] relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading with reduced overlap (40%) */}
         <h2 
@@ -59,11 +59,11 @@ const FeaturedCollection = () => {
                   priority
                 />
               </div>
-              <div className="mt-4 text-center">
-                <h3 className="text-xl md:text-2xl text-[#2E2B26]" style={{ fontFamily: 'Hornset, sans-serif' }}>
+              <div className="mt-6 text-center">
+                <h3 className="text-2xl md:text-3xl text-[#2E2B26]" style={{ fontFamily: 'Hornset, sans-serif' }}>
                   {product.name}
                 </h3>
-                <p className="text-xl text-[#2E2B26] mt-1" style={{ fontFamily: 'Hornset, sans-serif' }}>
+                <p className="text-2xl md:text-3xl text-[#2E2B26] mt-2" style={{ fontFamily: 'Hornset, sans-serif' }}>
                   ${product.price.toFixed(2)}
                 </p>
               </div>
@@ -71,14 +71,14 @@ const FeaturedCollection = () => {
           ))}
         </div>
         
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-16">
           <Link 
             href="/shop" 
-            className="inline-flex items-center hover:underline text-[#2E2B26] text-lg md:text-xl"
+            className="inline-flex items-center hover:underline text-[#2E2B26] text-xl md:text-2xl"
             style={{ fontFamily: 'Hornset, sans-serif' }}
           >
             VIEW ALL COLLECTION
-            <ArrowRight size={20} className="ml-3" />
+            <ArrowRight size={24} className="ml-3" />
           </Link>
         </div>
       </div>

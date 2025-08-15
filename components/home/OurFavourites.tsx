@@ -25,7 +25,7 @@ const OurFavourites = () => {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-[#FFFBF4] relative">
+    <section className="py-16 md:py-24 bg-[#FFFFFF] relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading with mix-blend-difference effect */}
         <h2 
@@ -54,15 +54,15 @@ const OurFavourites = () => {
                   priority
                 />
               </div>
-              <div className="mt-4 text-center">
+              <div className="mt-6 text-center">
                 <h3 
-                  className="text-xl md:text-2xl text-[#2E2B26]"
+                  className="text-2xl md:text-3xl text-[#2E2B26]"
                   style={{ fontFamily: 'Hornset, sans-serif' }}
                 >
                   {item.name}
                 </h3>
                 <p 
-                  className="text-xl text-[#2E2B26] mt-1"
+                  className="text-2xl md:text-3xl text-[#2E2B26] mt-2"
                   style={{ fontFamily: 'Hornset, sans-serif' }}
                 >
                   ${item.price.toFixed(2)}
@@ -72,14 +72,14 @@ const OurFavourites = () => {
           ))}
         </div>
         
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-16">
           <Link 
             href="/shop" 
-            className="inline-flex items-center hover:underline text-[#2E2B26] text-lg md:text-xl"
+            className="inline-flex items-center hover:underline text-[#2E2B26] text-xl md:text-2xl"
             style={{ fontFamily: 'Hornset, sans-serif' }}
           >
             Discover More Favourites
-            <ArrowRight size={20} className="ml-3" />
+            <ArrowRight size={24} className="ml-3" />
           </Link>
         </div>
       </div>

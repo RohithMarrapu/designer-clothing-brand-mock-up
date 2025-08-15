@@ -83,13 +83,13 @@ const Filters = ({
     <div className="space-y-8 p-6 bg-white rounded-xl shadow-lg border border-[#EEDEC5] transition-all hover:shadow-xl">
       {/* Header */}
       <div className="border-b border-[#EEDEC5] pb-4">
-        <h2 className="text-2xl font-bold text-black" style={{ fontFamily: 'Anton, sans-serif' }}>Filters</h2>
+        <h2 className="text-4xl text-black" style={{ fontFamily: 'Hornset, sans-serif' }}>Filters</h2>
         <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>Refine your product selection</p>
       </div>
 
       {/* Categories */}
       <div className="bg-[#FFFBF4] p-4 rounded-lg border border-[#EEDEC5] transition-all hover:shadow-sm">
-        <h3 className="text-lg font-semibold mb-4 text-black flex items-center" style={{ fontFamily: 'Anton, sans-serif' }}>
+        <h3 className="text-2xl mb-4 text-black flex items-center" style={{ fontFamily: 'Hornset, sans-serif' }}>
           <svg className="w-5 h-5 mr-2 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -128,7 +128,7 @@ const Filters = ({
 
       {/* Price Range */}
       <div className="bg-[#FFFBF4] p-4 rounded-lg border border-[#EEDEC5] transition-all hover:shadow-sm">
-        <h3 className="text-lg font-semibold mb-4 text-black flex items-center" style={{ fontFamily: 'Anton, sans-serif' }}>
+        <h3 className="text-2xl mb-4 text-black flex items-center" style={{ fontFamily: 'Hornset, sans-serif' }}>
           <svg className="w-5 h-5 mr-2 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -153,7 +153,7 @@ const Filters = ({
 
       {/* Gender */}
       <div className="bg-[#FFFBF4] p-4 rounded-lg border border-[#EEDEC5] transition-all hover:shadow-sm">
-        <h3 className="text-lg font-semibold mb-4 text-black flex items-center" style={{ fontFamily: 'Anton, sans-serif' }}>
+        <h3 className="text-2xl mb-4 text-black flex items-center" style={{ fontFamily: 'Hornset, sans-serif' }}>
           <svg className="w-5 h-5 mr-2 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>
@@ -187,7 +187,7 @@ const Filters = ({
       {/* Reset Button */}
       <Button 
         onClick={resetFilters}
-        className="w-full bg-[#EEDEC5] hover:bg-[#EEDEC5]/90 text-black font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
+        className="w-full bg-[#EEDEC5] hover:bg-[#EEDEC5]/90 text-black py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
         style={{ fontFamily: 'Anton, sans-serif' }}
       >
         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -276,7 +276,7 @@ const CollectionsPage = () => {
   }
 
   return (
-    <section className="pt-32 pb-16 md:py-24 bg-[#FFFBF4] relative">
+    <section className="pt-32 pb-16 md:py-24 bg-[#FFFFFF] relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 
           className="text-4xl md:text-8xl text-[#ffffff] relative z-10 mb-[-1.5rem] md:mb-[-2.5rem] 
