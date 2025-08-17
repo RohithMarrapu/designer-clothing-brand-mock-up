@@ -104,7 +104,7 @@ export default function Shop() {
               variant="outline"
               size="sm"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5]"
+              className="flex items-center gap-2 bg-[#252525] text-[#FFFBF4] border-[#EEDEC5]"
               style={{ fontFamily: 'Hornset, sans-serif' }}
             >
               <Filter size={16} />
@@ -116,7 +116,7 @@ export default function Shop() {
                 variant="outline"
                 size="sm"
                 onClick={() => setShowSortMenu(!showSortMenu)}
-                className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5]"
+                className="flex items-center gap-2 bg-[#252525] text-[#FFFBF4] border-[#EEDEC5]"
                 style={{ fontFamily: 'Hornset, sans-serif' }}
               >
                 <ArrowDownUp size={16} />
@@ -181,7 +181,7 @@ export default function Shop() {
                   variant="outline"
                   size="sm"
                   onClick={() => setShowSortMenu(!showSortMenu)}
-                  className="flex items-center gap-2 bg-[#EEDEC5] text-black border-[#EEDEC5]"
+                  className="flex items-center gap-2 bg-[#252525] text-[#FFFBF4] border-[#EEDEC5]"
                   style={{ fontFamily: 'Hornset, sans-serif' }}
                 >
                   <ArrowDownUp size={16} />

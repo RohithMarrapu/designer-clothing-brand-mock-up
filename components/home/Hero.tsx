@@ -85,11 +85,11 @@ const Hero = () => {
       </div>
 
       {/* Text banner — client-only marquee to prevent hydration error */}
-      <div className="w-full bg-[#E5DAC8] py-4 overflow-hidden">
+      <div className="w-full bg-[#252525] py-4 overflow-hidden">
         {mounted ? (
           <Marquee>
             <span
-              className="text-black text-xl md:text-2xl font-medium tracking-wider uppercase mx-4"
+              className="text-[#FFFBF4] text-xl md:text-2xl font-medium tracking-wider uppercase mx-4"
               suppressHydrationWarning
             >
               {marqueeText}

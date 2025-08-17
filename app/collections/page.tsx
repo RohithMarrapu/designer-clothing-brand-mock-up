@@ -376,11 +376,11 @@ const CollectionsPage = () => {
         <div className="flex justify-center mt-12">
           <Link 
             href="/shop" 
-            className="inline-flex items-center hover:underline text-[#2E2B26] text-lg md:text-xl px-6 py-3 border border-[#2E2B26] rounded-full transition-all hover:bg-[#2E2B26] hover:text-[#FFFBF4]"
+            className="inline-flex items-center hover:underline text-[#2E2B26] text-xl md:text-2xl px-8 py-4 border-2 border-[#2E2B26] rounded-full transition-all hover:bg-[#2E2B26] hover:text-[#FFFBF4]"
             style={{ fontFamily: 'Hornset, sans-serif' }}
           >
             SHOP CURRENT COLLECTION
-            <ArrowRight size={20} className="ml-3" />
+            <ArrowRight size={24} className="ml-3" />
           </Link>
         </div>
       </div>
