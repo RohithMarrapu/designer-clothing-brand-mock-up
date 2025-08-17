@@ -6,20 +6,14 @@ const FeaturedCollection = () => {
   const featuredProducts = [
     {
       id: 'dress-1',
-      name: 'Elegant Evening Dress',
-      price: 249.99,
       images: ['/feature_left.webp']
     },
     {
       id: 'dress-2',
-      name: 'Summer Floral Dress',
-      price: 189.99,
       images: ['/feature_middle.webp']
     },
     {
       id: 'dress-3',
-      name: 'Classic Black Gown',
-      price: 279.99,
       images: ['/feature_right.webp']
     }
   ]
@@ -43,31 +37,17 @@ const FeaturedCollection = () => {
         {/* Images grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative">
           {featuredProducts.map((product) => (
-            <Link 
-              href={`/shop/${product.id}`} 
-              key={product.id}
-              className="group flex flex-col"
-            >
-              <div className="relative h-[500px] w-full overflow-hidden">
-                <Image
-                  src={product.images[0]}
-                  alt={product.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
-                  style={{ objectPosition: 'center' }}
-                  priority
-                />
-              </div>
-              <div className="mt-6 text-center">
-                <h3 className="text-2xl md:text-3xl text-[#2E2B26]" style={{ fontFamily: 'Hornset, sans-serif' }}>
-                  {product.name}
-                </h3>
-                <p className="text-2xl md:text-3xl text-[#2E2B26] mt-2" style={{ fontFamily: 'Hornset, sans-serif' }}>
-                  ${product.price.toFixed(2)}
-                </p>
-              </div>
-            </Link>
+            <div className="relative h-[500px] w-full overflow-hidden">
+              <Image
+                src={product.images[0]}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover hover:scale-105 transition-transform duration-500"
+                style={{ objectPosition: 'center' }}
+                priority
+                alt="Featured Collection Image"
+              />
+            </div>
           ))}
         </div>
         

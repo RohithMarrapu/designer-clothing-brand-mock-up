@@ -6,20 +6,14 @@ const OurFavourites = () => {
   const favourites = [
     {
       id: 'favourite-1',
-      name: 'Signature Silk Dress',
-      price: 289.99,
       image: '/fav_left.webp'
     },
     {
       id: 'favourite-2',
-      name: 'Linen Tailored Blazer',
-      price: 249.99,
       image: '/fav_middle.webp'
     },
     {
       id: 'favourite-3',
-      name: 'Cashmere Evening Wrap',
-      price: 199.99,
       image: '/fav_right.webp'
     }
   ]
@@ -46,27 +40,13 @@ const OurFavourites = () => {
               <div className="relative h-[500px] w-full overflow-hidden">
                 <Image
                   src={item.image}
-                  alt={item.name}
+                  alt="Ikna Favourite Image"
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
                   style={{ objectPosition: 'center' }}
                   priority
                 />
-              </div>
-              <div className="mt-6 text-center">
-                <h3 
-                  className="text-2xl md:text-3xl text-[#2E2B26]"
-                  style={{ fontFamily: 'Hornset, sans-serif' }}
-                >
-                  {item.name}
-                </h3>
-                <p 
-                  className="text-2xl md:text-3xl text-[#2E2B26] mt-2"
-                  style={{ fontFamily: 'Hornset, sans-serif' }}
-                >
-                  ${item.price.toFixed(2)}
-                </p>
               </div>
             </div>
           ))}
