@@ -4,18 +4,9 @@ import { ArrowRight } from 'lucide-react'
 
 const OurFavourites = () => {
   const favourites = [
-    {
-      id: 'favourite-1',
-      image: '/fav_left.webp'
-    },
-    {
-      id: 'favourite-2',
-      image: '/fav_middle.webp'
-    },
-    {
-      id: 'favourite-3',
-      image: '/fav_right.webp'
-    }
+    { image: '/fav_left.webp' },
+    { image: '/fav_middle.webp' },
+    { image: '/fav_right.webp' }
   ]
 
   return (
@@ -35,15 +26,15 @@ const OurFavourites = () => {
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative">
-          {favourites.map((item) => (
-            <div key={item.id} className="group flex flex-col">
+          {favourites.map((item, index) => (
+            <div key={index} className="group flex flex-col">
               <div className="relative h-[500px] w-full overflow-hidden">
                 <Image
                   src={item.image}
-                  alt="Ikna Favourite Image"
+                  alt="Featured favourite item"
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover hover:scale-105 transition-transform duration-500"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
                   style={{ objectPosition: 'center' }}
                   priority
                 />

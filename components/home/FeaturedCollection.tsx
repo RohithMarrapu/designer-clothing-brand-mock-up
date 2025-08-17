@@ -4,18 +4,9 @@ import Link from 'next/link'
 
 const FeaturedCollection = () => {
   const featuredProducts = [
-    {
-      id: 'dress-1',
-      images: ['/feature_left.webp']
-    },
-    {
-      id: 'dress-2',
-      images: ['/feature_middle.webp']
-    },
-    {
-      id: 'dress-3',
-      images: ['/feature_right.webp']
-    }
+    { images: ['/feature_left.webp'] },
+    { images: ['/feature_middle.webp'] },
+    { images: ['/feature_right.webp'] }
   ]
 
   return (
@@ -36,17 +27,22 @@ const FeaturedCollection = () => {
         
         {/* Images grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative">
-          {featuredProducts.map((product) => (
-            <div className="relative h-[500px] w-full overflow-hidden">
-              <Image
-                src={product.images[0]}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover hover:scale-105 transition-transform duration-500"
-                style={{ objectPosition: 'center' }}
-                priority
-                alt="Featured Collection Image"
-              />
+          {featuredProducts.map((product, index) => (
+            <div 
+              key={index}
+              className="group flex flex-col"
+            >
+              <div className="relative h-[500px] w-full overflow-hidden">
+                <Image
+                  src={product.images[0]}
+                  alt="Featured collection item"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
+                  style={{ objectPosition: 'center' }}
+                  priority
+                />
+              </div>
             </div>
           ))}
         </div>
