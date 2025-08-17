@@ -39,6 +39,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'AYSEGUL IKNA | Luxury Designer Clothing',
   description: 'Discover the finest in designer fashion at ASEYAGUL IKNA',
+  other: {
+    "google-site-verification": "WEqNp0YIYdxM7fX88RsncOaOfgajeunTvoF_25jBtP4"
+  }
 };
 
 export default function RootLayout({
