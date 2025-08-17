@@ -1,6 +1,4 @@
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Facebook, Instagram, Send, Twitter } from 'lucide-react'
+import { Facebook, Instagram } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -20,7 +18,7 @@ const Footer = () => {
                 className="w-10 h-10"
               />
               <h3 
-                className="text-5xl text-black tracking-[0.05em]"
+                className="text-5xl text-black tracking-[0.08em]"
                 style={{ fontFamily: 'LostInSouth, sans-serif' }}
               >
                 AYSEGUL IKNA
@@ -35,13 +33,20 @@ const Footer = () => {
               and traditional techniques.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-black/80 hover:text-[#4a4a4a] transition-colors">
+              <a
+                href="https://www.instagram.com/aysegul.ikna/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black/80 hover:text-[#4a4a4a] transition-colors"
+              >
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-black/80 hover:text-[#4a4a4a] transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-black/80 hover:text-[#4a4a4a] transition-colors">
+              <a
+                href="https://www.facebook.com/profile.php?id=100066728011543&ref=_xav_ig_profile_page_web"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black/80 hover:text-[#4a4a4a] transition-colors"
+              >
                 <Facebook size={20} />
               </a>
             </div>
@@ -49,40 +54,40 @@ const Footer = () => {
 
           <div></div>
 
-          {/* Shop and Company - Side by side on mobile */}
+          {/* Shop and Company */}
           <div className="grid grid-cols-2 gap-8 md:gap-12 md:col-span-1 lg:col-span-1">
             {/* Quick Links */}
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
               <h3 
-                className="text-4xl mb-6 text-black tracking-[0.05em]"
-                style={{ fontFamily: 'Hornset, sans-serif' }}
+                className="text-4xl mb-6 text-black tracking-wider"
+                style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
               >
                 Shop
               </h3>
               <ul className="space-y-3">
                 <li>
                   <Link 
-                    href="/shop?gender=women" 
-                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors"
-                    style={{ fontFamily: 'Hornset, sans-serif' }}
+                    href="/shop"
+                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors tracking-wider"
+                    style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
                   >
                     Women
                   </Link>
                 </li>
                 <li>
                   <Link 
-                    href="/shop?category=accessories" 
-                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors"
-                    style={{ fontFamily: 'Hornset, sans-serif' }}
+                    href="/shop?category=accessories"
+                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors tracking-wider"
+                    style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
                   >
                     Accessories
                   </Link>
                 </li>
                 <li>
                   <Link 
-                    href="/shop" 
-                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors"
-                    style={{ fontFamily: 'Hornset, sans-serif' }}
+                    href="/shop"
+                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors tracking-wider"
+                    style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
                   >
                     New Arrivals
                   </Link>
@@ -93,26 +98,26 @@ const Footer = () => {
             {/* Company */}
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
               <h3 
-                className="text-4xl mb-6 text-black tracking-[0.05em]"
-                style={{ fontFamily: 'Hornset, sans-serif' }}
+                className="text-4xl mb-6 text-black tracking-wider"
+                style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
               >
                 Company
               </h3>
               <ul className="space-y-3">
                 <li>
                   <Link 
-                    href="/about" 
-                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors"
-                    style={{ fontFamily: 'Hornset, sans-serif' }}
+                    href="/about"
+                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors tracking-wider"
+                    style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
                   >
                     Our Story
                   </Link>
                 </li>
                 <li>
                   <Link 
-                    href="/contact" 
-                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors"
-                    style={{ fontFamily: 'Hornset, sans-serif' }}
+                    href="/contact"
+                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors tracking-wider"
+                    style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
                   >
                     Contact Us
                   </Link>
@@ -137,13 +142,19 @@ const Footer = () => {
               >
                 Curated with intention by
               </span>
-              <Image 
-                src="/rov_black.png" 
-                alt="ROV Logo"
-                width={80}
-                height={28}
-                className="h-6 w-auto"
-              />
+              <a
+                href="https://www.rovstudios.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image 
+                  src="/rov_black.png" 
+                  alt="ROV Logo"
+                  width={80}
+                  height={28}
+                  className="h-6 w-auto"
+                />
+              </a>
             </div>
           </div>
         </div>

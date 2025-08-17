@@ -10,7 +10,8 @@ export const products: Product[] = [
       "/products/1/1.webp",
       "/products/1/2.webp",
     ],
-    categories: ["dresses"],
+    // Skirt -> bottoms
+    categories: ["bottoms"],
     gender: "women",
     featured: true
   },
@@ -23,7 +24,8 @@ export const products: Product[] = [
       "/products/2/3.webp",
       "/products/2/4.webp",
     ],
-    categories: ["outerwear"],
+    // Shirting -> tops
+    categories: ["tops"],
     gender: "unisex",
     featured: true
   },
@@ -36,7 +38,8 @@ export const products: Product[] = [
       "/products/3/5.webp",
       "/products/3/6.webp"
     ],
-    categories: ["tops"],
+    // Pants -> bottoms
+    categories: ["bottoms"],
     gender: "unisex"
   },
   {
@@ -48,7 +51,8 @@ export const products: Product[] = [
       "/products/4/7.webp",
       "/products/4/8.webp",
     ],
-    categories: ["accessories"],
+    // Top -> tops
+    categories: ["tops"],
     gender: "women",
     new: true
   },
@@ -60,7 +64,8 @@ export const products: Product[] = [
     images: [
       "/products/5/Ikna Catalog.webp",
     ],
-    categories: ["bottoms"],
+    // Shirting -> tops
+    categories: ["tops"],
     gender: "men"
   },
   {
@@ -72,7 +77,8 @@ export const products: Product[] = [
       "/products/6/10.webp",
       "/products/6/11.webp",
     ],
-    categories: ["outerwear"],
+    // Shirting/outerwear -> tops
+    categories: ["tops"],
     gender: "women",
     new: true,
     featured: true
@@ -86,7 +92,8 @@ export const products: Product[] = [
       "/products/7/12.webp",
       "/products/7/13.webp",
     ],
-    categories: ["accessories"],
+    // Top -> tops
+    categories: ["tops"],
     gender: "men"
   }
 ]
@@ -110,18 +117,10 @@ export function getPriceRange(): [number, number] {
   return [min, max]; // ✅ Tuple type
 }
 
+// Only return tops/bottoms (and only those that exist in the data)
 export const getCategories = () => {
-  const categories = new Set<string>()
-  products.forEach(product => {
-    product.categories.forEach(category => categories.add(category))
-  })
-  return Array.from(categories)
-}
-
-export const getGenders = () => {
-  const genders = new Set<string>()
-  products.forEach(product => {
-    genders.add(product.gender)
-  })
-  return Array.from(genders)
+  const present = new Set<string>()
+  products.forEach(p => p.categories.forEach(c => present.add(c)))
+  const allowed = ['tops', 'bottoms']
+  return allowed.filter(c => present.has(c))
 }

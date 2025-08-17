@@ -115,7 +115,7 @@ export default function Contact() {
                     id="name"
                     placeholder="Your name"
                     {...register('name')}
-                    className={`bg-white border border-[#EEDEC5] text-black placeholder:font-hellasfun ${errors.name ? 'border-red-500' : ''}`}
+                    className={`bg-white border border-[#333333] text-black placeholder:font-hellasfun ${errors.name ? 'border-red-500' : ''}`}
                     style={{ fontFamily: 'HellasFun, sans-serif' }}
                   />
                   {errors.name && (
@@ -132,7 +132,7 @@ export default function Contact() {
                     type="email"
                     placeholder="Your email"
                     {...register('email')}
-                    className={`bg-white border border-[#EEDEC5] text-black placeholder:font-hellasfun ${errors.email ? 'border-red-500' : ''}`}
+                    className={`bg-white border border-[#333333] text-black placeholder:font-hellasfun ${errors.email ? 'border-red-500' : ''}`}
                     style={{ fontFamily: 'HellasFun, sans-serif' }}
                   />
                   {errors.email && (
@@ -149,7 +149,7 @@ export default function Contact() {
                     placeholder="Your message"
                     rows={6}
                     {...register('message')}
-                    className={`bg-white border border-[#EEDEC5] text-black placeholder:font-hellasfun ${errors.message ? 'border-red-500' : ''}`}
+                    className={`bg-white border border-[#333333] text-black placeholder:font-hellasfun ${errors.message ? 'border-red-500' : ''}`}
                     style={{ fontFamily: 'HellasFun, sans-serif' }}
                   />
                   {errors.message && (
@@ -157,15 +157,16 @@ export default function Contact() {
                   )}
                 </div>
 
+                {/* Updated Send Button */}
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto min-w-[160px] bg-[#EEDEC5] hover:bg-[#EEDEC5]/90 text-black"
+                  className="w-full sm:w-auto min-w-[160px] bg-[#252525] hover:bg-[#252525]/90 text-[#FFFBF4]"
                   style={{ fontFamily: 'Anton, sans-serif' }}
                 >
                   {isSubmitting ? (
                     <span className="flex items-center">
-                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-[#FFFBF4]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>

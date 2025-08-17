@@ -3,7 +3,7 @@
 import Filters from '@/components/shop/Filters'
 import ProductGrid from '@/components/shop/ProductGrid'
 import { Button } from '@/components/ui/button'
-import { getCategories, getGenders, getPriceRange, products } from '@/lib/data/products'
+import { getCategories, getPriceRange, products } from '@/lib/data/products'
 import { Category, FilterOptions, Gender, Product } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { ArrowDownUp, ChevronDown, Filter } from 'lucide-react'
@@ -105,7 +105,7 @@ export default function Shop() {
               size="sm"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
               className="flex items-center gap-2 bg-[#252525] text-[#FFFBF4] border-[#EEDEC5]"
-              style={{ fontFamily: 'Hornset, sans-serif' }}
+              style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
             >
               <Filter size={16} />
               Filters
@@ -117,7 +117,7 @@ export default function Shop() {
                 size="sm"
                 onClick={() => setShowSortMenu(!showSortMenu)}
                 className="flex items-center gap-2 bg-[#252525] text-[#FFFBF4] border-[#EEDEC5]"
-                style={{ fontFamily: 'Hornset, sans-serif' }}
+                style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
               >
                 <ArrowDownUp size={16} />
                 Sort
@@ -162,7 +162,6 @@ export default function Shop() {
                 filters={filters}
                 setFilters={setFilters}
                 availableCategories={getCategories() as Category[]}
-                availableGenders={getGenders() as Gender[]}
                 priceRange={getPriceRange()}
               />
             </div>
@@ -182,7 +181,7 @@ export default function Shop() {
                   size="sm"
                   onClick={() => setShowSortMenu(!showSortMenu)}
                   className="flex items-center gap-2 bg-[#252525] text-[#FFFBF4] border-[#EEDEC5]"
-                  style={{ fontFamily: 'Hornset, sans-serif' }}
+                  style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
                 >
                   <ArrowDownUp size={16} />
                   Sort

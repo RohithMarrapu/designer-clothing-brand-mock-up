@@ -1,126 +1,150 @@
 "use client"
 
-import { Button } from '@/components/ui/button'
-import { useWishlist } from '@/lib/context/WishlistContext'
-import { Heart, Minus, Plus } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { toast } from 'sonner'
+import Image from "next/image"
+import Link from "next/link"
+import { useMemo } from "react"
+import { Trash2, Heart } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { useWishlist } from "@/lib/context/WishlistContext"
+import { toast } from "sonner"
 
-export default function Wishlist() {
-  const { 
-    wishlistItems, 
-    removeFromWishlist, 
-    incrementQuantity, 
-    decrementQuantity 
-  } = useWishlist()
+const FALLBACK_IMG = "/placeholder.png" // place a placeholder in /public
 
-  const handleRemove = (productId: string) => {
-    removeFromWishlist(productId)
-    toast('Removed from wishlist')
+export default function WishlistPage() {
+  const { wishlistItems, removeFromWishlist } = useWishlist()
+
+  const hasItems = useMemo(() => (wishlistItems?.length ?? 0) > 0, [wishlistItems])
+
+  const handleRemove = (id: string) => {
+    removeFromWishlist(id)
+    toast("Removed from wishlist", {
+      style: { background: "#EEDEC5", color: "#000", border: "1px solid #EEDEC5" },
+    })
   }
 
   return (
-    <div className="bg-white pt-24 pb-16">
-
+    <div className="bg-[#FFFFFF] min-h-screen pt-32 pb-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {wishlistItems.length > 0 ? (
-          <div className="space-y-12">
-            <div className="grid grid-cols-1 gap-8">
-              {wishlistItems.map((item) => (
-                <div 
-                  key={item.id} 
-                  className="flex flex-col md:flex-row gap-6 border-b border-gray-200 pb-8"
-                >
-                  {/* Product Image */}
-                  <Link 
-                    href={`/shop/${item.id}`}
-                    className="w-full md:w-1/4 lg:w-1/5 h-64 md:h-auto relative overflow-hidden bg-gray-100"
-                  >
-                    <Image
-                      src={item.images[0]}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </Link>
-                  
-                  {/* Product Info */}
-                  <div className="flex flex-1 flex-col">
-                    <div className="mb-4">
-                      <Link href={`/shop/${item.id}`} className="hover:underline">
-                        <h2 className="text-xl font-medium mb-1 text-gray-900">{item.name}</h2>
-                      </Link>
-                      <p className="text-gray-700 mb-2">{item.price.toFixed(2)}</p>
-                      <p className="text-gray-600 text-sm">
-                        {item.description.substring(0, 120)}...
-                      </p>
-                    </div>
-                    
-                    {/* Quantity Selector */}
-                    <div className="mt-auto">
-                      <div className="flex flex-wrap gap-4 items-center justify-between">
-                        <div className="flex items-center">
-                          <button 
-                            onClick={() => decrementQuantity(item.id)}
-                            className="p-2 border border-gray-300 rounded-l-md hover:bg-gray-100"
-                            disabled={item.quantity <= 1}
-                          >
-                            <Minus size={16} className="text-gray-700" />
-                          </button>
-                          <div className="px-6 py-2 border-t border-b border-gray-300 text-center min-w-[60px] text-gray-900">
-                            {item.quantity}
-                          </div>
-                          <button 
-                            onClick={() => incrementQuantity(item.id)}
-                            className="p-2 border border-gray-300 rounded-r-md hover:bg-gray-100"
-                          >
-                            <Plus size={16} className="text-gray-700" />
-                          </button>
-                        </div>
-                        
-                        <Button 
-                          variant="ghost" 
-                          size="sm" 
-                          onClick={() => handleRemove(item.id)}
-                          className="text-gray-700 hover:text-gray-900"
-                        >
-                          <Heart className="fill-gray-700 stroke-gray-700 mr-2" size={18} />
-                          Remove
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="flex justify-center">
-              <Button 
-                asChild
-                className="px-8 bg-gray-900 hover:bg-gray-800 text-white"
-              >
-                <Link href="/shop">
-                  Continue Shopping
-                </Link>
-              </Button>
-            </div>
-          </div>
-        ) : (
-          <div className="text-center py-16">
+        <header className="mb-10">
+          <h1 className="text-2xl md:text-3xl font-medium text-gray-900">Your Wishlist</h1>
+          <p className="mt-2 text-gray-600">
+            Save the pieces you love. Buy them or remove them anytime.
+          </p>
+        </header>
+
+        {!hasItems ? (
+          <div className="text-center py-20">
             <div className="mb-6 flex justify-center">
               <Heart size={48} className="text-gray-400" />
             </div>
-            <h2 className="text-2xl font-playfair mb-4 text-gray-900">Your wishlist is empty</h2>
+            <h2 className="text-2xl mb-3 text-gray-900">Your wishlist is empty</h2>
             <p className="text-gray-600 mb-6 max-w-md mx-auto">
-              Discover our collection and save your favorite pieces for later.
+              Discover our collection and save your favorite items for later.
             </p>
             <Button asChild className="px-8 bg-gray-900 hover:bg-gray-800 text-white">
-              <Link href="/shop">
-                Explore Collection
-              </Link>
+              <Link href="/shop">Explore Collection</Link>
             </Button>
           </div>
+        ) : (
+          <>
+            {/* Magazine-style vertical list */}
+            <div className="space-y-6">
+              {wishlistItems.map((item: any) => {
+                const imgSrc = item?.images?.[0] ?? FALLBACK_IMG
+                const price = Number(item?.price ?? 0)
+
+                return (
+                  <article
+                    key={item.id}
+                    className="group relative rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition"
+                  >
+                    <div className="p-4 md:p-6">
+                      <div className="flex flex-col md:flex-row gap-5 md:gap-7">
+                        {/* Image column */}
+                        <Link
+                          href={`/shop/${item.id}`}
+                          className="w-full md:w-64 lg:w-72 shrink-0"
+                          aria-label={`Open ${item.name}`}
+                        >
+                          <div className="relative bg-[#FFFBF4] rounded-xl overflow-hidden p-3 aspect-[4/5]">
+                            <Image
+                              src={imgSrc}
+                              alt={item.name}
+                              fill
+                              className="object-contain"
+                              sizes="(max-width: 768px) 100vw, 288px"
+                              unoptimized
+                              onError={(e) => {
+                                const img = e.currentTarget as HTMLImageElement
+                                img.src = FALLBACK_IMG
+                              }}
+                            />
+                          </div>
+                        </Link>
+
+                        {/* Details column */}
+                        <div className="flex-1 flex flex-col">
+                          <div className="flex items-start justify-between gap-4">
+                            <div>
+                              <Link href={`/shop/${item.id}`} className="hover:underline">
+                                <h2 className="text-lg md:text-xl font-medium text-gray-900">
+                                  {item.name}
+                                </h2>
+                              </Link>
+                              <p className="mt-1 text-gray-900 text-base md:text-lg">
+                                ${price.toFixed(2)}
+                              </p>
+                            </div>
+
+                            {/* Inline remove (top-right) */}
+                            <button
+                              onClick={() => handleRemove(item.id)}
+                              className="rounded-full border border-gray-200 bg-white p-2 hover:bg-[#EEDEC5] transition"
+                              aria-label="Remove from wishlist"
+                            >
+                              <Trash2 size={16} className="text-gray-900" />
+                            </button>
+                          </div>
+
+                          <p className="mt-3 text-sm md:text-[15px] text-gray-600 leading-7">
+                            {item.description}
+                          </p>
+
+                          <div className="mt-5 flex flex-wrap items-center gap-3">
+                            <Button
+                              asChild
+                              className="h-10 px-5 bg-gray-900 hover:bg-gray-800 text-white rounded-md"
+                            >
+                              {/* External buy link placeholder */}
+                              <Link href="#" target="_blank" rel="noopener noreferrer">
+                                Buy Now
+                              </Link>
+                            </Button>
+
+                            <Button
+                              variant="outline"
+                              className="h-10 px-4 border-gray-300 text-white hover:bg-gray-800 rounded-md"
+                              onClick={() => handleRemove(item.id)}
+                            >
+                              <Trash2 size={16} className="mr-2" />
+                              Remove
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+
+            {/* CTA */}
+            <div className="flex justify-center mt-12">
+              <Button asChild className="px-8 bg-gray-900 hover:bg-gray-800 text-white">
+                <Link href="/shop">Add more items</Link>
+              </Button>
+            </div>
+          </>
         )}
       </div>
     </div>
