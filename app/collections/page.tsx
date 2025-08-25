@@ -38,6 +38,30 @@ const CollectionsPage = () => {
       ]
     },
     {
+      year: 'FALL 2022',
+      collections: [
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-7527.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-7529.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-7835.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-7836.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8145.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8166.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8168.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8182.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8187.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8244.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8269.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8514.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8525.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8532.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8563.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8566.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8568.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/DSC02998.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/Satin BW Pattern Dress.webp', description: 'Floral inspirations and light fabrics' },
+      ]
+    },
+    {
       year: 'FALL 2021',
       collections: [
         { title: 'Debut Collection', image: '/2021 Fall/Aria Blouse and Skirt.webp', description: 'Classic with a contemporary twist' },
@@ -63,7 +87,22 @@ const CollectionsPage = () => {
         { title: 'Debut Collection', image: '/2021 Fall/Toz Pembe Skirt and Top.webp', description: 'Classic with a contemporary twist' },
         { title: 'Debut Collection', image: '/2021 Fall/White Top.webp', description: 'Classic with a contemporary twist' },
       ]
-    }
+    },
+    {
+      year: 'WINTER 2020',
+      collections: [
+        { title: 'Look 2', image: '/2020 Winter/5S8A0265.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 3', image: '/2020 Winter/5S8A0340.webp', description: 'Elegant daytime wear' },
+        { title: 'Look 4', image: '/2020 Winter/8C6A0082 editted.webp', description: 'Modern sophistication' },
+        { title: 'Look 5', image: '/2020 Winter/8C6A0097.webp', description: 'Structured tailoring' },
+        { title: 'Look 1', image: '/2020 Winter/Bow Dress 2.webp', description: 'Bold statement pieces' },
+        { title: 'DSC06997', image: '/2020 Winter/Coat Details.webp', description: 'Urban elegance' },
+        { title: 'DSC07170', image: '/2020 Winter/Dress Details.webp', description: 'Romantic aesthetics' },
+        { title: 'DSC07230', image: '/2020 Winter/Pleaded Dress.webp', description: 'Minimalist luxury' },
+        { title: 'DSC07287', image: '/2020 Winter/Pled Dress Plead Skirt.webp', description: 'Sustainable fashion' },
+        { title: 'DSC07287', image: '/2020 Winter/Trench Coat.webp', description: 'Sustainable fashion' },
+      ]
+    },
   ]
 
   const [activeIndices, setActiveIndices] = useState<Record<string, number>>(

@@ -5,21 +5,21 @@ import Link from 'next/link'
 export default function About() {
   return (
     <div className="bg-white text-gray-900">
-      {/* Hero Section - Stacked on mobile, split on desktop */}
-      <section className="relative md:h-screen h-[120vh] flex flex-col md:flex-row mt-20">
-        {/* Left Image - Full width on mobile, 66% on desktop */}
-        <div className="relative w-full md:w-2/3 h-1/2 md:h-full">
+      {/* Hero Section - Full width without right image */}
+      <section className="relative h-[120vh] md:h-screen flex mt-20">
+        {/* Full width image and text container */}
+        <div className="relative w-full h-full">
           <Image
             src="/about_left.webp"
-            alt="AYSEGUL IKNA Designs Left"
+            alt="AYSEGUL IKNA Designs"
             fill
             className="object-cover"
             priority
           />
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
           <div className="absolute inset-0 flex items-center justify-start z-10 p-6 md:pl-12 lg:pl-24">
-            <div className="text-left space-y-4 md:space-y-6">
-              <h1 className="text-8xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-widest text-white" style={{ fontFamily: 'Hornset, sans-serif' }}>
+            <div className="text-left space-y-4 md:space-y-6 max-w-2xl">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-widest text-white" style={{ fontFamily: 'Hornset, sans-serif' }}>
                 AYSEGUL IKNA DESIGNS
               </h1>
               <div className="space-y-3 md:space-y-4" >
@@ -38,18 +38,6 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* Right Image - Full width on mobile, 34% on desktop */}
-        <div className="relative w-full md:w-1/3 h-1/2 md:h-full">
-          <Image
-            src="/ikna_pic.webp"
-            alt="AYSEGUL IKNA Portrait"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
         </div>
       </section>
 

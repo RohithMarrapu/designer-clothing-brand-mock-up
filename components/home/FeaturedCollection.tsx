@@ -22,7 +22,7 @@ const FeaturedCollection = () => {
             textShadow: '2px 2px 4px rgba(0,0,0,0.1)'
           }}
         >
-          FEATURED COLLECTION
+          THE ARCHIVE
         </h2>
         
         {/* Images grid */}

@@ -68,7 +68,8 @@ export default function Contact() {
                   ADDRESS
                 </h3>
                 <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
-                  Ponce City Market<br />
+                  Citizen Supply Showroom<br />
+                  675 Ponce De Leon Avenue<br />
                   Atlanta, GA 30308<br />
                   United States
                 </p>
@@ -80,7 +81,7 @@ export default function Contact() {
                   PHONE
                 </h3>
                 <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
-                  +1 (408) 996–1010
+                  +1 203-691-0635
                 </p>
               </div>
 
@@ -97,9 +98,10 @@ export default function Contact() {
               <div>
                 <h3 className="text-2xl mb-4" style={{ fontFamily: 'Hornset, sans-serif' }}>OPEN HOURS</h3>
                 <p className="text-neutral-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>
-                  Monday - Friday: 10am - 7pm<br />
-                  Saturday: 11am - 6pm<br />
-                  Sunday: Closed
+                  Monday - Tuesday: Closed<br />
+                  Wednesday - Thursday: 12pm - 7pm<br />
+                  Friday - Saturday: 12pm - 9pm<br />
+                  Sunday: 12pm - 6pm
                 </p>
               </div>
             </div>

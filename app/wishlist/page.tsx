@@ -1,152 +1,268 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
-import { useMemo } from "react"
-import { Trash2, Heart } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useWishlist } from "@/lib/context/WishlistContext"
-import { toast } from "sonner"
+import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
-const FALLBACK_IMG = "/placeholder.png" // place a placeholder in /public
+const CollectionsPage = () => {
+  const collectionsByYear = [
+    {
+      year: 'FALL 2023',
+      collections: [
+        { title: 'Look 2', image: '/2023 Fall/ATLSFW 22 Look 2.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 3', image: '/2023 Fall/ATLSFW 22 Look 3.webp', description: 'Elegant daytime wear' },
+        { title: 'Look 4', image: '/2023 Fall/ATLSFW 22 Look 4.webp', description: 'Modern sophistication' },
+        { title: 'Look 5', image: '/2023 Fall/ATLSFW 22 Look 5.webp', description: 'Structured tailoring' },
+        { title: 'Look 1', image: '/2023 Fall/ATLSFW 22 Look1.webp', description: 'Bold statement pieces' },
+        { title: 'DSC06997', image: '/2023 Fall/DSC06997.webp', description: 'Urban elegance' },
+        { title: 'DSC07170', image: '/2023 Fall/DSC07170.webp', description: 'Romantic aesthetics' },
+        { title: 'DSC07230', image: '/2023 Fall/DSC07230.webp', description: 'Minimalist luxury' },
+        { title: 'DSC07287', image: '/2023 Fall/DSC07287.webp', description: 'Sustainable fashion' },
+        { title: 'DSC07318', image: '/2023 Fall/DSC07318.webp', description: 'Avant-garde creations' },
+        { title: 'DSC07349', image: '/2023 Fall/DSC07349.webp', description: 'Timeless silhouettes' },
+        { title: 'DSC07363', image: '/2023 Fall/DSC07363.webp', description: 'Haute couture inspiration' },
+      ]
+    },
+    {
+      year: 'SUMMER 2023',
+      collections: [
+        { title: 'Spring/Summer 2022', image: '/2023 Summer/IMG_9312.webp', description: 'Minimalist elegance' },
+        { title: 'Spring/Summer 2022', image: '/2023 Summer/IMG_9321.webp', description: 'Minimalist elegance' },
+        { title: 'Spring/Summer 2022', image: '/2023 Summer/IMG_9339.webp', description: 'Minimalist elegance' },
+        { title: 'Spring/Summer 2022', image: '/2023 Summer/IMG_9350.webp', description: 'Minimalist elegance' },
+        { title: 'Spring/Summer 2022', image: '/2023 Summer/IMG_9376.webp', description: 'Minimalist elegance' },
+        { title: 'Spring/Summer 2022', image: '/2023 Summer/IMG_9383.webp', description: 'Minimalist elegance' },
+        { title: 'Spring/Summer 2022', image: '/2023 Summer/IMG_9391.webp', description: 'Minimalist elegance' },
+        { title: 'Spring/Summer 2022', image: '/2023 Summer/IMG_9224.webp', description: 'Minimalist elegance' },
+      ]
+    },
+    {
+      year: 'FALL 2022',
+      collections: [
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-7527.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-7529.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-7835.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-7836.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8145.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8166.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8168.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8182.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8187.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8244.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8269.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8514.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8525.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8532.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8563.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8566.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/ArtMeso-8568.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/DSC02998.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2022 Fall/Satin BW Pattern Dress.webp', description: 'Floral inspirations and light fabrics' },
+      ]
+    },
+    {
+      year: 'FALL 2021',
+      collections: [
+        { title: 'Debut Collection', image: '/2021 Fall/Aria Blouse and Skirt.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Aria Blouse.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Aria Skirt.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Black Lace Dress Back.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Black Lace Dress.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Blk Dress Back.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Blk Dress with Long Sleeves.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Blk Dress.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Fiyona Dress Back.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Fiyona Dress.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Fiyona Top with Plead Circle Dress.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Fiyona.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Laticia Dress Back.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Laticia Dress.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Long Silk Dress back.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Long Silk Dress.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/pink top.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Puff Sleeve Top Back.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Puff Sleeve Top with Circle Skirt.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Toz Pembe Skirt and Top Back v1.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/Toz Pembe Skirt and Top.webp', description: 'Classic with a contemporary twist' },
+        { title: 'Debut Collection', image: '/2021 Fall/White Top.webp', description: 'Classic with a contemporary twist' },
+      ]
+    },
+    {
+      year: 'WINTER 2020',
+      collections: [
+        { title: 'Look 2', image: '/2020 Winter/5S8A0265.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 3', image: '/2020 Winter/5S8A0340.webp', description: 'Elegant daytime wear' },
+        { title: 'Look 4', image: '/2020 Winter/8C6A0082 editted.webp', description: 'Modern sophistication' },
+        { title: 'Look 5', image: '/2020 Winter/8C6A0097.webp', description: 'Structured tailoring' },
+        { title: 'Look 1', image: '/2020 Winter/Bow Dress 2.webp', description: 'Bold statement pieces' },
+        { title: 'DSC06997', image: '/2020 Winter/Coat Details.webp', description: 'Urban elegance' },
+        { title: 'DSC07170', image: '/2020 Winter/Dress Details.webp', description: 'Romantic aesthetics' },
+        { title: 'DSC07230', image: '/2020 Winter/Pleaded Dress.webp', description: 'Minimalist luxury' },
+        { title: 'DSC07287', image: '/2020 Winter/Pled Dress Plead Skirt.webp', description: 'Sustainable fashion' },
+        { title: 'DSC07287', image: '/2020 Winter/Trench Coat.webp', description: 'Sustainable fashion' },
+      ]
+    },
+  ]
 
-export default function WishlistPage() {
-  const { wishlistItems, removeFromWishlist } = useWishlist()
+  const [activeIndices, setActiveIndices] = useState<Record<string, number>>(
+    collectionsByYear.reduce((acc, yearData) => {
+      acc[yearData.year] = 0
+      return acc
+    }, {} as Record<string, number>)
+  )
 
-  const hasItems = useMemo(() => (wishlistItems?.length ?? 0) > 0, [wishlistItems])
+  // Track viewport to decide visible slides (mobile: 1, desktop: 3)
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640) // Tailwind 'sm' breakpoint
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
-  const handleRemove = (id: string) => {
-    removeFromWishlist(id)
-    toast("Removed from wishlist", {
-      style: { background: "#EEDEC5", color: "#000", border: "1px solid #EEDEC5" },
+  const getVisibleSlides = (year: string) => {
+    const yearData = collectionsByYear.find(y => y.year === year)!
+    const currentIndex = activeIndices[year]
+    const slides = []
+    const visibleCount = isMobile ? 1 : 3
+    for (let i = 0; i < visibleCount; i++) {
+      const index = (currentIndex + i) % yearData.collections.length
+      slides.push(yearData.collections[index])
+    }
+    return slides
+  }
+
+  const getVisibleCount = () => (isMobile ? 1 : 3)
+
+  const nextSlide = (year: string) => {
+    setActiveIndices(prev => {
+      const yearData = collectionsByYear.find(y => y.year === year)!
+      return {
+        ...prev,
+        [year]: (prev[year] + 1) % yearData.collections.length
+      }
+    })
+  }
+
+  const prevSlide = (year: string) => {
+    setActiveIndices(prev => {
+      const yearData = collectionsByYear.find(y => y.year === year)!
+      return {
+        ...prev,
+        [year]: (prev[year] - 1 + yearData.collections.length) % yearData.collections.length
+      }
     })
   }
 
   return (
-    <div className="bg-[#FFFFFF] min-h-screen pt-32 pb-20">
+    <section className="pt-32 pb-16 md:py-24 bg-[#FFFFFF] relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="mb-10">
-          <h1 className="text-2xl md:text-3xl font-medium text-gray-900">Your Wishlist</h1>
-          <p className="mt-2 text-gray-600">
-            Save the pieces you love. Buy them or remove them anytime.
-          </p>
-        </header>
+        {/* Keep page heading if desired; images have no per-image title/description */}
+        <h2
+          className="text-4xl md:text-8xl text-[#ffffff] relative z-10 mb-[-1.5rem] md:mb-[-2.5rem] mix-blend-difference mt-16"
+          style={{
+            fontFamily: 'Hornset, sans-serif',
+            lineHeight: '0.8',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.1)'
+          }}
+        >
+          ARCHIVE COLLECTIONS
+        </h2>
 
-        {!hasItems ? (
-          <div className="text-center py-20">
-            <div className="mb-6 flex justify-center">
-              <Heart size={48} className="text-gray-400" />
-            </div>
-            <h2 className="text-2xl mb-3 text-gray-900">Your wishlist is empty</h2>
-            <p className="text-gray-600 mb-6 max-w-md mx-auto">
-              Discover our collection and save your favorite items for later.
-            </p>
-            <Button asChild className="px-8 bg-gray-900 hover:bg-gray-800 text-white">
-              <Link href="/shop">Explore Collection</Link>
-            </Button>
-          </div>
-        ) : (
-          <>
-            {/* Magazine-style vertical list */}
-            <div className="space-y-6">
-              {wishlistItems.map((item: any) => {
-                const imgSrc = item?.images?.[0] ?? FALLBACK_IMG
-                const price = Number(item?.price ?? 0)
+        <div className="space-y-20 mt-20">
+          {collectionsByYear.map((yearData) => {
+            const visibleCount = getVisibleCount()
+            const showNav = yearData.collections.length > visibleCount
 
-                return (
-                  <article
-                    key={item.id}
-                    className="group relative rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition"
-                  >
-                    <div className="p-4 md:p-6">
-                      <div className="flex flex-col md:flex-row gap-5 md:gap-7">
-                        {/* Image column */}
-                        <Link
-                          href={`/shop/${item.id}`}
-                          className="w-full md:w-64 lg:w-72 shrink-0"
-                          aria-label={`Open ${item.name}`}
-                        >
-                          <div className="relative bg-[#FFFBF4] rounded-xl overflow-hidden p-3 aspect-[4/5]">
-                            <Image
-                              src={imgSrc}
-                              alt={item.name}
-                              fill
-                              className="object-contain"
-                              sizes="(max-width: 768px) 100vw, 288px"
-                              unoptimized
-                              onError={(e) => {
-                                const img = e.currentTarget as HTMLImageElement
-                                img.src = FALLBACK_IMG
-                              }}
-                            />
-                          </div>
-                        </Link>
+            return (
+              <div key={yearData.year} className="space-y-8">
+                <h3
+                  className="text-3xl md:text-5xl text-[#2E2B26]"
+                  style={{ fontFamily: 'Hornset, sans-serif' }}
+                >
+                  {yearData.year}
+                </h3>
 
-                        {/* Details column */}
-                        <div className="flex-1 flex flex-col">
-                          <div className="flex items-start justify-between gap-4">
-                            <div>
-                              <Link href={`/shop/${item.id}`} className="hover:underline">
-                                <h2 className="text-lg md:text-xl font-medium text-gray-900">
-                                  {item.name}
-                                </h2>
-                              </Link>
-                              <p className="mt-1 text-gray-900 text-base md:text-lg">
-                                ${price.toFixed(2)}
-                              </p>
-                            </div>
+                <div className="relative">
+                  {showNav && (
+                    <>
+                      <button
+                        onClick={() => prevSlide(yearData.year)}
+                        className="absolute left-0 top-1/2 z-20 -translate-y-1/2 bg-white/90 hover:bg-white backdrop-blur-sm p-3 transition-all shadow-lg"
+                        aria-label={`Previous ${yearData.year} collection`}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#2E2B26">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
 
-                            {/* Inline remove (top-right) */}
-                            <button
-                              onClick={() => handleRemove(item.id)}
-                              className="rounded-full border border-gray-200 bg-white p-2 hover:bg-[#EEDEC5] transition"
-                              aria-label="Remove from wishlist"
-                            >
-                              <Trash2 size={16} className="text-gray-900" />
-                            </button>
-                          </div>
+                      <button
+                        onClick={() => nextSlide(yearData.year)}
+                        className="absolute right-0 top-1/2 z-20 -translate-y-1/2 bg-white/90 hover:bg-white backdrop-blur-sm p-3 transition-all shadow-lg"
+                        aria-label={`Next ${yearData.year} collection`}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#2E2B26">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </>
+                  )}
 
-                          <p className="mt-3 text-sm md:text-[15px] text-gray-600 leading-7">
-                            {item.description}
-                          </p>
-
-                          <div className="mt-5 flex flex-wrap items-center gap-3">
-                            <Button
-                              asChild
-                              className="h-10 px-5 bg-gray-900 hover:bg-gray-800 text-white rounded-md"
-                            >
-                              {/* External buy link placeholder */}
-                              <Link href="#" target="_blank" rel="noopener noreferrer">
-                                Buy Now
-                              </Link>
-                            </Button>
-
-                            <Button
-                              variant="outline"
-                              className="h-10 px-4 border-gray-300 text-white hover:bg-gray-800 rounded-md"
-                              onClick={() => handleRemove(item.id)}
-                            >
-                              <Trash2 size={16} className="mr-2" />
-                              Remove
-                            </Button>
-                          </div>
-                        </div>
+                  {/* 1 column on mobile, 3 columns on >= sm */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {getVisibleSlides(yearData.year).map((collection, index) => (
+                      <div
+                        key={`${yearData.year}-${index}`}
+                        className="relative h-[500px] w-full overflow-hidden"
+                      >
+                        {/* Lazy-load images; priority on first image of each year for better LCP */}
+                        <Image
+                          src={collection.image}
+                          alt={collection.title}
+                          fill
+                          className="object-cover"
+                          loading={index === 0 ? undefined : "lazy"}
+                          priority={index === 0}
+                        />
                       </div>
-                    </div>
-                  </article>
-                )
-              })}
-            </div>
+                    ))}
+                  </div>
 
-            {/* CTA */}
-            <div className="flex justify-center mt-12">
-              <Button asChild className="px-8 bg-gray-900 hover:bg-gray-800 text-white">
-                <Link href="/shop">Add more items</Link>
-              </Button>
-            </div>
-          </>
-        )}
+                  {showNav && (
+                    <div className="flex justify-center mt-6 space-x-2">
+                      {yearData.collections.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setActiveIndices(prev => ({
+                            ...prev,
+                            [yearData.year]: index
+                          }))}
+                          className={`w-3 h-3 ${activeIndices[yearData.year] === index ? 'bg-[#2E2B26]' : 'bg-[#2E2B26]/30'}`}
+                          aria-label={`View ${yearData.year} collection ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/shop"
+            className="inline-flex items-center hover:underline text-[#2E2B26] text-xl md:text-2xl px-8 py-4 border-2 border-[#2E2B26] rounded-full transition-all hover:bg-[#2E2B26] hover:text-[#FFFBF4]"
+            style={{ fontFamily: 'Hornset, sans-serif' }}
+          >
+            SHOP CURRENT COLLECTION
+            <ArrowRight size={24} className="ml-3" />
+          </Link>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
+
+export default CollectionsPage
