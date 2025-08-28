@@ -8,6 +8,36 @@ import { useState } from 'react'
 const CollectionsPage = () => {
   const collectionsByYear = [
     {
+      year: 'FALL 2024',
+      collections: [
+        { title: 'Look 2', image: '/2024 Fall/DSC_4663 (1)_23_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC_5203 (1)_11_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC_5282 (1)_22_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC07791 (1)_31_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08100 (1)_21_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08154_15_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08158_26_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08253_14_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08275_13_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08277 (1)_10_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08296 (1)_25_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08418_9_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08446_30_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08529_29_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08573_28_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08583_24_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08638_12_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08650_20_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08732_19_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/DSC08778_27_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/REKA 4 (1)_18_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/REKA 5 (2)_17_11zon.webp', description: 'Floral inspirations and light fabrics' },
+        { title: 'Look 2', image: '/2024 Fall/REKA 11 (3)_16_11zon.webp', description: 'Floral inspirations and light fabrics' },
+
+
+      ]
+    },
+    {
       year: 'FALL 2023',
       collections: [
         { title: 'Look 2', image: '/2023 Fall/ATLSFW 22 Look 2.webp', description: 'Floral inspirations and light fabrics' },
