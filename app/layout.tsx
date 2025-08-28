@@ -38,10 +38,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'AYSEGUL IKNA | Luxury Designer Clothing',
+  title: 'AYSEGUL IKNA',
   description: 'Discover the finest in designer fashion at ASEYAGUL IKNA',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/favicon.ico', // Next.js will automatically inject this
   },
   other: {
     "google-site-verification": "WEqNp0YIYdxM7fX88RsncOaOfgajeunTvoF_25jBtP4"
@@ -55,9 +55,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={nanumGothicCoding.variable}>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
       <body className={`${playfair.variable} ${inter.variable} font-mono`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <WishlistProvider>
