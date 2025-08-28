@@ -23,7 +23,7 @@ export default function CartPage() {
   const handleRemove = (id: string) => {
     removeFromCart(id)
     toast("Removed from cart", {
-      style: { background: "#EEDEC5", color: "#000", border: "1px solid #EEDEC5" },
+      style: { background: "#252525", color: "#FFFBF4" },
     })
   }
 
@@ -40,11 +40,13 @@ export default function CartPage() {
             <div className="mb-6 flex justify-center">
               <ShoppingBag size={48} className="text-gray-400" />
             </div>
-            <h2 className="text-2xl mb-3 text-gray-900">Your cart is empty</h2>
-            <p className="text-gray-600 mb-6 max-w-md mx-auto">
+            <h2 className="text-2xl mb-3 text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>
+              Your cart is empty
+            </h2>
+            <p className="text-gray-600 mb-6 max-w-md mx-auto" style={{ fontFamily: 'HellasFun, sans-serif' }}>
               Add items to your cart and they will appear here.
             </p>
-            <Button asChild className="px-8 bg-gray-900 hover:bg-gray-800 text-white">
+            <Button asChild className="px-8 bg-gray-900 hover:bg-gray-800 text-white text-base text-2xl" style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}>
               <Link href="/shop">Continue Shopping</Link>
             </Button>
           </div>
@@ -53,33 +55,35 @@ export default function CartPage() {
             {/* Mobile Order summary - shown first on mobile */}
             <div className="lg:hidden">
               <div className="rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm p-6 mb-6">
-                <h2 className="text-xl font-medium text-gray-900 mb-6">Order Summary</h2>
+                <h2 className="text-xl font-medium text-gray-900 mb-6" style={{ fontFamily: 'NATS, sans-serif' }}>
+                  Order Summary
+                </h2>
                 
                 <div className="space-y-4">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Subtotal</span>
-                    <span className="text-gray-900">${subtotal.toFixed(2)}</span>
+                    <span className="text-gray-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>Subtotal</span>
+                    <span className="text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>${subtotal.toFixed(2)}</span>
                   </div>
                   
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Shipping</span>
-                    <span className="text-gray-900">$0.00</span>
+                    <span className="text-gray-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>Shipping</span>
+                    <span className="text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>$0.00</span>
                   </div>
                   
                   <div className="border-t border-gray-200 pt-4 mt-4">
                     <div className="flex justify-between text-lg font-medium">
-                      <span className="text-gray-900">Total</span>
-                      <span className="text-gray-900">${subtotal.toFixed(2)}</span>
+                      <span className="text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>Total</span>
+                      <span className="text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>${subtotal.toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
 
-                <Button className="w-full mt-6 h-12 bg-gray-900 hover:bg-gray-800 text-white">
+                <Button className="w-full mt-6 h-12 bg-gray-900 hover:bg-gray-800 text-white text-base" style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}>
                   Proceed to Checkout
                 </Button>
 
                 <div className="flex justify-center mt-6">
-                  <Button asChild variant="link" className="text-gray-600 hover:text-gray-900">
+                  <Button asChild variant="link" className="text-gray-600 hover:text-gray-900" style={{ fontFamily: 'LostInSouth, sans-serif' }}>
                     <Link href="/shop">Continue Shopping</Link>
                   </Button>
                 </div>
@@ -100,11 +104,9 @@ export default function CartPage() {
                   >
                     <div className="p-4 md:p-6">
                       <div className="flex flex-col md:flex-row gap-5 md:gap-7">
-                        {/* Image column */}
-                        <Link
-                          href={`/shop/${item.id}`}
+                        {/* Image column - No longer a link */}
+                        <div
                           className="w-full md:w-64 lg:w-72 shrink-0"
-                          aria-label={`Open ${item.name}`}
                         >
                           <div className="relative bg-[#FFFBF4] rounded-xl overflow-hidden p-3 aspect-[4/5]">
                             <Image
@@ -120,18 +122,17 @@ export default function CartPage() {
                               }}
                             />
                           </div>
-                        </Link>
+                        </div>
 
                         {/* Details column */}
                         <div className="flex-1 flex flex-col">
                           <div className="flex items-start justify-between gap-4">
                             <div>
-                              <Link href={`/shop/${item.id}`} className="hover:underline">
-                                <h2 className="text-lg md:text-xl font-medium text-gray-900">
-                                  {item.name}
-                                </h2>
-                              </Link>
-                              <p className="mt-1 text-gray-900 text-base md:text-lg">
+                              {/* Product name - No longer a link */}
+                              <h2 className="text-xl md:text-2xl font-medium text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>
+                                {item.name}
+                              </h2>
+                              <p className="mt-1 text-gray-900 text-lg md:text-xl" style={{ fontFamily: 'NATS, sans-serif' }}>
                                 ${price.toFixed(2)}
                               </p>
                             </div>
@@ -146,7 +147,7 @@ export default function CartPage() {
                             </button>
                           </div>
 
-                          <p className="mt-3 text-sm md:text-[15px] text-gray-600 leading-7">
+                          <p className="mt-3 text-base md:text-lg text-gray-600 leading-7" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                             {item.description}
                           </p>
 
@@ -160,7 +161,7 @@ export default function CartPage() {
                               >
                                 <Minus size={16} className="text-gray-900" />
                               </button>
-                              <span className="px-3 py-1 text-gray-900">{item.quantity}</span>
+                              <span className="px-3 py-1 text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>{item.quantity}</span>
                               <button
                                 onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
                                 className="p-2 hover:bg-gray-100 transition"
@@ -170,7 +171,7 @@ export default function CartPage() {
                               </button>
                             </div>
 
-                            <div className="text-lg font-medium text-gray-900">
+                            <div className="text-lg font-medium text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>
                               ${totalPrice.toFixed(2)}
                             </div>
                           </div>
@@ -185,33 +186,35 @@ export default function CartPage() {
             {/* Desktop Order summary - hidden on mobile */}
             <div className="hidden lg:block lg:col-span-1">
               <div className="sticky top-32 rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm p-6">
-                <h2 className="text-xl font-medium text-gray-900 mb-6">Order Summary</h2>
+                <h2 className="text-xl font-medium text-gray-900 mb-6" style={{ fontFamily: 'NATS, sans-serif' }}>
+                  Order Summary
+                </h2>
                 
                 <div className="space-y-4">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Subtotal</span>
-                    <span className="text-gray-900">${subtotal.toFixed(2)}</span>
+                    <span className="text-gray-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>Subtotal</span>
+                    <span className="text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>${subtotal.toFixed(2)}</span>
                   </div>
                   
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Shipping</span>
-                    <span className="text-gray-900">$0.00</span>
+                    <span className="text-gray-600" style={{ fontFamily: 'HellasFun, sans-serif' }}>Shipping</span>
+                    <span className="text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>$0.00</span>
                   </div>
                   
                   <div className="border-t border-gray-200 pt-4 mt-4">
                     <div className="flex justify-between text-lg font-medium">
-                      <span className="text-gray-900">Total</span>
-                      <span className="text-gray-900">${subtotal.toFixed(2)}</span>
+                      <span className="text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>Total</span>
+                      <span className="text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>${subtotal.toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
 
-                <Button className="w-full mt-6 h-12 bg-gray-900 hover:bg-gray-800 text-white">
+                <Button className="w-full mt-6 h-12 bg-gray-900 hover:bg-gray-800 text-white text-base" style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}>
                   Proceed to Checkout
                 </Button>
 
                 <div className="flex justify-center mt-6">
-                  <Button asChild variant="link" className="text-gray-600 hover:text-gray-900">
+                  <Button asChild variant="link" className="text-gray-600 hover:text-gray-900" style={{ fontFamily: 'LostInSouth, sans-serif' }}>
                     <Link href="/shop">Continue Shopping</Link>
                   </Button>
                 </div>

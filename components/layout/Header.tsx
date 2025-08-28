@@ -144,33 +144,6 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
-            {/* Mobile-only cart and wishlist links */}
-            <Link
-              href="/wishlist"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="px-4 py-3 text-lg font-bold tracking-wide text-black/80 hover:text-[#4a4a4a] transition-colors flex items-center"
-              style={{ fontFamily: 'NATS, sans-serif' }}
-            >
-              Wishlist
-              {wishlistItems.length > 0 && (
-                <span className="ml-2 inline-flex items-center justify-center w-6 h-6 text-sm font-bold text-white bg-[#4a4a4a] rounded-full">
-                  {wishlistItems.length}
-                </span>
-              )}
-            </Link>
-            <Link
-              href="/cart"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="px-4 py-3 text-lg font-bold tracking-wide text-black/80 hover:text-[#4a4a4a] transition-colors flex items-center"
-              style={{ fontFamily: 'NATS, sans-serif' }}
-            >
-              Cart
-              {cartItems.length > 0 && (
-                <span className="ml-2 inline-flex items-center justify-center w-6 h-6 text-sm font-bold text-white bg-[#4a4a4a] rounded-full">
-                  {cartItems.reduce((total, item) => total + item.quantity, 0)}
-                </span>
-              )}
-            </Link>
           </div>
         </nav>
       )}

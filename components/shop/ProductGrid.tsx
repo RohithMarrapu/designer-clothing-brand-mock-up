@@ -32,12 +32,12 @@ const ProductGrid = ({ products, headerOffsetPx = 112 }: ProductGridProps) => {
     if (isInWishlist(product.id)) {
       removeFromWishlist(product.id)
       toast('Removed from wishlist', {
-        style: { background: '#EEDEC5', color: '#000', border: '1px solid #EEDEC5' }
+        style: { background: "#252525", color: "#FFFBF4" },
       })
     } else {
       addToWishlist(product)
       toast('Added to wishlist', {
-        style: { background: '#EEDEC5', color: '#000', border: '1px solid #EEDEC5' }
+        style: { background: "#252525", color: "#FFFBF4" },
       })
     }
   }
@@ -47,7 +47,7 @@ const ProductGrid = ({ products, headerOffsetPx = 112 }: ProductGridProps) => {
     e.stopPropagation()
     addToCart(product, 1)
     toast('Added to cart', {
-      style: { background: '#EEDEC5', color: '#000', border: '1px solid #EEDEC5' }
+      style: { background: "#252525", color: "#FFFBF4" },
     })
   }
 

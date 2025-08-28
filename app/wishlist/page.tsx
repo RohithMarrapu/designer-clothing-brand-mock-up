@@ -20,14 +20,14 @@ export default function WishlistPage() {
   const handleRemove = (id: string) => {
     removeFromWishlist(id)
     toast("Removed from wishlist", {
-      style: { background: "#EEDEC5", color: "#000", border: "1px solid #EEDEC5" },
+      style: { background: "#252525", color: "#FFFBF4" },
     })
   }
 
   const handleAddToCart = (item: any) => {
     addToCart(item, 1)
     toast("Added to cart", {
-      style: { background: "#EEDEC5", color: "#000", border: "1px solid #EEDEC5" },
+      style: { background: "#252525", color: "#FFFBF4" },
     })
   }
 
@@ -39,11 +39,13 @@ export default function WishlistPage() {
             <div className="mb-6 flex justify-center">
               <Heart size={48} className="text-gray-400" />
             </div>
-            <h2 className="text-2xl mb-3 text-gray-900">Your wishlist is empty</h2>
-            <p className="text-gray-600 mb-6 max-w-md mx-auto">
+            <h2 className="text-2xl mb-3 text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>
+              Your wishlist is empty
+            </h2>
+            <p className="text-gray-600 mb-6 max-w-md mx-auto" style={{ fontFamily: 'HellasFun, sans-serif' }}>
               Discover our collection and save your favorite items for later.
             </p>
-            <Button asChild className="px-8 bg-gray-900 hover:bg-gray-800 text-white">
+            <Button asChild className="px-8 bg-gray-900 hover:bg-gray-800 text-white text-base text-2xl" style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}>
               <Link href="/shop">Explore Collection</Link>
             </Button>
           </div>
@@ -89,11 +91,11 @@ export default function WishlistPage() {
                           <div className="flex items-start justify-between gap-4">
                             <div>
                               <Link href={`/shop/${item.id}`} className="hover:underline">
-                                <h2 className="text-lg md:text-xl font-medium text-gray-900">
+                                <h2 className="text-xl md:text-2xl font-medium text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>
                                   {item.name}
                                 </h2>
                               </Link>
-                              <p className="mt-1 text-gray-900 text-base md:text-lg">
+                              <p className="mt-1 text-gray-900 text-lg md:text-xl" style={{ fontFamily: 'NATS, sans-serif' }}>
                                 ${price.toFixed(2)}
                               </p>
                             </div>
@@ -108,14 +110,15 @@ export default function WishlistPage() {
                             </button>
                           </div>
 
-                          <p className="mt-3 text-sm md:text-[15px] text-gray-600 leading-7">
+                          <p className="mt-3 text-base md:text-lg text-gray-600 leading-7" style={{ fontFamily: 'HellasFun, sans-serif' }}>
                             {item.description}
                           </p>
 
                           <div className="mt-5 flex flex-wrap items-center gap-3">
                             <Button
                               onClick={() => handleAddToCart(item)}
-                              className="h-10 px-5 bg-gray-900 hover:bg-gray-800 text-white rounded-md"
+                              className="h-11 px-6 bg-gray-900 hover:bg-gray-800 text-white text-base text-2xl"
+                              style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}
                             >
                               Add to Cart
                             </Button>
@@ -130,7 +133,7 @@ export default function WishlistPage() {
 
             {/* CTA */}
             <div className="flex justify-center mt-12">
-              <Button asChild className="px-8 bg-gray-900 hover:bg-gray-800 text-white">
+              <Button asChild className="px-8 bg-gray-900 hover:bg-gray-800 text-white text-base text-2xl" style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}>
                 <Link href="/shop">Add more items</Link>
               </Button>
             </div>
