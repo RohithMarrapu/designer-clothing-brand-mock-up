@@ -6,18 +6,27 @@ import { useMemo } from "react"
 import { Trash2, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useWishlist } from "@/lib/context/WishlistContext"
+import { useCart } from "@/lib/context/CartContext"
 import { toast } from "sonner"
 
 const FALLBACK_IMG = "/placeholder.png" // place a placeholder in /public
 
 export default function WishlistPage() {
   const { wishlistItems, removeFromWishlist } = useWishlist()
+  const { addToCart } = useCart()
 
   const hasItems = useMemo(() => (wishlistItems?.length ?? 0) > 0, [wishlistItems])
 
   const handleRemove = (id: string) => {
     removeFromWishlist(id)
     toast("Removed from wishlist", {
+      style: { background: "#EEDEC5", color: "#000", border: "1px solid #EEDEC5" },
+    })
+  }
+
+  const handleAddToCart = (item: any) => {
+    addToCart(item, 1)
+    toast("Added to cart", {
       style: { background: "#EEDEC5", color: "#000", border: "1px solid #EEDEC5" },
     })
   }
@@ -105,22 +114,10 @@ export default function WishlistPage() {
 
                           <div className="mt-5 flex flex-wrap items-center gap-3">
                             <Button
-                              asChild
+                              onClick={() => handleAddToCart(item)}
                               className="h-10 px-5 bg-gray-900 hover:bg-gray-800 text-white rounded-md"
                             >
-                              {/* External buy link placeholder */}
-                              <Link href="#" target="_blank" rel="noopener noreferrer">
-                                Buy Now
-                              </Link>
-                            </Button>
-
-                            <Button
-                              variant="outline"
-                              className="h-10 px-4 border-gray-300 text-white hover:bg-gray-800 rounded-md"
-                              onClick={() => handleRemove(item.id)}
-                            >
-                              <Trash2 size={16} className="mr-2" />
-                              Remove
+                              Add to Cart
                             </Button>
                           </div>
                         </div>

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useWishlist } from '@/lib/context/WishlistContext'
+import { useCart } from '@/lib/context/CartContext'
 import { Product } from '@/lib/types'
 import { Heart, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -19,6 +20,7 @@ const FALLBACK_IMG = '/placeholder.png' // ensure this exists in /public
 
 const ProductGrid = ({ products, headerOffsetPx = 112 }: ProductGridProps) => {
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
+  const { addToCart } = useCart()
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -38,6 +40,15 @@ const ProductGrid = ({ products, headerOffsetPx = 112 }: ProductGridProps) => {
         style: { background: '#EEDEC5', color: '#000', border: '1px solid #EEDEC5' }
       })
     }
+  }
+
+  const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+    e.preventDefault()
+    e.stopPropagation()
+    addToCart(product, 1)
+    toast('Added to cart', {
+      style: { background: '#EEDEC5', color: '#000', border: '1px solid #EEDEC5' }
+    })
   }
 
   const openProductModal = (product: Product) => {
@@ -271,8 +282,16 @@ const ProductGrid = ({ products, headerOffsetPx = 112 }: ProductGridProps) => {
                   </p>
 
                   <div className="mt-auto space-y-2">
-                    <button className="w-full bg-black text-white py-2.5 px-5 hover:bg-gray-800 transition-colors rounded-md text-sm" style={{ fontFamily: 'HellasFun, sans-serif' }}>
-                      Buy Now
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleAddToCart(e, selectedProduct)
+                        closeProductModal()
+                      }}
+                      className="w-full bg-black text-white py-2.5 px-5 hover:bg-gray-800 transition-colors rounded-md text-sm" 
+                      style={{ fontFamily: 'HellasFun, sans-serif' }}
+                    >
+                      Add to Cart
                     </button>
 
                     <button

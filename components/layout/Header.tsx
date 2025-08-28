@@ -1,8 +1,9 @@
 "use client"
 
 import { useWishlist } from '@/lib/context/WishlistContext'
+import { useCart } from '@/lib/context/CartContext'
 import { cn } from '@/lib/utils'
-import { Heart, Menu, X } from 'lucide-react'
+import { Heart, Menu, X, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -12,6 +13,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const { wishlistItems } = useWishlist()
+  const { cartItems } = useCart()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +71,7 @@ const Header = () => {
           </div>
 
           {/* Right Icons */}
-          <div className="flex items-center ml-auto">
+          <div className="flex items-center ml-auto space-x-2">
             <Link 
               href="/wishlist" 
               className="relative p-2 text-black/80 hover:text-[#4a4a4a] transition-colors"
@@ -81,6 +83,21 @@ const Header = () => {
                   style={{ fontFamily: 'NATS, sans-serif' }}
                 >
                   {wishlistItems.length}
+                </span>
+              )}
+            </Link>
+            
+            <Link 
+              href="/cart" 
+              className="relative p-2 text-black/80 hover:text-[#4a4a4a] transition-colors"
+            >
+              <ShoppingBag size={24} />
+              {cartItems.length > 0 && (
+                <span 
+                  className="absolute top-0 right-0 inline-flex items-center justify-center w-5 h-5 text-sm font-bold text-white bg-[#4a4a4a] rounded-full"
+                  style={{ fontFamily: 'NATS, sans-serif' }}
+                >
+                  {cartItems.reduce((total, item) => total + item.quantity, 0)}
                 </span>
               )}
             </Link>
@@ -127,6 +144,33 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
+            {/* Mobile-only cart and wishlist links */}
+            <Link
+              href="/wishlist"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-4 py-3 text-lg font-bold tracking-wide text-black/80 hover:text-[#4a4a4a] transition-colors flex items-center"
+              style={{ fontFamily: 'NATS, sans-serif' }}
+            >
+              Wishlist
+              {wishlistItems.length > 0 && (
+                <span className="ml-2 inline-flex items-center justify-center w-6 h-6 text-sm font-bold text-white bg-[#4a4a4a] rounded-full">
+                  {wishlistItems.length}
+                </span>
+              )}
+            </Link>
+            <Link
+              href="/cart"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-4 py-3 text-lg font-bold tracking-wide text-black/80 hover:text-[#4a4a4a] transition-colors flex items-center"
+              style={{ fontFamily: 'NATS, sans-serif' }}
+            >
+              Cart
+              {cartItems.length > 0 && (
+                <span className="ml-2 inline-flex items-center justify-center w-6 h-6 text-sm font-bold text-white bg-[#4a4a4a] rounded-full">
+                  {cartItems.reduce((total, item) => total + item.quantity, 0)}
+                </span>
+              )}
+            </Link>
           </div>
         </nav>
       )}
