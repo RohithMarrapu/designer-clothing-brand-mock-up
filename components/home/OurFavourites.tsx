@@ -45,7 +45,7 @@ const OurFavourites = () => {
         
         <div className="flex justify-center mt-16">
           <Link 
-            href="/shop" 
+            href="/collections" 
             className="inline-flex items-center hover:underline text-[#2E2B26] text-xl md:text-2xl"
             style={{ fontFamily: 'Hornset, sans-serif' }}
           >

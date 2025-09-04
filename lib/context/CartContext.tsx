@@ -14,6 +14,7 @@ interface CartItem {
 
 interface CartContextType {
   cartItems: CartItem[]
+  recentOrder: CartItem[]
   addToCart: (item: Omit<CartItem, 'quantity'>, quantity?: number) => void
   removeFromCart: (id: string) => void
   updateQuantity: (id: string, quantity: number) => void
@@ -24,13 +25,21 @@ const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
+  const [recentOrder, setRecentOrder] = useState<CartItem[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     const savedCart = localStorage.getItem('cart')
+    const savedRecentOrder = localStorage.getItem('recentOrder')
+    
     if (savedCart) {
       setCartItems(JSON.parse(savedCart))
     }
+    
+    if (savedRecentOrder) {
+      setRecentOrder(JSON.parse(savedRecentOrder))
+    }
+    
     setIsLoaded(true)
   }, [])
 
@@ -39,6 +48,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
       localStorage.setItem('cart', JSON.stringify(cartItems))
     }
   }, [cartItems, isLoaded])
+
+  useEffect(() => {
+    if (isLoaded) {
+      localStorage.setItem('recentOrder', JSON.stringify(recentOrder))
+    }
+  }, [recentOrder, isLoaded])
 
   const addToCart = (item: Omit<CartItem, 'quantity'>, quantity: number = 1) => {
     setCartItems(prev => {
@@ -72,6 +87,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }
 
   const clearCart = () => {
+    // Save the current cart as recent order before clearing
+    setRecentOrder([...cartItems])
     setCartItems([])
   }
 
@@ -79,6 +96,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     <CartContext.Provider
       value={{
         cartItems,
+        recentOrder,
         addToCart,
         removeFromCart,
         updateQuantity,

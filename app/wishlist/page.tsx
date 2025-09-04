@@ -6,14 +6,12 @@ import { useMemo } from "react"
 import { Trash2, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useWishlist } from "@/lib/context/WishlistContext"
-import { useCart } from "@/lib/context/CartContext"
 import { toast } from "sonner"
 
 const FALLBACK_IMG = "/placeholder.png" // place a placeholder in /public
 
 export default function WishlistPage() {
   const { wishlistItems, removeFromWishlist } = useWishlist()
-  const { addToCart } = useCart()
 
   const hasItems = useMemo(() => (wishlistItems?.length ?? 0) > 0, [wishlistItems])
 
@@ -24,11 +22,12 @@ export default function WishlistPage() {
     })
   }
 
-  const handleAddToCart = (item: any) => {
-    addToCart(item, 1)
-    toast("Added to cart", {
+  const handleBuyNow = (item: any) => {
+    toast("", {
       style: { background: "#252525", color: "#FFFBF4" },
     })
+    // Open external link in new tab
+    window.open(item.externalLink, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -65,11 +64,7 @@ export default function WishlistPage() {
                     <div className="p-4 md:p-6">
                       <div className="flex flex-col md:flex-row gap-5 md:gap-7">
                         {/* Image column */}
-                        <Link
-                          href={`/shop/${item.id}`}
-                          className="w-full md:w-64 lg:w-72 shrink-0"
-                          aria-label={`Open ${item.name}`}
-                        >
+                        <div className="w-full md:w-64 lg:w-72 shrink-0 cursor-pointer" onClick={() => handleBuyNow(item)}>
                           <div className="relative bg-[#FFFBF4] rounded-xl overflow-hidden p-3 aspect-[4/5]">
                             <Image
                               src={imgSrc}
@@ -84,17 +79,15 @@ export default function WishlistPage() {
                               }}
                             />
                           </div>
-                        </Link>
+                        </div>
 
                         {/* Details column */}
                         <div className="flex-1 flex flex-col">
                           <div className="flex items-start justify-between gap-4">
                             <div>
-                              <Link href={`/shop/${item.id}`} className="hover:underline">
-                                <h2 className="text-xl md:text-2xl font-medium text-gray-900" style={{ fontFamily: 'NATS, sans-serif' }}>
-                                  {item.name}
-                                </h2>
-                              </Link>
+                              <h2 className="text-xl md:text-2xl font-medium text-gray-900 cursor-pointer" onClick={() => handleBuyNow(item)} style={{ fontFamily: 'NATS, sans-serif' }}>
+                                {item.name}
+                              </h2>
                               <p className="mt-1 text-gray-900 text-lg md:text-xl" style={{ fontFamily: 'NATS, sans-serif' }}>
                                 ${price.toFixed(2)}
                               </p>
@@ -116,11 +109,11 @@ export default function WishlistPage() {
 
                           <div className="mt-5 flex flex-wrap items-center gap-3">
                             <Button
-                              onClick={() => handleAddToCart(item)}
+                              onClick={() => handleBuyNow(item)}
                               className="h-11 px-6 bg-gray-900 hover:bg-gray-800 text-white text-base text-2xl"
                               style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}
                             >
-                              Add to Cart
+                              Buy Now
                             </Button>
                           </div>
                         </div>

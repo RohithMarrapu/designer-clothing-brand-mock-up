@@ -13,11 +13,12 @@ export const products: Product[] = [
     // Skirt -> bottoms
     categories: ["bottoms"],
     gender: "women",
-    featured: true
+    featured: true,
+    externalLink: "https://www.aysegulikna.site/product/recycled-quilted-circle-skirt/OYQVDWMYADEPXDQV6WLMCPAF?cs=true&cst=custom"
   },
   {
     id: "prod-002",
-    name: "Custom Designed Recycled Men’s Shirting",
+    name: "Custom Designed Recycled Men's Shirting",
     description: "Unique men's shirt made from upcycled fabrics, featuring custom quilted accents for modern flair.",
     price: 169.00,
     images: [
@@ -27,7 +28,8 @@ export const products: Product[] = [
     // Shirting -> tops
     categories: ["tops"],
     gender: "unisex",
-    featured: true
+    featured: true,
+    externalLink: "https://www.aysegulikna.site/product/custom-designed-recycled-men-s-shirting/ZFQWYDYNWTYJFCQ2V74DWKLN?cs=true&cst=custom"
   },
   {
     id: "prod-003",
@@ -40,7 +42,8 @@ export const products: Product[] = [
     ],
     // Pants -> bottoms
     categories: ["bottoms"],
-    gender: "unisex"
+    gender: "unisex",
+    externalLink: "https://www.aysegulikna.site/product/recycled-quilted-circle-pants/CKUTZXUDOZSTSDX4ZTZCWTI4?cs=true&cst=custom"
   },
   {
     id: "prod-004",
@@ -54,11 +57,12 @@ export const products: Product[] = [
     // Top -> tops
     categories: ["tops"],
     gender: "women",
-    new: true
+    new: true,
+    externalLink: "https://www.aysegulikna.site/product/recycled-quilted-top/ODRBKXTPI6WDAEUGUCKM76CK?cs=true&cst=custom"
   },
   {
     id: "prod-005",
-    name: "Custom Designed Recycled Men’s Shirting",
+    name: "Custom Designed Recycled Men's Shirting",
     description: "Tailored men's shirt made from repurposed fabrics, highlighted by exclusive quilted patterns.",
     price: 169.00,
     images: [
@@ -66,7 +70,8 @@ export const products: Product[] = [
     ],
     // Shirting -> tops
     categories: ["tops"],
-    gender: "men"
+    gender: "men",
+    externalLink: "https://www.aysegulikna.site/product/custom-designed-recycled-men-s-shirting/T4ZUYAXEDUP5TCME5RW4FDMB?cs=true&cst=custom"
   },
   {
     id: "prod-006",
@@ -81,7 +86,8 @@ export const products: Product[] = [
     categories: ["tops"],
     gender: "women",
     new: true,
-    featured: true
+    featured: true,
+    externalLink: "https://www.aysegulikna.site/product/custom-designed-heart-shirting/ZLGOVLKQC5NAFY6HYB4YQAJI?cs=true&cst=custom"
   },
   {
     id: "prod-007",
@@ -94,7 +100,8 @@ export const products: Product[] = [
     ],
     // Top -> tops
     categories: ["tops"],
-    gender: "men"
+    gender: "men",
+    externalLink: "https://www.aysegulikna.site/product/recycled-quilted-top/QSJRH6CBMNYNPPRKELAGZTNC?cs=true&cst=custom"
   }
 ]
 

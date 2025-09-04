@@ -11,6 +11,7 @@ export interface Product {
   gender: Gender
   featured?: boolean
   new?: boolean
+  externalLink: string;
 }
 
 export interface FilterOptions {

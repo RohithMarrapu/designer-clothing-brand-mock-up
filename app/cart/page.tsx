@@ -7,11 +7,13 @@ import { Trash2, Plus, Minus, ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/lib/context/CartContext"
 import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 const FALLBACK_IMG = "/placeholder.png"
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, updateQuantity } = useCart()
+  const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart()
+  const router = useRouter()
 
   const hasItems = useMemo(() => (cartItems?.length ?? 0) > 0, [cartItems])
   
@@ -30,6 +32,13 @@ export default function CartPage() {
   const handleQuantityChange = (id: string, newQuantity: number) => {
     if (newQuantity < 1) return
     updateQuantity(id, newQuantity)
+  }
+
+  const handleCheckout = () => {
+    // In a real app, you would process payment here
+    // For this example, we'll just clear the cart and redirect
+    clearCart()
+    router.push("/thank-you")
   }
 
   return (
@@ -78,7 +87,11 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <Button className="w-full mt-6 h-12 bg-gray-900 hover:bg-gray-800 text-white text-base" style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}>
+                <Button 
+                  onClick={handleCheckout}
+                  className="w-full mt-6 h-12 bg-gray-900 hover:bg-gray-800 text-white text-base" 
+                  style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}
+                >
                   Proceed to Checkout
                 </Button>
 
@@ -209,7 +222,11 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <Button className="w-full mt-6 h-12 bg-gray-900 hover:bg-gray-800 text-white text-base" style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}>
+                <Button 
+                  onClick={handleCheckout}
+                  className="w-full mt-6 h-12 bg-gray-900 hover:bg-gray-800 text-white text-base" 
+                  style={{ fontFamily: 'LostInSouth, sans-serif', borderRadius: '2px' }}
+                >
                   Proceed to Checkout
                 </Button>
 

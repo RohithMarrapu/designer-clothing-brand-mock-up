@@ -62,7 +62,7 @@ const Footer = () => {
                 className="text-4xl mb-6 text-black tracking-wider"
                 style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
               >
-                Shop
+                Designs
               </h3>
               <ul className="space-y-3">
                 <li>
@@ -71,25 +71,16 @@ const Footer = () => {
                     className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors tracking-wider"
                     style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
                   >
-                    Women
+                    Shop
                   </Link>
                 </li>
                 <li>
                   <Link 
-                    href="/shop?category=accessories"
+                    href="/collections"
                     className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors tracking-wider"
                     style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
                   >
-                    Accessories
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    href="/shop"
-                    className="text-xl text-black/80 hover:text-[#4a4a4a] transition-colors tracking-wider"
-                    style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
-                  >
-                    New Arrivals
+                    Collections
                   </Link>
                 </li>
               </ul>

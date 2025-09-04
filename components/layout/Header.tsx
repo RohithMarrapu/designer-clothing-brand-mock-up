@@ -1,9 +1,8 @@
 "use client"
 
 import { useWishlist } from '@/lib/context/WishlistContext'
-import { useCart } from '@/lib/context/CartContext'
 import { cn } from '@/lib/utils'
-import { Heart, Menu, X, ShoppingBag } from 'lucide-react'
+import { Heart, Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -13,7 +12,6 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const { wishlistItems } = useWishlist()
-  const { cartItems } = useCart()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +68,7 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Right Icons */}
+          {/* Right Icons - Only Wishlist remains */}
           <div className="flex items-center ml-auto space-x-2">
             <Link 
               href="/wishlist" 
@@ -83,21 +81,6 @@ const Header = () => {
                   style={{ fontFamily: 'NATS, sans-serif' }}
                 >
                   {wishlistItems.length}
-                </span>
-              )}
-            </Link>
-            
-            <Link 
-              href="/cart" 
-              className="relative p-2 text-black/80 hover:text-[#4a4a4a] transition-colors"
-            >
-              <ShoppingBag size={24} />
-              {cartItems.length > 0 && (
-                <span 
-                  className="absolute top-0 right-0 inline-flex items-center justify-center w-5 h-5 text-sm font-bold text-white bg-[#4a4a4a] rounded-full"
-                  style={{ fontFamily: 'NATS, sans-serif' }}
-                >
-                  {cartItems.reduce((total, item) => total + item.quantity, 0)}
                 </span>
               )}
             </Link>
