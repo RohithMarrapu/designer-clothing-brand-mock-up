@@ -47,7 +47,7 @@ export default function ThankYouPage() {
             Thank You For Your Order!
           </h1>
           <p className="text-gray-600 mb-6 max-w-md mx-auto text-lg" style={{ fontFamily: 'HellasFun, sans-serif' }}>
-            Your order has been confirmed and will be shipped soon. You'll receive a confirmation email shortly.
+            Your order has been confirmed and will be shipped soon. You&apos;ll receive a confirmation email shortly.
           </p>
           
           <div className="max-w-md mx-auto rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm p-6 mb-8">

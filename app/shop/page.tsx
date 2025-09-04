@@ -8,7 +8,7 @@ import { Category, FilterOptions, Gender, Product } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { ArrowDownUp, ChevronDown, Filter } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 
 const sortOptions = [
   { label: "Recommended", value: "default" },
@@ -30,6 +30,15 @@ export default function Shop() {
   const [sortType, setSortType] = useState<SortType>("default")
   const [showSortMenu, setShowSortMenu] = useState(false)
 
+  // Helper type guards
+  const isCategory = useCallback((category: string): category is Category => {
+    return ['dresses', 'outerwear', 'tops', 'bottoms', 'accessories'].includes(category)
+  }, [])
+
+  const isGender = useCallback((gender: string): gender is Gender => {
+    return ['men', 'women', 'unisex'].includes(gender)
+  }, [])
+
   useEffect(() => {
     const categoryParam = searchParams.get('category')
     const genderParam = searchParams.get('gender')
@@ -45,16 +54,7 @@ export default function Shop() {
     }
 
     setFilters(newFilters)
-  }, [searchParams])
-
-  // Helper type guards
-  function isCategory(category: string): category is Category {
-    return ['dresses', 'outerwear', 'tops', 'bottoms', 'accessories'].includes(category)
-  }
-
-  function isGender(gender: string): gender is Gender {
-    return ['men', 'women', 'unisex'].includes(gender)
-  }
+  }, [searchParams, filters, isCategory, isGender])
 
   useEffect(() => {
     let filtered = [...products]
