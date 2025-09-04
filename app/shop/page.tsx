@@ -8,7 +8,7 @@ import { Category, FilterOptions, Gender, Product } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { ArrowDownUp, ChevronDown, Filter } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 
 const sortOptions = [
   { label: "Recommended", value: "default" },
@@ -30,15 +30,6 @@ export default function Shop() {
   const [sortType, setSortType] = useState<SortType>("default")
   const [showSortMenu, setShowSortMenu] = useState(false)
 
-  // Helper type guards
-  const isCategory = useCallback((category: string): category is Category => {
-    return ['dresses', 'outerwear', 'tops', 'bottoms', 'accessories'].includes(category)
-  }, [])
-
-  const isGender = useCallback((gender: string): gender is Gender => {
-    return ['men', 'women', 'unisex'].includes(gender)
-  }, [])
-
   useEffect(() => {
     const categoryParam = searchParams.get('category')
     const genderParam = searchParams.get('gender')
@@ -54,7 +45,16 @@ export default function Shop() {
     }
 
     setFilters(newFilters)
-  }, [searchParams, filters, isCategory, isGender])
+  }, [searchParams])
+
+  // Helper type guards
+  function isCategory(category: string): category is Category {
+    return ['dresses', 'outerwear', 'tops', 'bottoms', 'accessories'].includes(category)
+  }
+
+  function isGender(gender: string): gender is Gender {
+    return ['men', 'women', 'unisex'].includes(gender)
+  }
 
   useEffect(() => {
     let filtered = [...products]
@@ -94,22 +94,86 @@ export default function Shop() {
   }, [filters, sortType])
 
   return (
-    <div className="bg-[#FFFFFF] min-h-screen">
-      <div className="pt-24 pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-          <div className="flex flex-col md:flex-row gap-8">
-            {/* Mobile Filter & Sort Toggle */}
-            <div className="md:hidden flex justify-between items-center mb-6 gap-4">
+    <div className="pt-24 pb-16 relative z-10 bg-[#FFFFFF] min-h-screen">
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Mobile Filter & Sort Toggle */}
+          <div className="md:hidden flex justify-between items-center mb-6 gap-4">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              className="flex items-center gap-2 bg-[#252525] text-[#FFFBF4] border-[#EEDEC5]"
+              style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
+            >
+              <Filter size={16} />
+              Filters
+            </Button>
+
+            <div className="relative z-30">
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setIsFilterOpen(!isFilterOpen)}
+                onClick={() => setShowSortMenu(!showSortMenu)}
                 className="flex items-center gap-2 bg-[#252525] text-[#FFFBF4] border-[#EEDEC5]"
                 style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
               >
-                <Filter size={16} />
-                Filters
+                <ArrowDownUp size={16} />
+                Sort
+                <ChevronDown size={14} className={cn("transition-transform", showSortMenu ? "rotate-180" : "")} />
               </Button>
+
+              {showSortMenu && (
+                <div className="absolute right-0 mt-2 w-52 bg-white border border-[#EEDEC5] rounded-lg shadow-lg z-50">
+                  {sortOptions.map(option => (
+                    <button
+                      key={option.value}
+                      onClick={() => {
+                        setSortType(option.value)
+                        setShowSortMenu(false)
+                      }}
+                      className={cn(
+                        'w-full text-left px-4 py-2 text-sm hover:bg-[#EEDEC5]/30 text-black transition-colors',
+                        sortType === option.value && 'font-medium bg-[#EEDEC5]/50'
+                      )}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="text-sm text-black">
+              {filteredProducts.length} {filteredProducts.length === 1 ? 'Item' : 'Items'}
+            </div>
+          </div>
+
+          {/* Filters Sidebar */}
+          <div
+            className={cn(
+              "md:w-64 lg:w-72 shrink-0 transition-all",
+              isFilterOpen ? "block" : "hidden md:block"
+            )}
+          >
+            <div className="sticky top-32">
+              <Filters
+                filters={filters}
+                setFilters={setFilters}
+                availableCategories={getCategories() as Category[]}
+                priceRange={getPriceRange()}
+              />
+            </div>
+          </div>
+
+          {/* Product Grid */}
+          <div className="flex-1">
+            {/* Desktop Sort */}
+            <div className="hidden md:flex justify-between items-center mb-8">
+              <div className="text-sm text-black" style={{ fontFamily: 'Anton, sans-serif' }}>
+                Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'Item' : 'Items'}
+              </div>
 
               <div className="relative z-30">
                 <Button
@@ -144,74 +208,9 @@ export default function Shop() {
                   </div>
                 )}
               </div>
-
-              <div className="text-sm text-black">
-                {filteredProducts.length} {filteredProducts.length === 1 ? 'Item' : 'Items'}
-              </div>
             </div>
 
-            {/* Filters Sidebar */}
-            <div
-              className={cn(
-                "md:w-64 lg:w-72 shrink-0 transition-all",
-                isFilterOpen ? "block" : "hidden md:block"
-              )}
-            >
-              <div className="sticky top-32">
-                <Filters
-                  filters={filters}
-                  setFilters={setFilters}
-                  availableCategories={getCategories() as Category[]}
-                  priceRange={getPriceRange()}
-                />
-              </div>
-            </div>
-
-            {/* Product Grid */}
-            <div className="flex-1">
-              {/* Desktop Sort */}
-              <div className="hidden md:flex justify-between items-center mb-8">
-                <div className="text-sm text-black" style={{ fontFamily: 'Anton, sans-serif' }}>
-                  Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'Item' : 'Items'}
-                </div>
-
-                <div className="relative z-30">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setShowSortMenu(!showSortMenu)}
-                    className="flex items-center gap-2 bg-[#252525] text-[#FFFBF4] border-[#EEDEC5]"
-                    style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
-                  >
-                    <ArrowDownUp size={16} />
-                    Sort
-                    <ChevronDown size={14} className={cn("transition-transform", showSortMenu ? "rotate-180" : "")} />
-                  </Button>
-
-                  {showSortMenu && (
-                    <div className="absolute right-0 mt-2 w-52 bg-white border border-[#EEDEC5] rounded-lg shadow-lg z-50">
-                      {sortOptions.map(option => (
-                        <button
-                          key={option.value}
-                          onClick={() => {
-                            setSortType(option.value)
-                            setShowSortMenu(false)
-                          }}
-                          className={cn(
-                            'w-full text-left px-4 py-2 text-sm hover:bg-[#EEDEC5]/30 text-black transition-colors',
-                            sortType === option.value && 'font-medium bg-[#EEDEC5]/50'
-                          )}
-                        >
-                          {option.label}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <ProductGrid products={filteredProducts} />
-            </div>
+            <ProductGrid products={filteredProducts} />
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ export default function WishlistPage() {
   }
 
   const handleBuyNow = (item: any) => {
-    toast("", {
+    toast("Redirecting to external store", {
       style: { background: "#252525", color: "#FFFBF4" },
     })
     // Open external link in new tab
