@@ -2,57 +2,15 @@
 
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { ArrowDownUp, ChevronDown, Calendar, Clock, MapPin, X, Heart, Play, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowDownUp, ChevronDown, Calendar, Clock, MapPin, X, Play, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import { toast } from 'sonner'
 
-// Mock data for events - replace with your actual data source
-const events = [
-  {
-    id: 1,
-    title: "AYSEGUL IKNA Fashion Show 2024",
-    date: "2024-09-15",
-    time: "19:00",
-    location: "Grand Ballroom, Istanbul",
-    description: "Our debut fashion showcase featuring the complete AYSEGUL IKNA collection. Experience the artistry and craftsmanship that defines our brand.",
-    image: "/images/event1.jpg",
-    price: 75,
-    category: "fashion-show",
-    status: "upcoming" as const,
-    duration: "2 hours",
-    guests: "Limited to 100 attendees",
-    media: [
-      { type: "image" as const, url: "/images/event1.jpg", alt: "Fashion Show Main Image" }
-    ]
-  },
-  {
-    id: 2,
-    title: "Sustainable Fashion Symposium 2023",
-    date: "2023-12-08",
-    time: "16:00",
-    location: "Eco Center Conference Hall",
-    description: "An insightful discussion on sustainable practices and ethical fashion in the modern industry featuring industry leaders and innovators.",
-    image: "/images/event4.jpg",
-    price: 25,
-    category: "symposium",
-    status: "past" as const,
-    duration: "2 hours",
-    guests: "Open to public",
-    media: [
-      { type: "image" as const, url: "/images/event4-1.jpg", alt: "Symposium venue setup" },
-      { type: "image" as const, url: "/images/event4-2.jpg", alt: "Panel discussion" },
-      { type: "video" as const, url: "/videos/event4-highlights.mp4", thumbnail: "/images/event4-thumb.jpg", alt: "Event highlights" },
-      { type: "image" as const, url: "/images/event4-3.jpg", alt: "Audience engagement" },
-      { type: "image" as const, url: "/images/event4-4.jpg", alt: "Networking session" }
-    ]
-  }
-]
-
-const eventStatuses = [
-  { label: "Upcoming Events", value: "upcoming" },
-  { label: "Past Events", value: "past" }
-]
+// ---------------------------------------------
+// Types
+// ---------------------------------------------
+type BaseEventStatus = "upcoming" | "past"
+type EventStatus = BaseEventStatus | "all"
 
 const sortOptions = [
   { label: "Date: Soonest First", value: "date-asc" },
@@ -81,15 +39,66 @@ interface Event {
   image: string
   price: number
   category: string
-  status: "upcoming" | "past"
+  status: BaseEventStatus
   duration: string
   guests: string
   media: MediaItem[]
 }
 
+// ---------------------------------------------
+// Mock data for events - replace with your actual data source
+// ---------------------------------------------
+const events: Event[] = [
+  {
+    id: 1,
+    title: "AYSEGUL IKNA Fashion Show 2024",
+    date: "2024-09-15",
+    time: "19:00",
+    location: "Grand Ballroom, Istanbul",
+    description: "Our debut fashion showcase featuring the complete AYSEGUL IKNA collection. Experience the artistry and craftsmanship that defines our brand.",
+    image: "/images/event1.jpg",
+    price: 75,
+    category: "fashion-show",
+    status: "upcoming",
+    duration: "2 hours",
+    guests: "Limited to 100 attendees",
+    media: [
+      { type: "image", url: "/images/event1.jpg", alt: "Fashion Show Main Image" }
+    ]
+  },
+  {
+    id: 2,
+    title: "Sustainable Fashion Symposium 2023",
+    date: "2023-12-08",
+    time: "16:00",
+    location: "Eco Center Conference Hall",
+    description: "An insightful discussion on sustainable practices and ethical fashion in the modern industry featuring industry leaders and innovators.",
+    image: "/images/event4.jpg",
+    price: 25,
+    category: "symposium",
+    status: "past",
+    duration: "2 hours",
+    guests: "Open to public",
+    media: [
+      { type: "image", url: "/images/event4-1.jpg", alt: "Symposium venue setup" },
+      { type: "image", url: "/images/event4-2.jpg", alt: "Panel discussion" },
+      { type: "video", url: "/videos/event4-highlights.mp4", thumbnail: "/images/event4-thumb.jpg", alt: "Event highlights" },
+      { type: "image", url: "/images/event4-3.jpg", alt: "Audience engagement" },
+      { type: "image", url: "/images/event4-4.jpg", alt: "Networking session" }
+    ]
+  }
+]
+
+// Status tabs (now includes "All")
+const eventStatuses: { label: string; value: EventStatus }[] = [
+  { label: "All Events", value: "all" },
+  { label: "Upcoming Events", value: "upcoming" },
+  { label: "Past Events", value: "past" }
+]
+
 export default function Events() {
   const [filteredEvents, setFilteredEvents] = useState<Event[]>(events)
-  const [selectedStatus, setSelectedStatus] = useState<string>("upcoming")
+  const [selectedStatus, setSelectedStatus] = useState<EventStatus>("upcoming")
   const [sortType, setSortType] = useState<SortType>("date-asc")
   const [showSortMenu, setShowSortMenu] = useState(false)
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
@@ -100,8 +109,9 @@ export default function Events() {
   useEffect(() => {
     let filtered = [...events]
 
-    // Apply status filter
+    // Apply status filter only when not "all"
     if (selectedStatus !== "all") {
+      // inside this block, selectedStatus is narrowed to BaseEventStatus
       filtered = filtered.filter(event => event.status === selectedStatus)
     }
 
@@ -157,13 +167,13 @@ export default function Events() {
       toast('Registration process starting...', {
         style: { background: "#252525", color: "#FFFBF4" },
       })
-      // Here you would integrate with your registration system
+      // Integrate with your registration system here
     }
   }
 
   const nextMedia = () => {
     if (selectedEvent) {
-      setCurrentMediaIndex((prev) => 
+      setCurrentMediaIndex((prev) =>
         prev === selectedEvent.media.length - 1 ? 0 : prev + 1
       )
     }
@@ -171,7 +181,7 @@ export default function Events() {
 
   const prevMedia = () => {
     if (selectedEvent) {
-      setCurrentMediaIndex((prev) => 
+      setCurrentMediaIndex((prev) =>
         prev === 0 ? selectedEvent.media.length - 1 : prev - 1
       )
     }
@@ -195,7 +205,7 @@ export default function Events() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isModalOpen || !selectedEvent) return
-      
+
       if (e.key === 'ArrowLeft') {
         prevMedia()
       } else if (e.key === 'ArrowRight') {
@@ -218,7 +228,7 @@ export default function Events() {
         )}>
           <div className="bg-gradient-to-br from-[#EEDEC5] to-[#252525] absolute inset-0" />
           <div className="relative z-10 text-center text-white p-8">
-            <span 
+            <span
               className="text-2xl font-bold block mb-2"
               style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.05em' }}
             >
@@ -227,7 +237,7 @@ export default function Events() {
             {isMain && (
               <>
                 <div className="w-16 h-1 bg-[#FFFBF4] mx-auto mb-4"></div>
-                <span 
+                <span
                   className="text-lg block"
                   style={{ fontFamily: 'NATS, sans-serif' }}
                 >
@@ -247,7 +257,7 @@ export default function Events() {
           <div className="bg-gradient-to-br from-[#EEDEC5] to-[#252525] absolute inset-0" />
           <div className="relative z-10 flex flex-col items-center justify-center text-white p-8">
             <Play size={48} className="mb-4" fill="white" />
-            <span 
+            <span
               className="text-lg font-bold text-center"
               style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.05em' }}
             >
@@ -256,7 +266,7 @@ export default function Events() {
             {isMain && selectedEvent && (
               <>
                 <div className="w-16 h-1 bg-[#FFFBF4] mx-auto my-4"></div>
-                <span 
+                <span
                   className="text-lg block text-center"
                   style={{ fontFamily: 'NATS, sans-serif' }}
                 >
@@ -282,8 +292,8 @@ export default function Events() {
                 onClick={() => setSelectedStatus(status.value)}
                 className={cn(
                   'px-6 py-2 rounded-md text-sm font-medium transition-all',
-                  selectedStatus === status.value 
-                    ? 'bg-[#252525] text-[#FFFBF4] shadow-sm' 
+                  selectedStatus === status.value
+                    ? 'bg-[#252525] text-[#FFFBF4] shadow-sm'
                     : 'text-black/70 hover:text-black'
                 )}
                 style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.05em' }}
@@ -383,13 +393,13 @@ export default function Events() {
             {/* Status Header */}
             {selectedStatus === 'upcoming' && filteredEvents.length > 0 && (
               <div className="mb-6 p-4 bg-[#EEDEC5]/20 border border-[#EEDEC5] rounded-lg text-center max-w-2xl mx-auto">
-                <h2 
+                <h2
                   className="text-2xl font-bold text-black mb-2"
                   style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
                 >
                   UPCOMING EVENTS
                 </h2>
-                <p 
+                <p
                   className="text-black/80"
                   style={{ fontFamily: 'NATS, sans-serif' }}
                 >
@@ -400,13 +410,13 @@ export default function Events() {
 
             {selectedStatus === 'past' && filteredEvents.length > 0 && (
               <div className="mb-6 p-4 bg-[#252525]/5 border border-[#EEDEC5] rounded-lg text-center max-w-2xl mx-auto">
-                <h2 
+                <h2
                   className="text-2xl font-bold text-black mb-2"
                   style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.1em' }}
                 >
                   PAST EVENTS
                 </h2>
-                <p 
+                <p
                   className="text-black/80"
                   style={{ fontFamily: 'NATS, sans-serif' }}
                 >
@@ -419,17 +429,17 @@ export default function Events() {
             <div className="flex justify-center">
               <div className={cn(
                 "grid gap-6",
-                filteredEvents.length === 1 
-                  ? "grid-cols-1 max-w-md" 
+                filteredEvents.length === 1
+                  ? "grid-cols-1 max-w-md"
                   : "grid-cols-1 md:grid-cols-2 max-w-4xl"
               )}>
                 {filteredEvents.map(event => (
-                  <div 
-                    key={event.id} 
+                  <div
+                    key={event.id}
                     className={cn(
                       "group border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer",
-                      event.status === 'upcoming' 
-                        ? "border-[#EEDEC5] hover:border-[#252525]" 
+                      event.status === 'upcoming'
+                        ? "border-[#EEDEC5] hover:border-[#252525]"
                         : "border-gray-300 hover:border-gray-400"
                     )}
                     onClick={() => openEventModal(event)}
@@ -437,8 +447,8 @@ export default function Events() {
                     {/* Event Status Badge */}
                     <div className={cn(
                       "px-4 py-2 text-sm font-bold",
-                      event.status === 'upcoming' 
-                        ? "bg-[#252525] text-[#FFFBF4]" 
+                      event.status === 'upcoming'
+                        ? "bg-[#252525] text-[#FFFBF4]"
                         : "bg-gray-300 text-gray-700"
                     )}>
                       <div className="flex items-center justify-between">
@@ -454,14 +464,14 @@ export default function Events() {
                     {/* Event Image */}
                     <div className="aspect-[4/3] bg-gradient-to-br from-[#EEDEC5] to-[#252525] relative overflow-hidden p-6 flex items-center justify-center">
                       <div className="text-center">
-                        <span 
+                        <span
                           className="text-white text-2xl font-bold block mb-2"
                           style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.05em' }}
                         >
                           {formatDate(event.date)}
                         </span>
                         <div className="w-16 h-1 bg-[#FFFBF4] mx-auto mb-4"></div>
-                        <span 
+                        <span
                           className="text-[#FFFBF4] text-lg block"
                           style={{ fontFamily: 'NATS, sans-serif' }}
                         >
@@ -472,7 +482,7 @@ export default function Events() {
 
                     {/* Event Details */}
                     <div className="p-6">
-                      <h3 
+                      <h3
                         className="text-xl font-bold text-black mb-3 group-hover:text-[#4a4a4a] transition-colors"
                         style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.05em' }}
                       >
@@ -490,7 +500,7 @@ export default function Events() {
                         </div>
                       </div>
 
-                      <p 
+                      <p
                         className="text-sm text-black/70 mb-6 leading-relaxed line-clamp-2"
                         style={{ fontFamily: 'NATS, sans-serif' }}
                       >
@@ -498,7 +508,7 @@ export default function Events() {
                       </p>
 
                       <div className="flex justify-between items-center">
-                        <span 
+                        <span
                           className={cn(
                             "text-xl font-bold",
                             event.price === 0 ? "text-green-600" : "text-black"
@@ -533,7 +543,7 @@ export default function Events() {
             {filteredEvents.length === 0 && (
               <div className="text-center py-12">
                 <div className="text-6xl mb-4">📅</div>
-                <p 
+                <p
                   className="text-lg text-black/80 mb-2"
                   style={{ fontFamily: 'NATS, sans-serif' }}
                 >
@@ -587,7 +597,7 @@ export default function Events() {
                   {/* Main Media Display */}
                   <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-black">
                     {renderMedia(selectedEvent.media[currentMediaIndex], true)}
-                    
+
                     {/* Media Navigation Arrows */}
                     {selectedEvent.media.length > 1 && (
                       <>
@@ -613,7 +623,7 @@ export default function Events() {
                         </button>
                       </>
                     )}
-                    
+
                     {/* Media Counter */}
                     {selectedEvent.media.length > 1 && (
                       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full bg-black/50 text-white text-sm">
@@ -634,8 +644,8 @@ export default function Events() {
                           }}
                           className={cn(
                             "aspect-square rounded-md overflow-hidden border-2 transition-all",
-                            currentMediaIndex === index 
-                              ? "border-[#252525] ring-2 ring-[#EEDEC5]" 
+                            currentMediaIndex === index
+                              ? "border-[#252525] ring-2 ring-[#EEDEC5]"
                               : "border-transparent hover:border-gray-400"
                           )}
                         >
@@ -651,8 +661,8 @@ export default function Events() {
                   {/* Status Badge */}
                   <div className={cn(
                     "px-4 py-2 text-sm font-bold mb-4 inline-block self-start",
-                    selectedEvent.status === 'upcoming' 
-                      ? "bg-[#252525] text-[#FFFBF4]" 
+                    selectedEvent.status === 'upcoming'
+                      ? "bg-[#252525] text-[#FFFBF4]"
                       : "bg-gray-300 text-gray-700"
                   )}>
                     <span style={{ fontFamily: 'Hornset, sans-serif', letterSpacing: '0.05em' }}>
@@ -701,7 +711,7 @@ export default function Events() {
 
                   <div className="mt-auto space-y-3">
                     <div className="flex justify-between items-center mb-4">
-                      <span 
+                      <span
                         className={cn(
                           "text-2xl font-bold",
                           selectedEvent.price === 0 ? "text-green-600" : "text-black"
