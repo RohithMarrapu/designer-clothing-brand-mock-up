@@ -27,16 +27,17 @@ const Hero = () => {
       <div className="relative w-full h-auto md:h-[calc(100vh-4rem)] flex flex-col md:flex-row bg-[#FFFBF4] mt-16">
         {/* Left (LCP) */}
         <div className="w-full md:w-1/2 h-[70vh] md:h-full relative">
-          <Image
-            src="/hero_left.webp"
-            alt="AYSEGUL IKNA — statement tailoring in upcycled textiles"
-            fill
-            className="object-cover object-center"
-            priority
-            fetchPriority="high"
-            sizes="(max-width: 768px) 100vw, 50vw"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover object-center"
             style={{ objectPosition: 'center top' }}
-          />
+          >
+            <source src="/hero_left.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className="absolute inset-0 bg-black/20" />
           <div className="absolute top-1/3 left-1/4 -translate-x-1/4 -translate-y-1/3 z-10">
             <Button
@@ -56,16 +57,17 @@ const Hero = () => {
 
         {/* Right (lazy) */}
         <div className="w-full md:w-1/2 h-[70vh] md:h-full relative">
-          <Image
-            src="/hero_right.webp"
-            alt="AYSEGUL IKNA — elevated essentials"
-            fill
-            className="object-cover object-center"
-            loading="lazy"
-            decoding="async"
-            sizes="(max-width: 768px) 100vw, 50vw"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover object-center"
             style={{ objectPosition: 'center top' }}
-          />
+          >
+            <source src="/hero_right.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className="absolute inset-0 bg-black/20" />
           <div className="absolute bottom-1/3 right-1/4 translate-x-1/4 translate-y-1/3 z-10">
             <Button
