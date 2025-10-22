@@ -7,7 +7,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 // LogoLoop Component (Integrated)
 // ============================================================================
 
-export type LogoItem =
+type LogoItem =
   | {
       node: React.ReactNode;
       href?: string;
@@ -25,7 +25,7 @@ export type LogoItem =
       height?: number;
     };
 
-export interface LogoLoopProps {
+interface LogoLoopProps {
   logos: LogoItem[];
   speed?: number;
   direction?: 'left' | 'right';
@@ -180,7 +180,7 @@ const useAnimationLoop = (
   }, [targetVelocity, seqWidth, isHovered, pauseOnHover]);
 };
 
-export const LogoLoop = React.memo<LogoLoopProps>(
+const LogoLoop = React.memo<LogoLoopProps>(
   ({
     logos,
     speed = 120,
@@ -414,10 +414,10 @@ interface CollectionItem {
 interface CollectionCarouselProps {
   year: string;
   collections: CollectionItem[];
-  isFirstCarousel: boolean;
+  direction: 'left' | 'right';
 }
 
-const CollectionCarousel: React.FC<CollectionCarouselProps> = ({ year, collections, isFirstCarousel }) => {
+const CollectionCarousel: React.FC<CollectionCarouselProps> = ({ year, collections, direction }) => {
   // Convert collections to LogoLoop format
   const logoItems: LogoItem[] = collections.map(collection => ({
     src: collection.image,
@@ -437,7 +437,7 @@ const CollectionCarousel: React.FC<CollectionCarouselProps> = ({ year, collectio
       <LogoLoop
         logos={logoItems}
         speed={60}
-        direction={isFirstCarousel ? "left" : "right"}
+        direction={direction}
         logoHeight={500}
         gap={16}
         pauseOnHover={true}
@@ -596,7 +596,7 @@ const CollectionsPage = () => {
               key={yearData.year}
               year={yearData.year}
               collections={yearData.collections}
-              isFirstCarousel={index % 2 === 0}
+              direction={index % 2 === 0 ? 'left' : 'right'}
             />
           ))}
         </div>
